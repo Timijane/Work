@@ -3,86 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Center | Prophet Samuel Adegboyega</title>
+    <title>Sermons | Prophet Samuel Adegboyega - SPAC Worldwide</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .transition-smooth { transition: all 0.3s ease; }
+        :root { --jom-blue: #007fc6; --royal-dark: #0b132b; }
+        .transition-smooth { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .navbar-scrolled { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+        .navbar-scrolled .nav-link { color: #1f2937; }
+        .navbar-scrolled .logo-text { color: var(--jom-blue); }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="antialiased bg-gray-50">
 
-    <!-- Header -->
-    <header class="bg-[#0b132b] text-white py-6 px-8 flex justify-between items-center shadow-lg">
-        <h1 class="font-serif text-xl tracking-wider uppercase">Prophet Samuel Adegboyega</h1>
-        <nav class="space-x-8 text-xs uppercase font-bold tracking-widest">
-            <a href="index.html" class="hover:text-[#007fc6]">Home</a>
-            <a href="about.html" class="hover:text-[#007fc6]">About</a>
+    <!-- Header (Matching index.html) -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-smooth bg-white text-[#1f2937] py-3 px-4 md:px-12 flex flex-col md:flex-row justify-between items-center gap-3 border-b border-gray-200">
+        <a href="index.html" class="flex items-center gap-3 z-50">
+            <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Logo" class="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover border-2 border-[#007fc6]">
+            <span class="logo-text font-bold uppercase tracking-widest text-xs md:text-sm">Prophet Samuel Adegboyega</span>
+        </a>
+        <nav class="flex flex-wrap justify-center items-center gap-5 md:gap-10 font-bold text-[10px] md:text-[12px] tracking-wider uppercase">
+            <a href="about.html" class="nav-link hover:text-[#007fc6]">About</a>
+            <a href="view.html" class="nav-link text-[#007fc6]">Sermons</a>
+            <a href="FFF.html" class="nav-link hover:text-[#007fc6]">FFF</a>
+            <a href="adminblog.html" class="nav-link hover:text-[#007fc6]">Blog</a>
+            <a href="contact.html" class="nav-link hover:text-[#007fc6]">Contact</a>
         </nav>
     </header>
 
-    <!-- Viewing Center Hero -->
-    <section class="bg-black w-full min-h-[60vh] flex flex-col items-center justify-center p-4 md:p-10">
-        <div id="videoContainer" class="w-full max-w-6xl aspect-video bg-gray-900 shadow-2xl rounded-sm overflow-hidden border border-gray-800">
-            <iframe id="mainPlayer" class="w-full h-full" 
-                src="https://www.youtube-nocookie.com/embed/qXMHEvXepZM?rel=0&modestbranding=1&autoplay=1" 
-                frameborder="0" 
-                allow="autoplay; encrypted-media; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
-        </div>
-        <div class="mt-8 text-center text-white max-w-3xl">
-            <h2 id="videoTitle" class="text-3xl font-serif">Anointing and Fresh Fire Convention</h2>
-            <p id="videoMeta" class="text-[#007fc6] text-xs uppercase tracking-[0.2em] mt-3 font-bold">Official Ministry Broadcast</p>
+    <!-- Hero Video Viewing Center -->
+    <section class="pt-24 pb-10 px-6 bg-black">
+        <div class="max-w-5xl mx-auto">
+            <div id="videoContainer" class="w-full aspect-video bg-black shadow-2xl border border-gray-800 rounded-sm overflow-hidden">
+                <iframe id="mainPlayer" class="w-full h-full" 
+                    src="https://www.youtube-nocookie.com/embed/qXMHEvXepZM?rel=0&modestbranding=1&autoplay=1" 
+                    allow="autoplay; encrypted-media; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="mt-6 text-center text-white">
+                <h2 id="videoTitle" class="text-2xl font-bold">Anointing and fresh fire convention</h2>
+                <p class="text-[#007fc6] text-[10px] uppercase tracking-widest mt-2 font-bold">Prophet Samuel Adegboyega</p>
+            </div>
         </div>
     </section>
 
     <!-- Library Grid -->
-    <main class="max-w-6xl mx-auto py-16 px-6">
-        <h3 class="text-2xl font-serif mb-10 border-l-4 border-[#007fc6] pl-4 uppercase tracking-widest">Video Library</h3>
+    <main class="max-w-6xl mx-auto py-20 px-6">
+        <h3 class="text-xl font-bold mb-10 uppercase tracking-widest border-l-4 border-[#007fc6] pl-4">Sermon Library</h3>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10" id="videoGrid">
             
-            <!-- Video: Anointing and Fresh Fire -->
-            <div class="cursor-pointer group" onclick="playVideo('qXMHEvXepZM', 'Anointing and Fresh Fire Convention')">
-                <div class="relative aspect-video rounded-sm overflow-hidden shadow-md group-hover:shadow-2xl transition-smooth">
+            <!-- Video 1 -->
+            <div class="cursor-pointer group" onclick="playVideo('qXMHEvXepZM', 'Anointing and fresh fire convention')">
+                <div class="relative aspect-video rounded-sm overflow-hidden shadow-md group-hover:shadow-xl transition-smooth">
                     <img src="https://img.youtube.com/vi/qXMHEvXepZM/maxresdefault.jpg" class="w-full h-full object-cover">
                 </div>
-                <h4 class="mt-4 font-bold text-lg group-hover:text-[#007fc6]">Anointing and Fresh Fire Convention</h4>
+                <h4 class="mt-4 font-bold text-gray-900 group-hover:text-[#007fc6]">Anointing and fresh fire convention</h4>
             </div>
 
-            <!-- Video: The Prophecy (With Custom Logic) -->
-            <div class="cursor-pointer group" onclick="playVideo('AP09zlov9f0', 'The Prophecy')">
-                <div class="relative aspect-video rounded-sm overflow-hidden shadow-md group-hover:shadow-2xl transition-smooth bg-[#0b132b] flex items-center justify-center">
+            <!-- Video 2: Prophecy -->
+            <div class="cursor-pointer group" onclick="playVideo('AP09zlov9f0', 'The prophecy')">
+                <div class="relative aspect-video rounded-sm overflow-hidden shadow-md group-hover:shadow-xl transition-smooth bg-[#0b132b] flex items-center justify-center">
                     <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-50">
-                    <span class="absolute text-white font-black text-2xl uppercase tracking-[0.2em]">Prophecy</span>
+                    <span class="absolute text-white font-black text-2xl uppercase tracking-[0.2em] drop-shadow-xl">Prophecy</span>
                 </div>
-                <h4 class="mt-4 font-bold text-lg group-hover:text-[#007fc6]">The Prophecy</h4>
+                <h4 class="mt-4 font-bold text-gray-900 group-hover:text-[#007fc6]">The prophecy</h4>
             </div>
 
-            <!-- Video: The only thing that provoke God's blessings -->
+            <!-- Video 3 -->
             <div class="cursor-pointer group" onclick="playVideo('ZsWstXAwBgE', 'The only thing that provoke God\'s blessings')">
-                <div class="relative aspect-video rounded-sm overflow-hidden shadow-md group-hover:shadow-2xl transition-smooth">
+                <div class="relative aspect-video rounded-sm overflow-hidden shadow-md group-hover:shadow-xl transition-smooth">
                     <img src="https://img.youtube.com/vi/ZsWstXAwBgE/maxresdefault.jpg" class="w-full h-full object-cover">
                 </div>
-                <h4 class="mt-4 font-bold text-lg group-hover:text-[#007fc6]">The only thing that provoke God's blessings</h4>
+                <h4 class="mt-4 font-bold text-gray-900 group-hover:text-[#007fc6]">The only thing that provoke God's blessings</h4>
             </div>
 
-            <!-- Video: Anointing Service -->
+            <!-- Video 4 -->
             <div class="cursor-pointer group" onclick="playVideo('y4OyVOLJGAI', 'Anointing Service')">
-                <div class="relative aspect-video rounded-sm overflow-hidden shadow-md group-hover:shadow-2xl transition-smooth">
+                <div class="relative aspect-video rounded-sm overflow-hidden shadow-md group-hover:shadow-xl transition-smooth">
                     <img src="https://img.youtube.com/vi/y4OyVOLJGAI/maxresdefault.jpg" class="w-full h-full object-cover">
                 </div>
-                <h4 class="mt-4 font-bold text-lg group-hover:text-[#007fc6]">Anointing Service</h4>
+                <h4 class="mt-4 font-bold text-gray-900 group-hover:text-[#007fc6]">Anointing Service</h4>
             </div>
 
-            <!-- Video: SPAC Bible Championship -->
+            <!-- Video 5 -->
             <div class="cursor-pointer group" onclick="playVideo('9bzefYiLSQQ', 'SPAC Bible Championship')">
-                <div class="relative aspect-video rounded-sm overflow-hidden shadow-md group-hover:shadow-2xl transition-smooth">
+                <div class="relative aspect-video rounded-sm overflow-hidden shadow-md group-hover:shadow-xl transition-smooth">
                     <img src="https://img.youtube.com/vi/9bzefYiLSQQ/maxresdefault.jpg" class="w-full h-full object-cover">
                 </div>
-                <h4 class="mt-4 font-bold text-lg group-hover:text-[#007fc6]">SPAC Bible Championship</h4>
+                <h4 class="mt-4 font-bold text-gray-900 group-hover:text-[#007fc6]">SPAC Bible Championship</h4>
             </div>
-
         </div>
     </main>
 
@@ -90,11 +100,8 @@
         function playVideo(id, title) {
             const player = document.getElementById('mainPlayer');
             const titleEl = document.getElementById('videoTitle');
-            
-            // Re-construct the URL with nocookie domain
             player.src = `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1&autoplay=1`;
             titleEl.innerText = title;
-            
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
