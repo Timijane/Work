@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Center | Prophet Samuel Adegboyega</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .transition-smooth { transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Header -->
+    <header class="bg-[#0b132b] text-white py-6 px-8 flex justify-between items-center shadow-lg">
+        <h1 class="font-serif text-xl tracking-wider uppercase">Prophet Samuel Adegboyega</h1>
+        <nav class="space-x-8 text-xs uppercase font-bold tracking-widest">
+            <a href="index.html" class="hover:text-[#007fc6]">Home</a>
+            <a href="about.html" class="hover:text-[#007fc6]">About</a>
+        </nav>
+    </header>
+
+    <!-- Viewing Center Hero -->
+    <section class="bg-black w-full min-h-[60vh] flex flex-col items-center justify-center p-4 md:p-10">
+        <div id="videoContainer" class="w-full max-w-6xl aspect-video bg-gray-900 shadow-2xl rounded-sm overflow-hidden border border-gray-800">
+            <iframe id="mainPlayer" class="w-full h-full" 
+                src="https://www.youtube-nocookie.com/embed/qXMHEvXepZM?rel=0&modestbranding=1&autoplay=1" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="mt-8 text-center text-white max-w-3xl">
+            <h2 id="videoTitle" class="text-3xl font-serif">Anointing and Fresh Fire Convention</h2>
+            <p id="videoMeta" class="text-[#007fc6] text-xs uppercase tracking-[0.2em] mt-3 font-bold">Official Ministry Broadcast</p>
+        </div>
+    </section>
+
+    <!-- Library Grid -->
+    <main class="max-w-6xl mx-auto py-16 px-6">
+        <h3 class="text-2xl font-serif mb-10 border-l-4 border-[#007fc6] pl-4 uppercase tracking-widest">Video Library</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10" id="videoGrid">
+            
+            <!-- Video: Anointing and Fresh Fire -->
+            <div class="cursor-pointer group" onclick="playVideo('qXMHEvXepZM', 'Anointing and Fresh Fire Convention')">
+                <div class="relative aspect-video rounded-sm overflow-hidden shadow-md group-hover:shadow-2xl transition-smooth">
+                    <img src="https://img.youtube.com/vi/qXMHEvXepZM/maxresdefault.jpg" class="w-full h-full object-cover">
+                </div>
+                <h4 class="mt-4 font-bold text-lg group-hover:text-[#007fc6]">Anointing and Fresh Fire Convention</h4>
+            </div>
+
+            <!-- Video: The Prophecy (With Custom Logic) -->
+            <div class="cursor-pointer group" onclick="playVideo('AP09zlov9f0', 'The Prophecy')">
+                <div class="relative aspect-video rounded-sm overflow-hidden shadow-md group-hover:shadow-2xl transition-smooth bg-[#0b132b] flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-50">
+                    <span class="absolute text-white font-black text-2xl uppercase tracking-[0.2em]">Prophecy</span>
+                </div>
+                <h4 class="mt-4 font-bold text-lg group-hover:text-[#007fc6]">The Prophecy</h4>
+            </div>
+
+            <!-- Video: The only thing that provoke God's blessings -->
+            <div class="cursor-pointer group" onclick="playVideo('ZsWstXAwBgE', 'The only thing that provoke God\'s blessings')">
+                <div class="relative aspect-video rounded-sm overflow-hidden shadow-md group-hover:shadow-2xl transition-smooth">
+                    <img src="https://img.youtube.com/vi/ZsWstXAwBgE/maxresdefault.jpg" class="w-full h-full object-cover">
+                </div>
+                <h4 class="mt-4 font-bold text-lg group-hover:text-[#007fc6]">The only thing that provoke God's blessings</h4>
+            </div>
+
+            <!-- Video: Anointing Service -->
+            <div class="cursor-pointer group" onclick="playVideo('y4OyVOLJGAI', 'Anointing Service')">
+                <div class="relative aspect-video rounded-sm overflow-hidden shadow-md group-hover:shadow-2xl transition-smooth">
+                    <img src="https://img.youtube.com/vi/y4OyVOLJGAI/maxresdefault.jpg" class="w-full h-full object-cover">
+                </div>
+                <h4 class="mt-4 font-bold text-lg group-hover:text-[#007fc6]">Anointing Service</h4>
+            </div>
+
+            <!-- Video: SPAC Bible Championship -->
+            <div class="cursor-pointer group" onclick="playVideo('9bzefYiLSQQ', 'SPAC Bible Championship')">
+                <div class="relative aspect-video rounded-sm overflow-hidden shadow-md group-hover:shadow-2xl transition-smooth">
+                    <img src="https://img.youtube.com/vi/9bzefYiLSQQ/maxresdefault.jpg" class="w-full h-full object-cover">
+                </div>
+                <h4 class="mt-4 font-bold text-lg group-hover:text-[#007fc6]">SPAC Bible Championship</h4>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        function playVideo(id, title) {
+            const player = document.getElementById('mainPlayer');
+            const titleEl = document.getElementById('videoTitle');
+            
+            // Re-construct the URL with nocookie domain
+            player.src = `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1&autoplay=1`;
+            titleEl.innerText = title;
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
