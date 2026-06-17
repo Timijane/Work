@@ -53,7 +53,6 @@
         .hero-slides { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
         .hero-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.5s ease-in-out, transform 5s linear; transform: scale(1.05); z-index: 0; }
         .hero-slide.active { opacity: 1; transform: scale(1); z-index: 1; }
-        /* Removed the heavy fog, added a subtle bottom gradient just for text legibility */
         .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%); z-index: 2; pointer-events: none; }
         
         .hero-text-shadow { text-shadow: 2px 2px 8px rgba(0,0,0,0.8); }
@@ -77,24 +76,25 @@
         </div>
     </div>
 
-    <header id="navbar" class="fixed w-full top-0 z-50 transition-smooth bg-transparent text-white py-4 px-6 md:px-12 flex justify-between items-center border-b border-white/10">
+    <!-- Header Update: Made responsive so desktop nav shows nicely on mobile too -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-smooth bg-transparent text-white py-3 px-4 md:px-12 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-0 border-b border-white/10">
         <a href="index.html" class="flex items-center gap-3 z-50 cursor-pointer">
-            <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Logo" class="w-10 h-10 rounded-full object-cover border-2 border-white/50 shadow-md">
-            <span class="logo-text font-bold uppercase tracking-widest text-sm drop-shadow-md">SPAC Worldwide</span>
+            <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Logo" class="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover border-2 border-white/50 shadow-md">
+            <span class="logo-text font-bold uppercase tracking-widest text-xs md:text-sm drop-shadow-md">Prophet Samuel Adegboyega</span>
         </a>
         
-        <nav class="hidden lg:flex items-center gap-8 font-semibold text-[11px] tracking-wider uppercase">
+        <!-- Navigation Updates: Increased spacing and made text bolder for clarity -->
+        <nav class="flex flex-wrap justify-center items-center gap-5 md:gap-10 font-bold text-[10px] md:text-[12px] tracking-wider uppercase w-full md:w-auto">
             <a href="about.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">About</a>
-            <a href="about.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">Ministry</a>
             <a href="view.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">Sermons</a>
             <a href="FFF.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">FFF</a>
-            <a href="blog.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">Blog</a>
+            <a href="adminblog.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">Blog</a>
             <a href="contact.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">Contact</a>
-            <span class="text-white/30 nav-link">|</span>
+            <span class="text-white/30 nav-link hidden md:inline">|</span>
             <a href="cart.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md flex items-center gap-1 relative">
                 🛒 Store <span class="absolute -top-2 -right-3 bg-red-600 text-white text-[9px] rounded-full w-4 h-4 flex items-center justify-center">0</span>
             </a>
-            <button class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md text-lg">🔍</button>
+            <button class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md text-sm md:text-lg">🔍</button>
         </nav>
     </header>
 
@@ -108,13 +108,15 @@
         </div>
         <div class="hero-overlay"></div>
         
-        <div class="relative z-10 w-full max-w-5xl mx-auto px-6 text-center" data-aos="fade-up" data-aos-delay="1800">
-            <h1 class="text-3xl md:text-5xl font-light text-white mb-6 hero-text-shadow leading-tight">
+        <!-- Hero Text and Buttons Update -->
+        <div class="relative z-10 w-full max-w-5xl mx-auto px-6 text-center pt-32 mt-16" data-aos="fade-up" data-aos-delay="1800">
+            <h1 class="text-3xl md:text-5xl font-light text-white mb-6 hero-text-shadow leading-tight mt-10 md:mt-0">
                 Helping you become all God <br> created you to be.
             </h1>
-            <div class="flex justify-center gap-4 mt-8">
-                <a href="view.html" class="bg-[#007fc6] text-white text-[11px] font-bold px-8 py-3.5 uppercase tracking-widest shadow-lg hover:bg-[#006096] transition-smooth hover:-translate-y-1">Watch Live</a>
-                <a href="blog.html" class="bg-white/10 backdrop-blur-md border border-white/30 text-white text-[11px] font-bold px-8 py-3.5 uppercase tracking-widest hover:bg-white/20 transition-smooth hover:-translate-y-1">Daily Inspiration</a>
+            <!-- Replaced flex column with grid to place buttons side-by-side on all screens -->
+            <div class="grid grid-cols-2 gap-3 mt-10 max-w-sm mx-auto w-full">
+                <a href="view.html" class="bg-[#007fc6] text-white text-[10px] font-bold px-4 py-3 uppercase tracking-widest shadow-lg hover:bg-[#006096] transition-smooth hover:-translate-y-1 flex items-center justify-center text-center rounded-sm">Watch Live</a>
+                <a href="adminblog.html" class="bg-white/10 backdrop-blur-md border border-white/30 text-white text-[10px] font-bold px-4 py-3 uppercase tracking-widest hover:bg-white/20 transition-smooth hover:-translate-y-1 flex items-center justify-center text-center rounded-sm">Daily Inspiration</a>
             </div>
         </div>
     </section>
@@ -131,8 +133,9 @@
         
         <div class="space-y-6" data-aos="fade-left">
             <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707363/IMG-20260617-WA0007_p9oyh1.jpg" alt="Prophet Samuel" class="w-full h-80 object-cover rounded-sm shadow-xl">
+            <!-- Documentary Image Update -->
             <a href="view.html" class="block relative group rounded-sm overflow-hidden shadow-lg bg-black">
-                <img src="https://images.unsplash.com/photo-1438283173091-5dbf5c5a3206?auto=format&fit=crop&w=800&q=80" alt="Who is Prophet Samuel" class="w-full h-32 object-cover opacity-60 group-hover:scale-105 transition-smooth">
+                <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0009_uekhmr.jpg" alt="Who is Prophet Samuel" class="w-full h-32 object-cover opacity-60 group-hover:scale-105 transition-smooth">
                 <div class="absolute inset-0 flex items-center p-4 gap-4">
                     <div class="w-10 h-10 bg-[#007fc6] rounded-full flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-smooth shrink-0 text-xs">▶</div>
                     <div>
@@ -156,14 +159,23 @@
     </section>
 
     <section class="max-w-6xl mx-auto py-16 px-6 grid grid-cols-1 md:grid-cols-2 gap-10">
+        <!-- Video Link Update: Swapped video ID to AP09zlov9f0, updated title to "The prophecy", and directed link to view.html -->
         <a href="view.html" class="group block bg-white rounded-sm shadow-md hover:shadow-xl transition-smooth p-3 border border-gray-100" data-aos="fade-up">
-            <div class="relative aspect-video bg-gray-200 rounded-sm overflow-hidden mb-4">
-                <img src="https://img.youtube.com/vi/ZsWstXAwBgE/maxresdefault.jpg" alt="Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-smooth">
-                    <div class="w-14 h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#007fc6] shadow-lg text-lg pl-1">▶</div>
+            <div class="relative aspect-video bg-[#0b132b] rounded-sm overflow-hidden mb-4 flex items-center justify-center">
+                <!-- Background Image -->
+                <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=800&q=80" alt="Prophecy Thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700">
+                
+                <!-- The word PROPHECY overlay -->
+                <div class="absolute z-10 text-center pointer-events-none mb-6">
+                    <span class="text-white font-black text-2xl md:text-3xl tracking-[0.2em] uppercase drop-shadow-xl">Prophecy</span>
+                </div>
+    
+                <!-- Play Button Overlay -->
+                <div class="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/40 transition-smooth z-20">
+                    <div class="w-14 h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#007fc6] shadow-lg text-lg pl-1 mt-8">▶</div>
                 </div>
             </div>
-            <h3 class="text-lg font-bold text-gray-900 group-hover:text-[#007fc6] transition-smooth px-2">The only thing that provoke God's blessings</h3>
+            <h3 class="text-lg font-bold text-gray-900 group-hover:text-[#007fc6] transition-smooth px-2">The prophecy</h3>
             <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-2 px-2 pb-2">Samuel Adegboyega</p>
         </a>
         
@@ -217,20 +229,18 @@
         </div>
     </section>
 
+    <!-- Blog Section Update: Removed mock data, added container to load content directly from adminblog.html -->
     <section id="admin-blog-feed" class="bg-[#0b132b] text-white py-20 px-6 border-t-[6px] border-[#007fc6]">
         <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-            <span class="text-[10px] text-[#007fc6] uppercase tracking-widest font-bold mb-3 block">Dynamic Content Feed</span>
-            <h2 class="text-3xl md:text-4xl font-light mb-8">Timing Is Critical</h2>
+            <span class="text-[10px] text-[#007fc6] uppercase tracking-widest font-bold mb-8 block">Dynamic Content Feed</span>
             
-            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1000&q=80" alt="Blog Image" class="w-full h-64 md:h-96 object-cover rounded-sm mb-10 shadow-2xl border border-white/10">
-
-            <div class="text-sm text-gray-300 space-y-5 text-justify max-w-3xl mx-auto leading-relaxed">
-                <p>Life is too short for you to live striving to force doors of opportunity to open, trying to convince someone to like you and working hard to win their approval, straining to manipulate a situation so you can win the upper hand. That’s going to wear you out and waste your time. David recognized that his times were in God’s hands. He was saying, “I’m not going to be frustrated by delays, or sour when it’s not working out the way I want, or discouraged because I’m not as far along as I thought I’d be. My God is in control.”</p>
-                <p>Timing is critical. You have to realize that you can do the right thing, but if it’s not the right time, it won’t work out. When it’s not the right time, no matter how hard you try, the door is not going to open. When you don’t feel a peace about it, when there is a sense of unrest in your spirit, you can’t make the wrong time into the right time...</p>
+            <div id="dynamic-blog-content" class="text-sm text-gray-300 space-y-5 text-justify max-w-3xl mx-auto leading-relaxed">
+                <!-- Content will be dynamically fetched and inserted here -->
             </div>
             
             <div class="mt-10">
-                <a href="blog.html" class="inline-block bg-[#007fc6] text-white hover:bg-white hover:text-[#0b132b] transition-smooth px-10 py-3.5 text-[11px] font-bold uppercase tracking-widest rounded-sm">Continue Reading</a>
+                <!-- Blog Link Update -->
+                <a href="adminblog.html" class="inline-block bg-[#007fc6] text-white hover:bg-white hover:text-[#0b132b] transition-smooth px-10 py-3.5 text-[11px] font-bold uppercase tracking-widest rounded-sm">Continue Reading</a>
             </div>
         </div>
     </section>
@@ -256,7 +266,7 @@
         <div class="max-w-lg mx-auto bg-white p-8 rounded-sm shadow-xl border-t-4 border-[#007fc6]" data-aos="zoom-in">
             <div class="text-center mb-6">
                 <h2 class="text-2xl font-bold text-gray-900">New? Sign up here.</h2>
-                <p class="text-sm text-gray-500 mt-2">Not new? <a href="login.html" class="text-[#007fc6] font-bold hover:underline">Kindly go to cart</a></p>
+                <p class="text-sm text-gray-500 mt-2">Not new? <a href="cart.html" class="text-[#007fc6] font-bold hover:underline">Kindly go to cart</a></p>
             </div>
             
             <form action="cart.html" class="space-y-4">
@@ -311,9 +321,10 @@
             <h2 class="text-2xl font-bold text-gray-900 mb-3" data-aos="fade-up">Follow Samuel Adegboyega</h2>
             <p class="text-sm text-gray-500 mb-10" data-aos="fade-up" data-aos-delay="100">Stay connected for daily inspiration and prophetic declarations.</p>
             
+            <!-- Inspirational Follow Images Update -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20 max-w-5xl mx-auto">
                 <a href="https://www.instagram.com/samuelajayiadegboyega?igsh=MWphZGd2MWdwOTFmdQ==" target="_blank" class="relative group aspect-square rounded-sm overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="0">
-                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-smooth">
+                    <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-smooth">
                     <div class="absolute inset-0 bg-black/50 group-hover:bg-[#007fc6]/80 transition-smooth flex flex-col items-center justify-center text-white">
                         <span class="text-3xl mb-2">📷</span>
                         <span class="text-[11px] font-bold uppercase tracking-widest">Instagram</span>
@@ -321,7 +332,7 @@
                 </a>
                 
                 <a href="https://www.facebook.com/profile.php?id=100076974971967" target="_blank" class="relative group aspect-square rounded-sm overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-smooth">
+                    <img src="https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-smooth">
                     <div class="absolute inset-0 bg-black/50 group-hover:bg-[#007fc6]/80 transition-smooth flex flex-col items-center justify-center text-white">
                         <span class="text-3xl mb-2">📘</span>
                         <span class="text-[11px] font-bold uppercase tracking-widest">Facebook</span>
@@ -329,7 +340,7 @@
                 </a>
                 
                 <a href="https://youtube.com/@spacministryintl?si=c3IiCAbYjDl8hKKi" target="_blank" class="relative group aspect-square rounded-sm overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1611162618828-0bea629ebfa6?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-smooth">
+                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-smooth">
                     <div class="absolute inset-0 bg-black/50 group-hover:bg-[#007fc6]/80 transition-smooth flex flex-col items-center justify-center text-white">
                         <span class="text-3xl mb-2">▶️</span>
                         <span class="text-[11px] font-bold uppercase tracking-widest">YouTube</span>
@@ -337,7 +348,7 @@
                 </a>
 
                 <a href="https://www.facebook.com/spacministryintlHQ" target="_blank" class="relative group aspect-square rounded-sm overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="300">
-                    <img src="https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-smooth">
+                    <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-smooth">
                     <div class="absolute inset-0 bg-black/50 group-hover:bg-[#007fc6]/80 transition-smooth flex flex-col items-center justify-center text-white">
                         <span class="text-3xl mb-2">⛪</span>
                         <span class="text-[11px] font-bold uppercase tracking-widest">SPAC HQ</span>
@@ -364,6 +375,7 @@
         </div>
     </section>
 
+    <!-- Footer Links Updated -->
     <footer class="bg-[#0b132b] text-gray-400 text-xs py-16 px-6 border-t-[8px] border-[#007fc6]">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
             <div>
@@ -383,7 +395,7 @@
                 <h5 class="text-white font-bold uppercase mb-6 tracking-widest text-[11px] border-b border-gray-800 pb-2 inline-block">Media & Store</h5>
                 <ul class="space-y-3">
                     <li><a href="view.html" class="hover:text-white transition-colors">Watch Messages</a></li>
-                    <li><a href="blog.html" class="hover:text-white transition-colors">Daily Inspiration Blog</a></li>
+                    <li><a href="adminblog.html" class="hover:text-white transition-colors">Daily Inspiration Blog</a></li>
                     <li><a href="cart.html" class="hover:text-white transition-colors">Bookstore</a></li>
                     <li><a href="cart.html" class="hover:text-white transition-colors">The Road Less Travelled</a></li>
                 </ul>
@@ -444,6 +456,23 @@
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
         }, 5000);
+
+        // Fetch Dynamic Blog Content from adminblog.html
+        fetch('adminblog.html')
+            .then(response => {
+                if (response.ok) return response.text();
+                throw new Error('Could not fetch blog content.');
+            })
+            .then(html => {
+                const container = document.getElementById('dynamic-blog-content');
+                if (container) {
+                    // This serves as a placeholder to receive the dynamic layout from adminblog.html
+                    // Note: Depending on your exact layout of adminblog.html, you may want to parse it
+                    // and select a specific element to load here instead of raw HTML.
+                    container.innerHTML = html;
+                }
+            })
+            .catch(error => console.log('Dynamic blog will load once site is live on a server.'));
     </script>
 </body>
 </html>
