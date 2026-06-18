@@ -67,8 +67,25 @@
             --royal-dark: #0b132b;
         }
 
-        html { font-size: 14px; }
-        body { background-color: #f9fafb; color: #1f2937; overflow-x: hidden; }
+        * {
+            box-sizing: border-box;
+        }
+
+        html { 
+            font-size: 14px; 
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        body { 
+            background-color: #f9fafb; 
+            color: #1f2937; 
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+            margin: 0;
+            padding: 0;
+        }
         
         .transition-smooth { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -94,7 +111,15 @@
         .navbar-scrolled .nav-link { color: #1f2937; }
         .navbar-scrolled .logo-text { color: var(--jom-blue); }
 
-        .hero { position: relative; width: 100%; min-height: 85vh; display: flex; align-items: center; background: #000; overflow: hidden; }
+        .hero { 
+            position: relative; 
+            width: 100%; 
+            min-height: 85vh; 
+            display: flex; 
+            align-items: center; 
+            background: #000; 
+            overflow: hidden; 
+        }
         .hero-slides { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
         .hero-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; opacity: 0; transition: opacity 1.5s ease-in-out, transform 5s linear; transform: scale(1.05); z-index: 0; }
         .hero-slide.active { opacity: 1; transform: scale(1); z-index: 1; }
@@ -139,16 +164,122 @@
             right: 10px;
         }
 
-        /* Responsive adjustments matching about page */
+        /* ============ RESPONSIVE FIXES ============ */
         @media(max-width: 768px) {
-            .hero { min-height: 70vh; }
-            .hero .text-5xl { font-size: 2rem; }
-            .hero .text-7xl { font-size: 2.5rem; }
-            section { padding-left: 1rem; padding-right: 1rem; }
-            .grid-cols-2 { grid-template-columns: 1fr; }
+            html { font-size: 12px; }
+            body { 
+                overflow-x: hidden;
+                width: 100%;
+                max-width: 100vw;
+            }
+            .hero { 
+                min-height: 80vh;
+                height: auto;
+            }
+            .hero-slide {
+                object-position: center 25%;
+            }
+            .hero .relative.z-10 {
+                padding-top: 4rem;
+                padding-bottom: 2rem;
+            }
+            .hero h1 {
+                font-size: 1.6rem !important;
+                line-height: 1.4 !important;
+            }
+            .hero .grid {
+                max-width: 260px !important;
+            }
+            .hero .grid a {
+                font-size: 8px !important;
+                padding: 0.6rem 0.8rem !important;
+            }
+            section {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+                width: 100%;
+                max-width: 100vw;
+            }
+            .grid-cols-2 {
+                grid-template-columns: 1fr !important;
+            }
+            .md\:grid-cols-2 {
+                grid-template-columns: 1fr !important;
+            }
+            .md\:grid-cols-4 {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            .md\:flex-row {
+                flex-direction: column !important;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+            .book-carousel {
+                width: 100% !important;
+            }
+            #navbar {
+                padding: 0.5rem 0.75rem !important;
+            }
+            #navbar img {
+                width: 2rem !important;
+                height: 2rem !important;
+            }
+            #navbar .logo-text {
+                font-size: 0.65rem !important;
+            }
+            #navbar nav {
+                gap: 0.6rem !important;
+                font-size: 8px !important;
+            }
+            #navbar nav a, #navbar nav button {
+                font-size: 8px !important;
+            }
         }
+
         @media(min-width: 769px) and (max-width: 1024px) {
-            .hero { min-height: 78vh; }
+            html { font-size: 13px; }
+            body {
+                overflow-x: hidden;
+                width: 100%;
+                max-width: 100vw;
+            }
+            .hero { 
+                min-height: 75vh;
+                height: auto;
+            }
+            .hero h1 {
+                font-size: 2.5rem !important;
+            }
+            section {
+                width: 100%;
+                max-width: 100vw;
+            }
+        }
+
+        @media(min-width: 1025px) {
+            body {
+                overflow-x: hidden;
+                width: 100%;
+                max-width: 100vw;
+            }
+            section {
+                width: 100%;
+                max-width: 100vw;
+            }
+        }
+
+        /* Fix for browsers that don't support viewport units well */
+        @supports not (height: 100dvh) {
+            .hero {
+                min-height: 85vh;
+            }
+        }
+        @supports (height: 100dvh) {
+            .hero {
+                min-height: 85dvh;
+            }
         }
     </style>
 </head>
@@ -168,22 +299,22 @@
         </div>
     </div>
 
-    <header id="navbar" class="fixed w-full top-0 z-50 transition-smooth bg-transparent text-white py-3 px-4 md:px-12 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-0 border-b border-white/10">
-        <a href="index.html" class="flex items-center gap-3 z-50 cursor-pointer">
-            <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Logo" class="w-10 h-10 md:w-14 md:h-14 rounded-full object-cover border-2 border-white/50 shadow-md">
-            <span class="logo-text font-bold uppercase tracking-widest text-xs md:text-base drop-shadow-md">Prophet Samuel Adegboyega</span>
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-smooth bg-transparent text-white py-2 md:py-3 px-3 md:px-12 flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0 border-b border-white/10">
+        <a href="index.html" class="flex items-center gap-2 md:gap-3 z-50 cursor-pointer">
+            <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Logo" class="w-9 h-9 md:w-14 md:h-14 rounded-full object-cover border-2 border-white/50 shadow-md">
+            <span class="logo-text font-bold uppercase tracking-widest text-[10px] md:text-base drop-shadow-md">Prophet Samuel Adegboyega</span>
         </a>
         
-        <nav class="flex flex-wrap justify-center items-center gap-4 md:gap-10 font-bold text-[10px] md:text-[12px] tracking-wider uppercase w-full md:w-auto">
+        <nav class="flex flex-wrap justify-center items-center gap-3 md:gap-10 font-bold text-[8px] md:text-[12px] tracking-wider uppercase w-full md:w-auto">
             <a href="about.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navAbout">About</a>
             <a href="view.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navSermons">Sermons</a>
             <a href="FFF.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">FFF</a>
             <a href="blog.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navBlog">Blog</a>
             <a href="contact.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navContact">Contact</a>
-            <button class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md text-sm md:text-lg">🔍</button>
+            <button class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md text-xs md:text-lg">🔍</button>
             
             <div class="lang-dropdown">
-                <button class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md flex items-center gap-1 text-lg" title="Select Language">🌐</button>
+                <button class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md flex items-center gap-1 text-base md:text-lg" title="Select Language">🌐</button>
                 <div class="lang-dropdown-content">
                     <button onclick="switchLanguage('en')">🇬🇧 English</button>
                     <button onclick="switchLanguage('fr')">🇫🇷 Français</button>
@@ -206,30 +337,30 @@
         </div>
         <div class="hero-overlay"></div>
         
-        <div class="relative z-10 w-full max-w-5xl mx-auto px-4 md:px-6 text-center pt-24 md:pt-32 mt-16" data-aos="fade-up" data-aos-delay="1800">
-            <h1 class="text-2xl md:text-5xl font-light text-white mb-4 md:mb-6 hero-text-shadow leading-tight mt-6 md:mt-10" id="heroTitle">
+        <div class="relative z-10 w-full max-w-5xl mx-auto px-3 md:px-6 text-center pt-20 md:pt-32 mt-12 md:mt-16" data-aos="fade-up" data-aos-delay="1800">
+            <h1 class="text-2xl md:text-3xl lg:text-5xl font-light text-white mb-4 md:mb-6 hero-text-shadow leading-tight mt-4 md:mt-10" id="heroTitle">
                 Helping you become all God <br> created you to be.
             </h1>
             <div class="grid grid-cols-2 gap-2 md:gap-3 mt-6 md:mt-10 max-w-xs md:max-w-sm mx-auto w-full">
-                <a href="view.html" class="bg-[#007fc6] text-white text-[9px] md:text-[10px] font-bold px-3 md:px-4 py-2.5 md:py-3 uppercase tracking-widest shadow-lg hover:bg-[#006096] transition-smooth hover:-translate-y-1 flex items-center justify-center text-center rounded-sm" id="btnWatchLive">Watch Live</a>
-                <a href="FFF.html" class="bg-white/10 backdrop-blur-md border border-white/30 text-white text-[9px] md:text-[10px] font-bold px-3 md:px-4 py-2.5 md:py-3 uppercase tracking-widest hover:bg-white/20 transition-smooth hover:-translate-y-1 flex items-center justify-center text-center rounded-sm" id="btnRegisterFFF">Register for FFF</a>
+                <a href="view.html" class="bg-[#007fc6] text-white text-[8px] md:text-[10px] font-bold px-2 md:px-4 py-2.5 md:py-3 uppercase tracking-widest shadow-lg hover:bg-[#006096] transition-smooth hover:-translate-y-1 flex items-center justify-center text-center rounded-sm" id="btnWatchLive">Watch Live</a>
+                <a href="FFF.html" class="bg-white/10 backdrop-blur-md border border-white/30 text-white text-[8px] md:text-[10px] font-bold px-2 md:px-4 py-2.5 md:py-3 uppercase tracking-widest hover:bg-white/20 transition-smooth hover:-translate-y-1 flex items-center justify-center text-center rounded-sm" id="btnRegisterFFF">Register for FFF</a>
             </div>
         </div>
     </section>
 
-    <section class="max-w-6xl mx-auto py-12 md:py-20 px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+    <section class="max-w-6xl mx-auto py-10 md:py-20 px-3 md:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div data-aos="fade-right">
-            <span class="text-[9px] md:text-[10px] font-bold tracking-widest text-[#007fc6] block mb-2 md:mb-3 uppercase" data-translate="founderLabel">Founder & General Overseer</span>
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6" id="aboutTitle">About Prophet Samuel Adegboyega</h2>
+            <span class="text-[8px] md:text-[10px] font-bold tracking-widest text-[#007fc6] block mb-2 md:mb-3 uppercase" data-translate="founderLabel">Founder & General Overseer</span>
+            <h2 class="text-xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6" id="aboutTitle">About Prophet Samuel Adegboyega</h2>
             <p class="text-xs md:text-sm text-gray-600 leading-relaxed mb-4 md:mb-6 text-justify" id="aboutText">
                 Samuel Ajayi Adegboyega (born 22 June 1945) is a Nigerian pastor, prophet, philanthropist, and Christian leader who serves as the Founder, President, and First General Overseer of the Salvation Proclaimers Anointed Church (SPAC) Worldwide, headquartered in Ibadan, Oyo State, Nigeria. He is widely known for his commitment to prayer, holiness, prophetic ministry, and the transformative power of the Holy Spirit. Beyond his ecclesiastical work, Adegboyega is the founder of Focus for the Future (FFF), a philanthropic initiative dedicated to youth empowerment, educational advancement, and community development. Through FFF, hundreds of students receive scholarships annually, while numerous young people benefit from mentorship, leadership training, and financial support designed to help them realize their potential and contribute meaningfully to society. Over several decades of ministry and humanitarian service, he has earned recognition as a spiritual mentor, educator, and advocate for the advancement of future generations.
             </p>
-            <a href="about.html" class="inline-block border-2 border-[#007fc6] text-[#007fc6] hover:bg-[#007fc6] hover:text-white transition-smooth px-6 md:px-8 py-2.5 md:py-3 text-[10px] md:text-[11px] font-bold uppercase tracking-widest rounded-sm" data-translate="readMoreBtn">Read More Now</a>
+            <a href="about.html" class="inline-block border-2 border-[#007fc6] text-[#007fc6] hover:bg-[#007fc6] hover:text-white transition-smooth px-5 md:px-8 py-2.5 md:py-3 text-[10px] md:text-[11px] font-bold uppercase tracking-widest rounded-sm" data-translate="readMoreBtn">Read More Now</a>
         </div>
         
         <div class="space-y-4 md:space-y-6" data-aos="fade-left">
-            <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707363/IMG-20260617-WA0007_p9oyh1.jpg" alt="Prophet Samuel" class="w-full h-56 md:h-80 object-cover rounded-sm shadow-xl">
-            <a href="view.html" class="block relative group rounded-sm overflow-hidden shadow-lg bg-black">
+            <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707363/IMG-20260617-WA0007_p9oyh1.jpg" alt="Prophet Samuel" class="w-full h-48 md:h-80 object-cover rounded-sm shadow-xl">
+            <a href="view.html" class="block relative group rounded-sm overflow-hidden shadow-lg bg-black" onclick="event.preventDefault(); window.open('https://youtu.be/BJlQXzsfq1A?si=LhXiper5k5p8SSog', '_blank');">
                 <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0009_uekhmr.jpg" alt="Who is Prophet Samuel" class="w-full h-24 md:h-32 object-cover opacity-60 group-hover:scale-105 transition-smooth">
                 <div class="absolute inset-0 flex items-center p-3 md:p-4 gap-3 md:gap-4">
                     <div class="w-8 h-8 md:w-10 md:h-10 bg-[#007fc6] rounded-full flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-smooth shrink-0 text-xs">▶</div>
@@ -242,106 +373,104 @@
         </div>
     </section>
 
-    <section class="relative bg-black text-white py-16 md:py-24 px-4 md:px-6 text-center overflow-hidden">
+    <section class="relative bg-black text-white py-14 md:py-24 px-3 md:px-6 text-center overflow-hidden">
         <div class="absolute inset-0 bg-cover bg-center opacity-40" style="background-image: url('https://img.youtube.com/vi/qXMHEvXepZM/maxresdefault.jpg');"></div>
         <div class="relative z-10 max-w-3xl mx-auto" data-aos="zoom-in">
-            <h2 class="text-2xl md:text-4xl lg:text-5xl font-light mb-3 md:mb-4 drop-shadow-lg" id="anointingTitle">Anointing and fresh fire convention</h2>
-            <p class="text-[10px] md:text-xs text-gray-300 mb-6 md:mb-8 uppercase tracking-widest font-semibold">Prophet Samuel Adegboyega</p>
-            <a href="view.html" class="inline-flex items-center gap-2 md:gap-3 bg-[#007fc6] hover:bg-[#006096] transition-smooth text-white text-[10px] md:text-xs font-bold px-6 md:px-8 py-3 md:py-4 uppercase tracking-widest shadow-xl rounded-sm" data-translate="watchMessageBtn">
-                <span class="text-lg md:text-xl">▶</span> Watch This Message
+            <h2 class="text-xl md:text-4xl lg:text-5xl font-light mb-3 md:mb-4 drop-shadow-lg" id="anointingTitle">Anointing and fresh fire convention</h2>
+            <p class="text-[9px] md:text-xs text-gray-300 mb-5 md:mb-8 uppercase tracking-widest font-semibold">Prophet Samuel Adegboyega</p>
+            <a href="view.html" class="inline-flex items-center gap-2 md:gap-3 bg-[#007fc6] hover:bg-[#006096] transition-smooth text-white text-[9px] md:text-xs font-bold px-5 md:px-8 py-3 md:py-4 uppercase tracking-widest shadow-xl rounded-sm" data-translate="watchMessageBtn">
+                <span class="text-base md:text-xl">▶</span> Watch This Message
             </a>
         </div>
     </section>
 
-    <section class="max-w-6xl mx-auto py-10 md:py-16 px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+    <section class="max-w-6xl mx-auto py-8 md:py-16 px-3 md:px-6 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
         <a href="view.html" class="group block bg-white rounded-sm shadow-md hover:shadow-xl transition-smooth p-3 border border-gray-100" data-aos="fade-up">
             <div class="relative aspect-video bg-[#0b132b] rounded-sm overflow-hidden mb-3 md:mb-4 flex items-center justify-center">
                 <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=800&q=80" alt="Prophecy Thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700">
                 <div class="absolute z-10 text-center pointer-events-none mb-6">
-                    <span class="text-white font-black text-xl md:text-3xl tracking-[0.2em] uppercase drop-shadow-xl" id="prophecyOverlay">Prophecy</span>
+                    <span class="text-white font-black text-lg md:text-3xl tracking-[0.2em] uppercase drop-shadow-xl" id="prophecyOverlay">Prophecy</span>
                 </div>
                 <div class="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/40 transition-smooth z-20">
-                    <div class="w-12 h-12 md:w-14 md:h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#007fc6] shadow-lg text-lg pl-1 mt-8">▶</div>
+                    <div class="w-10 h-10 md:w-14 md:h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#007fc6] shadow-lg text-base md:text-lg pl-1 mt-8">▶</div>
                 </div>
             </div>
-            <h3 class="text-base md:text-lg font-bold text-gray-900 group-hover:text-[#007fc6] transition-smooth px-2" id="prophecyTitle">The prophecy</h3>
-            <p class="text-[9px] md:text-[10px] text-gray-500 uppercase tracking-widest mt-1 md:mt-2 px-2 pb-2">Samuel Adegboyega</p>
+            <h3 class="text-sm md:text-lg font-bold text-gray-900 group-hover:text-[#007fc6] transition-smooth px-2" id="prophecyTitle">The prophecy</h3>
+            <p class="text-[8px] md:text-[10px] text-gray-500 uppercase tracking-widest mt-1 md:mt-2 px-2 pb-2">Samuel Adegboyega</p>
         </a>
         
         <a href="view.html" class="group block bg-white rounded-sm shadow-md hover:shadow-xl transition-smooth p-3 border border-gray-100" data-aos="fade-up" data-aos-delay="100">
             <div class="relative aspect-video bg-gray-200 rounded-sm overflow-hidden mb-3 md:mb-4">
                 <img src="https://img.youtube.com/vi/y4OyVOLJGAI/maxresdefault.jpg" alt="Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                 <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-smooth">
-                    <div class="w-12 h-12 md:w-14 md:h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#007fc6] shadow-lg text-lg pl-1">▶</div>
+                    <div class="w-10 h-10 md:w-14 md:h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#007fc6] shadow-lg text-base md:text-lg pl-1">▶</div>
                 </div>
             </div>
-            <h3 class="text-base md:text-lg font-bold text-gray-900 group-hover:text-[#007fc6] transition-smooth px-2" id="anointingServiceTitle">Anointing Service</h3>
-            <p class="text-[9px] md:text-[10px] text-gray-500 uppercase tracking-widest mt-1 md:mt-2 px-2 pb-2">Samuel Adegboyega</p>
+            <h3 class="text-sm md:text-lg font-bold text-gray-900 group-hover:text-[#007fc6] transition-smooth px-2" id="anointingServiceTitle">Anointing Service</h3>
+            <p class="text-[8px] md:text-[10px] text-gray-500 uppercase tracking-widest mt-1 md:mt-2 px-2 pb-2">Samuel Adegboyega</p>
         </a>
     </section>
 
-    <section class="bg-gray-100 border-y border-gray-200 py-12 md:py-20 px-4 md:px-6">
+    <section class="bg-gray-100 border-y border-gray-200 py-10 md:py-20 px-3 md:px-6">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div class="order-2 md:order-1 grid grid-cols-2 gap-3 md:gap-4" data-aos="fade-right">
                 <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Students" class="w-full aspect-square object-cover rounded-sm shadow-md">
                 <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=600&q=80" alt="Mentorship" class="w-full aspect-square object-cover rounded-sm shadow-md translate-y-6">
             </div>
             <div class="order-1 md:order-2" data-aos="fade-left">
-                <span class="text-[9px] md:text-[10px] font-bold tracking-widest text-[#007fc6] block mb-2 md:mb-3 uppercase" data-translate="youthLabel">Youth Empowerment</span>
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6">Focus For The Future (FFF)</h2>
+                <span class="text-[8px] md:text-[10px] font-bold tracking-widest text-[#007fc6] block mb-2 md:mb-3 uppercase" data-translate="youthLabel">Youth Empowerment</span>
+                <h2 class="text-xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6">Focus For The Future (FFF)</h2>
                 <p class="text-xs md:text-sm text-gray-600 leading-relaxed mb-4 md:mb-6 text-justify" id="fffText">
                     FFF has helped hundreds of students to achieve what they thought could never be possible. The platform has helped them navigate life, find purpose, and provided the helping hands necessary to make their journey and goals easier to reach. Through scholarships, leadership training, and dedicated mentorship, FFF is actively building the next generation of global changemakers and spiritual leaders.
                 </p>
-                <a href="FFF.html" class="inline-block bg-[#0b132b] hover:bg-black transition-smooth text-white px-6 md:px-8 py-3 md:py-3.5 text-[10px] md:text-[11px] font-bold uppercase tracking-widest rounded-sm shadow-md" data-translate="fffBtn">Read More & Apply for FFF Program</a>
+                <a href="FFF.html" class="inline-block bg-[#0b132b] hover:bg-black transition-smooth text-white px-5 md:px-8 py-3 md:py-3.5 text-[10px] md:text-[11px] font-bold uppercase tracking-widest rounded-sm shadow-md" data-translate="fffBtn">Read More & Apply for FFF Program</a>
             </div>
         </div>
     </section>
 
-    <section class="max-w-6xl mx-auto py-12 md:py-20 px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+    <section class="max-w-6xl mx-auto py-10 md:py-20 px-3 md:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div data-aos="fade-right">
-            <span class="text-[9px] md:text-[10px] font-bold tracking-widest text-[#007fc6] block mb-2 md:mb-3 uppercase" data-translate="spiritualLabel">Spiritual Growth Initiative</span>
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6" id="bibleChampTitle">SPAC Bible Championship</h2>
+            <span class="text-[8px] md:text-[10px] font-bold tracking-widest text-[#007fc6] block mb-2 md:mb-3 uppercase" data-translate="spiritualLabel">Spiritual Growth Initiative</span>
+            <h2 class="text-xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6" id="bibleChampTitle">SPAC Bible Championship</h2>
             <p class="text-xs md:text-sm text-gray-600 leading-relaxed mb-4 md:mb-6 text-justify" id="bibleChampText">
                 The SPAC Bible Championship is a seasonal, scriptural-based competition where believers—youths and adults alike—enroll to test their biblical knowledge. Sponsored personally by Prophet Samuel Adegboyega, this divine and humanitarian initiative is designed to deeply root people's minds in the Word of God, fostering profound spiritual growth and mental strength across the community.
             </p>
-            <a href="about.html" class="inline-block border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white transition-smooth px-6 md:px-8 py-2.5 md:py-3.5 text-[10px] md:text-[11px] font-bold uppercase tracking-widest rounded-sm" data-translate="bibleChampBtn">Read More About The Championship</a>
+            <a href="about.html" class="inline-block border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white transition-smooth px-5 md:px-8 py-2.5 md:py-3.5 text-[10px] md:text-[11px] font-bold uppercase tracking-widest rounded-sm" data-translate="bibleChampBtn">Read More About The Championship</a>
         </div>
         
         <div data-aos="fade-left">
             <a href="view.html" class="block relative group rounded-sm overflow-hidden shadow-2xl">
                 <img src="https://img.youtube.com/vi/9bzefYiLSQQ/maxresdefault.jpg" alt="Bible Championship" class="w-full aspect-video object-cover group-hover:scale-105 transition-smooth">
                 <div class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-smooth flex flex-col items-center justify-center p-4 md:p-6 text-center">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-[#007fc6] rounded-full flex items-center justify-center text-white shadow-xl mb-3 md:mb-4 text-lg md:text-xl pl-1">▶</div>
-                    <h3 class="text-white font-bold text-base md:text-lg drop-shadow-md" id="watchBibleChamp">Watch The Bible Championship</h3>
+                    <div class="w-10 h-10 md:w-16 md:h-16 bg-[#007fc6] rounded-full flex items-center justify-center text-white shadow-xl mb-3 md:mb-4 text-base md:text-xl pl-1">▶</div>
+                    <h3 class="text-white font-bold text-sm md:text-lg drop-shadow-md" id="watchBibleChamp">Watch The Bible Championship</h3>
                 </div>
             </a>
         </div>
     </section>
 
-    <!-- Blog Section with White Floating Background -->
-    <section id="admin-blog-feed" class="bg-[#0b132b] text-white py-12 md:py-20 px-4 md:px-6 border-t-[6px] border-[#007fc6]">
+    <section id="admin-blog-feed" class="bg-[#0b132b] text-white py-10 md:py-20 px-3 md:px-6 border-t-[6px] border-[#007fc6]">
         <div class="max-w-4xl mx-auto" data-aos="fade-up">
-            <div class="text-center mb-8">
-                <span class="text-[10px] text-[#007fc6] uppercase tracking-widest font-bold block" data-translate="dynamicFeed">Latest from the Blog</span>
+            <div class="text-center mb-6 md:mb-8">
+                <span class="text-[9px] md:text-[10px] text-[#007fc6] uppercase tracking-widest font-bold block" data-translate="dynamicFeed">Latest from the Blog</span>
             </div>
             
-            <!-- White floating card containing blog content -->
-            <div class="bg-white rounded-lg shadow-2xl p-6 md:p-10">
+            <div class="bg-white rounded-lg shadow-2xl p-5 md:p-10">
                 <div id="dynamic-blog-content" class="text-sm text-gray-700 space-y-5 max-w-3xl mx-auto leading-relaxed">
-                    <div class="text-center py-10">
-                        <div class="inline-block w-10 h-10 border-3 border-[#007fc6] border-t-transparent rounded-full animate-spin mb-4"></div>
-                        <p class="text-gray-500">Loading latest post...</p>
+                    <div class="text-center py-8 md:py-10">
+                        <div class="inline-block w-8 h-8 md:w-10 md:h-10 border-3 border-[#007fc6] border-t-transparent rounded-full animate-spin mb-3 md:mb-4"></div>
+                        <p class="text-gray-500 text-sm">Loading latest post...</p>
                     </div>
                 </div>
                 
-                <div class="mt-8 text-center">
-                    <a href="blog.html" class="inline-block bg-[#007fc6] text-white hover:bg-[#006096] transition-smooth px-8 md:px-10 py-3 md:py-3.5 text-[10px] md:text-[11px] font-bold uppercase tracking-widest rounded-sm shadow-md" data-translate="continueReading">Read More on Blog</a>
+                <div class="mt-6 md:mt-8 text-center">
+                    <a href="blog.html" class="inline-block bg-[#007fc6] text-white hover:bg-[#006096] transition-smooth px-6 md:px-10 py-3 md:py-3.5 text-[10px] md:text-[11px] font-bold uppercase tracking-widest rounded-sm shadow-md" data-translate="continueReading">Read More on Blog</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="max-w-6xl mx-auto py-12 md:py-20 px-4 md:px-6 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+    <section class="max-w-6xl mx-auto py-10 md:py-20 px-3 md:px-6 flex flex-col md:flex-row items-center gap-8 md:gap-12">
         <div class="w-full md:w-1/3 overflow-hidden rounded-sm shadow-2xl border border-gray-200" data-aos="fade-right">
             <div class="w-[300%] book-carousel">
                 <div class="w-1/3"><img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707363/IMG-20260617-WA0003_ttzeao.jpg" class="w-full aspect-[4/5] object-cover"></div>
@@ -351,17 +480,17 @@
         </div>
         
         <div class="w-full md:w-2/3" data-aos="fade-left">
-            <span class="text-[9px] md:text-[10px] font-bold tracking-widest text-[#007fc6] block mb-2 md:mb-3 uppercase" data-translate="featuredResource">Featured Resource</span>
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2" id="bookTitle">Read the life changing book by Prophet Samuel Adegboyega.</h2>
-            <h3 class="text-lg md:text-xl italic text-gray-500 mb-4 md:mb-6 border-b border-gray-200 pb-3 md:pb-4" id="bookSubtitle">THE ROAD LESS TRAVELLED: My unique path to success</h3>
+            <span class="text-[8px] md:text-[10px] font-bold tracking-widest text-[#007fc6] block mb-2 md:mb-3 uppercase" data-translate="featuredResource">Featured Resource</span>
+            <h2 class="text-xl md:text-3xl font-bold text-gray-900 mb-2" id="bookTitle">Read the life changing book by Prophet Samuel Adegboyega.</h2>
+            <h3 class="text-base md:text-xl italic text-gray-500 mb-4 md:mb-6 border-b border-gray-200 pb-3 md:pb-4" id="bookSubtitle">THE ROAD LESS TRAVELLED: My unique path to success</h3>
             <p class="text-xs md:text-sm text-gray-600 leading-relaxed mb-6 md:mb-8 text-justify" id="bookDesc">Discover the extraordinary journey, principles, and divine encounters that shaped the ministry and life of Prophet Samuel Adegboyega. This powerful memoir offers profound spiritual counsel rooted in personal experiences, showing you how to navigate life's challenges through unwavering faith.</p>
         </div>
     </section>
 
-    <section class="bg-gray-100 py-10 md:py-16 px-4 md:px-6 border-y border-gray-200">
-        <div class="max-w-lg mx-auto bg-white p-6 md:p-8 rounded-sm shadow-xl border-t-4 border-[#007fc6]" data-aos="zoom-in">
+    <section class="bg-gray-100 py-8 md:py-16 px-3 md:px-6 border-y border-gray-200">
+        <div class="max-w-lg mx-auto bg-white p-5 md:p-8 rounded-sm shadow-xl border-t-4 border-[#007fc6]" data-aos="zoom-in">
             <div class="text-center mb-4 md:mb-6">
-                <h2 class="text-xl md:text-2xl font-bold text-gray-900" id="signupTitle">Sign up here.</h2>
+                <h2 class="text-lg md:text-2xl font-bold text-gray-900" id="signupTitle">Sign up here.</h2>
             </div>
             
             <form id="signupForm" class="space-y-3 md:space-y-4">
@@ -374,26 +503,26 @@
         </div>
     </section>
 
-    <section class="relative py-16 md:py-24 px-4 md:px-6 bg-cover bg-center text-white" style="background-image: url('https://res.cloudinary.com/dmbjrohtn/image/upload/v1781708130/1781707643034_vayraz.jpg');">
+    <section class="relative py-14 md:py-24 px-3 md:px-6 bg-cover bg-center text-white" style="background-image: url('https://res.cloudinary.com/dmbjrohtn/image/upload/v1781708130/1781707643034_vayraz.jpg');">
         <div class="absolute inset-0 bg-black/80"></div>
         
         <div class="relative z-10 max-w-6xl mx-auto text-center" data-aos="fade-up">
-            <h2 class="text-2xl md:text-3xl font-bold tracking-widest text-white mb-8 md:mb-12 drop-shadow-md uppercase">Samuel Adegboyega</h2>
+            <h2 class="text-xl md:text-3xl font-bold tracking-widest text-white mb-8 md:mb-12 drop-shadow-md uppercase">Samuel Adegboyega</h2>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 md:p-8 rounded-sm shadow-xl hover:-translate-y-2 transition-smooth">
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-5 md:p-8 rounded-sm shadow-xl hover:-translate-y-2 transition-smooth">
                     <h4 class="text-[#007fc6] text-[10px] md:text-[11px] font-bold mb-2 uppercase tracking-widest" data-translate="statGod">GOD</h4>
                     <p class="text-3xl md:text-5xl font-light">1</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 md:p-8 rounded-sm shadow-xl hover:-translate-y-2 transition-smooth">
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-5 md:p-8 rounded-sm shadow-xl hover:-translate-y-2 transition-smooth">
                     <h4 class="text-[#007fc6] text-[10px] md:text-[11px] font-bold mb-2 uppercase tracking-widest" data-translate="statWife">Wife</h4>
                     <p class="text-3xl md:text-5xl font-light">1</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 md:p-8 rounded-sm shadow-xl hover:-translate-y-2 transition-smooth">
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-5 md:p-8 rounded-sm shadow-xl hover:-translate-y-2 transition-smooth">
                     <h4 class="text-[#007fc6] text-[10px] md:text-[11px] font-bold mb-2 uppercase tracking-widest" data-translate="statChildren">Children</h4>
                     <p class="text-3xl md:text-5xl font-light">5</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 md:p-8 rounded-sm shadow-xl hover:-translate-y-2 transition-smooth">
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-5 md:p-8 rounded-sm shadow-xl hover:-translate-y-2 transition-smooth">
                     <h4 class="text-[#007fc6] text-[10px] md:text-[11px] font-bold mb-2 uppercase tracking-widest" data-translate="statSpiritual">Spiritual Children</h4>
                     <p class="text-2xl md:text-4xl font-light mt-1">1,000+</p>
                 </div>
@@ -401,23 +530,23 @@
         </div>
     </section>
 
-    <section class="bg-white py-12 md:py-20 px-4 md:px-6">
+    <section class="bg-white py-10 md:py-20 px-3 md:px-6">
         <div class="max-w-5xl mx-auto text-center">
             
-            <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-8 md:mb-10" data-aos="fade-up" data-translate="wordToday">Adegboyega's Word of today</h2>
-            <div class="bg-gray-50 p-6 md:p-10 shadow-lg max-w-3xl mx-auto mb-12 md:mb-20 rounded-sm relative border border-gray-100" data-aos="zoom-in">
-                <div class="absolute -top-8 md:-top-10 left-1/2 transform -translate-x-1/2">
-                    <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Logo" class="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-4 border-white shadow-xl">
+            <h2 class="text-lg md:text-2xl font-bold text-gray-900 mb-6 md:mb-10" data-aos="fade-up" data-translate="wordToday">Adegboyega's Word of today</h2>
+            <div class="bg-gray-50 p-5 md:p-10 shadow-lg max-w-3xl mx-auto mb-10 md:mb-20 rounded-sm relative border border-gray-100" data-aos="zoom-in">
+                <div class="absolute -top-7 md:-top-10 left-1/2 transform -translate-x-1/2">
+                    <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Logo" class="w-14 h-14 md:w-20 md:h-20 rounded-full object-cover border-4 border-white shadow-xl">
                 </div>
-                <p class="text-lg md:text-2xl text-gray-800 font-light italic mt-4 md:mt-6 leading-relaxed" id="dailyQuote">
+                <p class="text-base md:text-2xl text-gray-800 font-light italic mt-4 md:mt-6 leading-relaxed" id="dailyQuote">
                     "Life does not give you what you deserve, you have to demand it."
                 </p>
             </div>
 
-            <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-2 md:mb-3" data-aos="fade-up" data-translate="followTitle">Follow Samuel Adegboyega</h2>
+            <h2 class="text-lg md:text-2xl font-bold text-gray-900 mb-2 md:mb-3" data-aos="fade-up" data-translate="followTitle">Follow Samuel Adegboyega</h2>
             <p class="text-xs md:text-sm text-gray-500 mb-6 md:mb-10" data-aos="fade-up" data-aos-delay="100" data-translate="followSub">Stay connected for daily inspiration and prophetic declarations.</p>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-12 md:mb-20 max-w-5xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-10 md:mb-20 max-w-5xl mx-auto">
                 <a href="https://www.instagram.com/samuelajayiadegboyega?igsh=MWphZGd2MWdwOTFmdQ==" target="_blank" class="relative group aspect-square rounded-sm overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="0">
                     <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-smooth">
                     <div class="absolute inset-0 bg-black/50 group-hover:bg-[#007fc6]/80 transition-smooth flex flex-col items-center justify-center text-white">
@@ -451,8 +580,8 @@
                 </a>
             </div>
 
-            <div class="bg-gray-50 p-6 md:p-10 shadow-sm border border-gray-200 text-left max-w-4xl mx-auto rounded-sm" data-aos="fade-up">
-                <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4 pb-3 md:pb-4 border-b border-gray-200" data-translate="aboutSpacTitle">About the Salvation Proclaimers Anointed Church (SPAC)</h3>
+            <div class="bg-gray-50 p-5 md:p-10 shadow-sm border border-gray-200 text-left max-w-4xl mx-auto rounded-sm" data-aos="fade-up">
+                <h3 class="text-base md:text-xl font-bold text-gray-900 mb-3 md:mb-4 pb-3 md:pb-4 border-b border-gray-200" data-translate="aboutSpacTitle">About the Salvation Proclaimers Anointed Church (SPAC)</h3>
                 <div class="text-xs md:text-sm text-gray-700 leading-relaxed space-y-3 md:space-y-4" id="aboutSpacText">
                     <p>The Salvation Proclaimers Anointed Church (SPAC) Worldwide is a Pentecostal Christian ministry founded by Prophet Samuel Ajayi Adegboyega and headquartered in Ibadan, Oyo State, Nigeria. The church is committed to proclaiming the message of salvation through Jesus Christ, promoting holiness, prayer, evangelism, prophetic ministry, and the power of the Holy Spirit.</p>
                     <p>Over the years, SPAC has expanded across Nigeria with branches in cities including Ibadan, Lagos, and Abeokuta, as well as an international presence in the United Kingdom through SPAC Nxtion Family, led by Pastor Tobi Adegboyega. Beyond its spiritual mission, the church is actively involved in youth empowerment, scholarships, welfare support, and community development initiatives aimed at transforming lives and raising future leaders.</p>
@@ -470,10 +599,10 @@
         </div>
     </section>
 
-    <footer class="bg-[#0b132b] text-gray-400 text-xs py-10 md:py-16 px-4 md:px-6 border-t-[8px] border-[#007fc6]">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-10 mb-8 md:mb-12">
+    <footer class="bg-[#0b132b] text-gray-400 text-xs py-8 md:py-16 px-3 md:px-6 border-t-[8px] border-[#007fc6]">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 mb-6 md:mb-12">
             <div>
-                <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Logo" class="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover border-2 border-gray-700 mb-4 md:mb-6 opacity-80">
+                <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Logo" class="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border-2 border-gray-700 mb-4 md:mb-6 opacity-80">
                 <p class="leading-relaxed pr-2 md:pr-4 text-xs md:text-sm" data-translate="footerDesc">Helping you become all God created you to be through the power of the Holy Spirit, prayer, and prophetic declarations.</p>
             </div>
             <div>
@@ -503,7 +632,7 @@
             </div>
         </div>
 
-        <div class="max-w-6xl mx-auto pt-6 md:pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4 text-center md:text-left text-[10px] md:text-[11px]">
+        <div class="max-w-6xl mx-auto pt-5 md:pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4 text-center md:text-left text-[10px] md:text-[11px]">
             <div>
                 <p class="mb-1 md:mb-2 text-gray-500 font-semibold tracking-wider uppercase">Copyright © 2026 Prophet Samuel Adegboyega</p>
                 <div class="space-x-3 md:space-x-4 text-gray-600">
@@ -982,9 +1111,7 @@
             
             document.querySelectorAll('[data-translate]').forEach(el => {
                 const key = el.getAttribute('data-translate');
-                if (t[key]) {
-                    el.textContent = t[key];
-                }
+                if (t[key]) el.textContent = t[key];
             });
             
             if (t.heroTitle) document.getElementById('heroTitle').innerHTML = t.heroTitle;
