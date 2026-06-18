@@ -11,16 +11,16 @@
             --royal-dark: #0b132b;
         }
         body { background-color: #f9fafb; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
-        
+
         .editor-container {
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
         }
-        
+
         .toolbar-btn {
             padding: 8px 12px;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
             transition: all 0.15s ease;
             font-size: 13px;
@@ -29,81 +29,96 @@
             border: 1px solid transparent;
             background: transparent;
             white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
         .toolbar-btn:hover { background: #f3f4f6; border-color: #d1d5db; }
         .toolbar-btn.active { background: #e5e7eb; border-color: #9ca3af; color: #111827; }
-        
+
         #richEditor {
-            min-height: 400px;
-            padding: 24px;
+            min-height: 450px;
+            padding: 28px;
             border: 1px solid #e5e7eb;
-            border-radius: 0 0 8px 8px;
-            font-size: 15px;
-            line-height: 1.8;
+            border-radius: 0 0 12px 12px;
+            font-size: 16px;
+            line-height: 1.85;
             color: #374151;
             outline: none;
             font-family: 'Georgia', 'Times New Roman', serif;
+            background: white;
         }
-        #richEditor:focus { border-color: var(--jom-blue); box-shadow: 0 0 0 3px rgba(0,127,198,0.08); }
-        
-        #richEditor h1 { font-size: 2em; font-weight: 700; margin: 0.67em 0; color: #111827; }
-        #richEditor h2 { font-size: 1.5em; font-weight: 700; margin: 0.83em 0; color: #1f2937; }
-        #richEditor h3 { font-size: 1.17em; font-weight: 700; margin: 1em 0; color: #1f2937; }
-        #richEditor h4 { font-size: 1em; font-weight: 700; margin: 1.33em 0; color: #374151; }
-        #richEditor p { margin: 0 0 1em 0; }
+        #richEditor:focus { border-color: var(--jom-blue); box-shadow: 0 0 0 4px rgba(0,127,198,0.06); }
+
+        #richEditor h1 { font-size: 2.2em; font-weight: 700; margin: 0.5em 0 0.3em 0; color: #0b132b; line-height: 1.3; }
+        #richEditor h2 { font-size: 1.7em; font-weight: 700; margin: 0.6em 0 0.3em 0; color: #1f2937; line-height: 1.35; }
+        #richEditor h3 { font-size: 1.35em; font-weight: 700; margin: 0.55em 0 0.25em 0; color: #1f2937; }
+        #richEditor h4 { font-size: 1.15em; font-weight: 700; margin: 0.5em 0 0.25em 0; color: #374151; }
+        #richEditor p { margin: 0 0 1.2em 0; }
         #richEditor blockquote {
             border-left: 4px solid #007fc6;
-            padding: 0.5em 1.5em;
-            margin: 1em 0;
+            padding: 0.8em 1.8em;
+            margin: 1.5em 0;
             color: #6b7280;
             font-style: italic;
-            background: #f9fafb;
-            border-radius: 0 4px 4px 0;
+            background: #f8fafc;
+            border-radius: 0 8px 8px 0;
         }
-        #richEditor ul, #richEditor ol { margin: 1em 0; padding-left: 2em; }
-        #richEditor li { margin-bottom: 0.5em; }
-        #richEditor img { max-width: 100%; height: auto; border-radius: 4px; margin: 1em 0; }
+        #richEditor ul, #richEditor ol { margin: 1.2em 0; padding-left: 2.2em; }
+        #richEditor li { margin-bottom: 0.6em; }
+        #richEditor img { max-width: 100%; height: auto; border-radius: 8px; margin: 1.5em 0; cursor: pointer; }
+        #richEditor img.selected-image { outline: 3px solid var(--jom-blue); outline-offset: 2px; }
         #richEditor a { color: #007fc6; text-decoration: underline; }
-        #richEditor hr { border: none; height: 2px; background: #e5e7eb; margin: 2em 0; }
+        #richEditor hr { border: none; height: 2px; background: #e5e7eb; margin: 2.5em 0; }
         #richEditor strong { font-weight: 700; color: #111827; }
         #richEditor em { font-style: italic; }
         #richEditor u { text-decoration: underline; }
-        
+        #richEditor pre { background: #1e293b; color: #e2e8f0; padding: 1.5em; border-radius: 8px; overflow-x: auto; font-family: 'Courier New', monospace; margin: 1.2em 0; }
+        #richEditor table { width: 100%; border-collapse: collapse; margin: 1.2em 0; }
+        #richEditor th, #richEditor td { border: 1px solid #d1d5db; padding: 10px 14px; text-align: left; }
+        #richEditor th { background: #f1f5f9; font-weight: 700; }
+
         .post-card { transition: all 0.3s ease; }
-        .post-card:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
-        
+        .post-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(0,0,0,0.1); }
+
         input:focus, textarea:focus, select:focus {
             outline: none;
             border-color: var(--jom-blue);
             box-shadow: 0 0 0 3px rgba(0,127,198,0.08);
         }
 
-        .modal-overlay {
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(4px);
+        .upload-zone {
+            border: 2px dashed #d1d5db;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #fafafa;
         }
+        .upload-zone:hover { border-color: var(--jom-blue); background: #f0f7ff; }
+        .upload-zone.dragover { border-color: var(--jom-blue); background: #e6f2fc; }
 
-        @media print {
-            body * { visibility: hidden; }
-            #richEditor, #richEditor * { visibility: visible; }
-            #richEditor { position: absolute; left: 0; top: 0; width: 100%; }
-        }
+        .modal-overlay { background: rgba(0,0,0,0.65); backdrop-filter: blur(6px); }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .spinner { animation: spin 0.8s linear infinite; }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Password Gate -->
-    <div id="passwordGate" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0b132b] via-[#0b132b] to-[#1a1a2e] px-6">
-        <div class="max-w-md w-full bg-white p-10 rounded-xl shadow-2xl text-center">
-            <div class="w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[#007fc6] shadow-lg">
+    <div id="passwordGate" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0b132b] via-[#111827] to-[#0b132b] px-6">
+        <div class="max-w-md w-full bg-white p-10 rounded-2xl shadow-2xl text-center">
+            <div class="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[#007fc6] shadow-lg">
                 <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" class="w-full h-full object-cover" alt="Admin">
             </div>
-            <h2 class="text-2xl font-bold text-gray-900 mb-2">Blog Admin</h2>
-            <p class="text-sm text-gray-500 mb-8">Enter password to manage blog content.</p>
-            <input type="password" id="adminPassword" placeholder="Enter admin password" class="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 text-sm rounded-lg mb-4">
-            <button onclick="checkPassword()" class="w-full bg-[#007fc6] hover:bg-[#006096] text-white font-bold py-3.5 px-8 uppercase text-[11px] tracking-widest rounded-lg transition-smooth shadow-md">Access Editor</button>
-            <p id="passwordError" class="text-red-500 text-xs mt-4 hidden">Incorrect password.</p>
-            <p class="text-[10px] text-gray-400 mt-8 uppercase tracking-wider">SPAC Worldwide</p>
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">Blog Admin Panel</h2>
+            <p class="text-sm text-gray-500 mb-2">SPAC Worldwide Ministry</p>
+            <p class="text-xs text-gray-400 mb-8">Enter the admin password to manage blog content.</p>
+            <input type="password" id="adminPassword" placeholder="Enter password" class="w-full px-5 py-4 bg-gray-50 border border-gray-200 text-sm rounded-xl mb-4 text-center tracking-widest text-lg">
+            <button onclick="checkPassword()" class="w-full bg-[#007fc6] hover:bg-[#006096] text-white font-bold py-4 px-8 uppercase text-[11px] tracking-widest rounded-xl transition-smooth shadow-md">Access Editor</button>
+            <p id="passwordError" class="text-red-500 text-xs mt-4 hidden">❌ Incorrect password. Please try again.</p>
         </div>
     </div>
 
@@ -111,17 +126,17 @@
     <div id="adminDashboard" class="hidden min-h-screen bg-gray-50">
         
         <!-- Top Bar -->
-        <header class="bg-[#0b132b] text-white py-4 px-6 flex flex-col md:flex-row justify-between items-center gap-3 sticky top-0 z-50 shadow-lg">
+        <header class="bg-[#0b132b] text-white py-4 px-6 flex flex-col md:flex-row justify-between items-center gap-3 sticky top-0 z-50 shadow-xl">
             <div class="flex items-center gap-3">
                 <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Logo" class="w-10 h-10 rounded-full object-cover border-2 border-[#007fc6]">
                 <div>
                     <h1 class="font-bold uppercase tracking-widest text-sm">Blog Editor</h1>
-                    <p class="text-[10px] text-gray-400">SPAC Worldwide Ministry</p>
+                    <p class="text-[10px] text-gray-400">SPAC Worldwide</p>
                 </div>
             </div>
             <div class="flex items-center gap-3">
-                <span class="text-[10px] text-gray-400 uppercase tracking-wider bg-white/5 px-3 py-1 rounded-full" id="postCount">0 Posts</span>
-                <button onclick="openEditor()" class="bg-[#007fc6] hover:bg-[#006096] text-white text-[10px] font-bold px-5 py-2.5 uppercase tracking-widest rounded-lg transition-smooth flex items-center gap-2 shadow-md">
+                <span class="text-[10px] text-gray-400 uppercase tracking-wider bg-white/5 px-3 py-1.5 rounded-full" id="postCount">0 Posts</span>
+                <button onclick="openEditor()" class="bg-[#007fc6] hover:bg-[#006096] text-white text-[10px] font-bold px-5 py-2.5 uppercase tracking-widest rounded-xl transition-smooth flex items-center gap-2 shadow-md">
                     <span class="text-lg leading-none">+</span> New Post
                 </button>
                 <button onclick="logoutAdmin()" class="text-gray-400 hover:text-white text-[10px] uppercase tracking-widest transition-smooth px-3 py-2">Exit</button>
@@ -130,102 +145,174 @@
 
         <!-- Editor Section -->
         <div id="editorSection" class="hidden">
-            <div class="max-w-5xl mx-auto p-6">
+            <div class="max-w-6xl mx-auto p-6">
                 <div class="editor-container">
                     <!-- Editor Header -->
-                    <div class="flex items-center justify-between p-5 border-b border-gray-200 bg-gray-50 rounded-t-lg">
-                        <h2 class="text-lg font-bold text-gray-900" id="editorTitle">Create New Post</h2>
-                        <button onclick="closeEditor()" class="text-gray-400 hover:text-gray-600 text-2xl leading-none transition-smooth">&times;</button>
+                    <div class="flex items-center justify-between p-6 border-b border-gray-200 bg-gray-50 rounded-t-xl">
+                        <div>
+                            <h2 class="text-lg font-bold text-gray-900" id="editorTitle">✨ Create New Post</h2>
+                            <p class="text-xs text-gray-500 mt-1">Write your blog post using the rich text editor below.</p>
+                        </div>
+                        <button onclick="closeEditor()" class="text-gray-400 hover:text-red-500 text-3xl leading-none transition-smooth">&times;</button>
                     </div>
                     
-                    <div class="p-6 space-y-5">
+                    <div class="p-6 space-y-6">
                         <input type="hidden" id="editingPostId">
                         
                         <!-- Title -->
                         <div>
-                            <label class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2 block">Post Title <span class="text-red-400">*</span></label>
-                            <input type="text" id="postTitle" placeholder="Enter a compelling title..." class="w-full px-4 py-3 bg-white border border-gray-200 text-lg font-bold rounded-lg text-gray-900">
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2 block">
+                                📌 Main Heading / Post Title <span class="text-red-400">*</span>
+                            </label>
+                            <input type="text" id="postTitle" placeholder="Enter your main heading..." class="w-full px-5 py-3.5 bg-white border border-gray-200 text-xl font-bold rounded-xl text-gray-900">
                         </div>
                         
-                        <!-- Image URL + Date -->
+                        <!-- Subheading -->
+                        <div>
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2 block">
+                                📝 Subheading (optional)
+                            </label>
+                            <input type="text" id="postSubheading" placeholder="A supporting subtitle or secondary heading..." class="w-full px-5 py-3 bg-white border border-gray-200 text-base rounded-xl text-gray-700 italic">
+                        </div>
+                        
+                        <!-- Featured Image Upload -->
+                        <div>
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2 block">
+                                🖼 Featured Image
+                            </label>
+                            <div class="flex gap-4">
+                                <div class="flex-1">
+                                    <div class="upload-zone" id="imageUploadZone" onclick="document.getElementById('imageFileInput').click()">
+                                        <div id="uploadZoneContent">
+                                            <p class="text-4xl mb-3">📸</p>
+                                            <p class="text-sm font-bold text-gray-700">Click to upload image</p>
+                                            <p class="text-xs text-gray-400 mt-1">or drag and drop here</p>
+                                            <p class="text-[10px] text-gray-400 mt-2">JPG, PNG, WebP • Max 10MB</p>
+                                        </div>
+                                        <div id="uploadProgress" class="hidden">
+                                            <div class="spinner inline-block w-8 h-8 border-3 border-[#007fc6] border-t-transparent rounded-full mb-3"></div>
+                                            <p class="text-sm text-[#007fc6] font-bold">Uploading...</p>
+                                        </div>
+                                    </div>
+                                    <input type="file" id="imageFileInput" accept="image/*" class="hidden" onchange="uploadImageToCloudinary(this.files[0])">
+                                    <input type="hidden" id="postImage" value="">
+                                </div>
+                                <div id="featuredImagePreview" class="hidden w-48 flex-shrink-0">
+                                    <img id="featuredImageImg" src="" class="w-full h-36 object-cover rounded-xl border border-gray-200" alt="Featured">
+                                    <button onclick="removeFeaturedImage()" class="w-full mt-2 text-[10px] text-red-500 font-bold uppercase tracking-wider hover:underline">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Date & Category -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div>
-                                <label class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2 block">Featured Image URL</label>
-                                <div class="flex gap-2">
-                                    <input type="text" id="postImage" placeholder="Paste Cloudinary image URL" class="flex-1 px-4 py-3 bg-white border border-gray-200 text-sm rounded-lg">
-                                    <button onclick="previewImage()" class="px-4 py-3 bg-gray-100 hover:bg-gray-200 text-sm rounded-lg transition-smooth font-bold" title="Preview Image">👁</button>
-                                </div>
-                                <div id="imagePreviewContainer" class="mt-3 hidden">
-                                    <img id="imagePreview" src="" class="w-full max-h-48 object-cover rounded-lg border border-gray-200" alt="Preview">
-                                </div>
+                                <label class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2 block">📅 Date Label</label>
+                                <input type="text" id="postDate" placeholder="e.g. June 2026" class="w-full px-4 py-3 bg-white border border-gray-200 text-sm rounded-xl">
                             </div>
                             <div>
-                                <label class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2 block">Date Label</label>
-                                <input type="text" id="postDate" placeholder="e.g. June 2026" class="w-full px-4 py-3 bg-white border border-gray-200 text-sm rounded-lg">
+                                <label class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2 block">🏷 Category</label>
+                                <select id="postCategory" class="w-full px-4 py-3 bg-white border border-gray-200 text-sm rounded-xl">
+                                    <option value="">Select category</option>
+                                    <option value="Daily Inspiration">Daily Inspiration</option>
+                                    <option value="Prophetic Declaration">Prophetic Declaration</option>
+                                    <option value="Spiritual Teaching">Spiritual Teaching</option>
+                                    <option value="Prayer & Fasting">Prayer & Fasting</option>
+                                    <option value="Testimony">Testimony</option>
+                                    <option value="Leadership">Leadership</option>
+                                    <option value="Faith">Faith</option>
+                                </select>
                             </div>
                         </div>
                         
-                        <!-- Excerpt -->
+                        <!-- Excerpt (first paragraph preview for index page) -->
                         <div>
-                            <label class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2 block">Short Excerpt</label>
-                            <textarea id="postExcerpt" rows="2" placeholder="A brief summary shown in post previews..." class="w-full px-4 py-3 bg-white border border-gray-200 text-sm rounded-lg resize-none"></textarea>
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2 block">
+                                ✂️ First Paragraph Excerpt <span class="text-red-400">*</span>
+                            </label>
+                            <p class="text-[10px] text-gray-400 mb-2">This will appear on the index/home page as the blog preview. Keep it concise and compelling.</p>
+                            <textarea id="postExcerpt" rows="3" placeholder="Write the first paragraph that will appear on the home page preview..." class="w-full px-4 py-3 bg-white border border-gray-200 text-sm rounded-xl resize-none"></textarea>
                         </div>
                         
-                        <!-- Rich Text Toolbar -->
+                        <!-- Second Paragraph (also shows on index page) -->
                         <div>
-                            <label class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-3 block">Post Content <span class="text-red-400">*</span></label>
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2 block">
+                                ✂️ Second Paragraph Excerpt
+                            </label>
+                            <p class="text-[10px] text-gray-400 mb-2">This also appears on the index page, continuing the preview before the "Read More" button.</p>
+                            <textarea id="postExcerpt2" rows="3" placeholder="Write the second paragraph for the home page preview..." class="w-full px-4 py-3 bg-white border border-gray-200 text-sm rounded-xl resize-none"></textarea>
+                        </div>
+                        
+                        <!-- Rich Text Editor -->
+                        <div>
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-3 block">
+                                📄 Full Blog Content <span class="text-red-400">*</span>
+                            </label>
+                            <p class="text-[10px] text-gray-400 mb-3">This is the complete blog post content shown on blog.html when "Read More" is clicked.</p>
                             
-                            <div class="flex flex-wrap gap-1 p-3 bg-gray-100 rounded-t-lg border border-b-0 border-gray-200">
-                                <div class="flex flex-wrap gap-1 items-center">
-                                    <!-- Text Formatting -->
-                                    <select onchange="execCommand('formatBlock', this.value); this.selectedIndex=0;" class="toolbar-btn text-xs">
-                                        <option value="">Paragraph</option>
-                                        <option value="h1">Heading 1</option>
-                                        <option value="h2">Heading 2</option>
-                                        <option value="h3">Heading 3</option>
-                                        <option value="h4">Heading 4</option>
-                                        <option value="pre">Code</option>
+                            <!-- Toolbar -->
+                            <div class="flex flex-wrap gap-1 p-3 bg-gray-100 rounded-t-xl border border-b-0 border-gray-200 sticky top-[72px] z-40">
+                                <div class="flex flex-wrap gap-1 items-center w-full">
+                                    <!-- Headings -->
+                                    <select onchange="execCommand('formatBlock', this.value); this.selectedIndex=0;" class="toolbar-btn text-xs bg-white border border-gray-300 rounded-lg px-3 py-2">
+                                        <option value="">📐 Paragraph</option>
+                                        <option value="h1">🔴 Heading 1</option>
+                                        <option value="h2">🟠 Heading 2</option>
+                                        <option value="h3">🟡 Heading 3</option>
+                                        <option value="h4">🟢 Heading 4</option>
+                                        <option value="pre">💻 Code Block</option>
                                     </select>
-                                    <span class="w-px h-6 bg-gray-300 mx-1"></span>
-                                    <button onclick="execCommand('bold')" class="toolbar-btn font-bold" title="Bold (Ctrl+B)"><b>B</b></button>
-                                    <button onclick="execCommand('italic')" class="toolbar-btn italic" title="Italic (Ctrl+I)"><i>I</i></button>
-                                    <button onclick="execCommand('underline')" class="toolbar-btn underline" title="Underline (Ctrl+U)"><u>U</u></button>
-                                    <button onclick="execCommand('strikeThrough')" class="toolbar-btn line-through" title="Strikethrough"><s>S</s></button>
-                                    <span class="w-px h-6 bg-gray-300 mx-1"></span>
-                                    <button onclick="execCommand('justifyLeft')" class="toolbar-btn" title="Align Left">⫷</button>
-                                    <button onclick="execCommand('justifyCenter')" class="toolbar-btn" title="Align Center">≣</button>
-                                    <button onclick="execCommand('justifyRight')" class="toolbar-btn" title="Align Right">⫸</button>
-                                    <button onclick="execCommand('justifyFull')" class="toolbar-btn" title="Justify">☰</button>
-                                    <span class="w-px h-6 bg-gray-300 mx-1"></span>
-                                    <button onclick="execCommand('insertUnorderedList')" class="toolbar-btn" title="Bullet List">• List</button>
-                                    <button onclick="execCommand('insertOrderedList')" class="toolbar-btn" title="Numbered List">1. List</button>
-                                    <span class="w-px h-6 bg-gray-300 mx-1"></span>
-                                    <button onclick="execCommand('indent')" class="toolbar-btn" title="Indent">→</button>
-                                    <button onclick="execCommand('outdent')" class="toolbar-btn" title="Outdent">←</button>
-                                    <span class="w-px h-6 bg-gray-300 mx-1"></span>
-                                    <button onclick="insertBlockquote()" class="toolbar-btn" title="Blockquote">❝</button>
-                                    <button onclick="insertLink()" class="toolbar-btn text-[#007fc6]" title="Insert Link">🔗</button>
-                                    <button onclick="insertImage()" class="toolbar-btn" title="Insert Image">🖼</button>
-                                    <button onclick="insertHorizontalRule()" class="toolbar-btn" title="Horizontal Line">—</button>
-                                    <span class="w-px h-6 bg-gray-300 mx-1"></span>
-                                    <button onclick="execCommand('removeFormat')" class="toolbar-btn text-red-500" title="Clear Formatting">✕</button>
-                                    <button onclick="execCommand('undo')" class="toolbar-btn" title="Undo (Ctrl+Z)">↩</button>
-                                    <button onclick="execCommand('redo')" class="toolbar-btn" title="Redo (Ctrl+Y)">↪</button>
+                                    <span class="w-px h-6 bg-gray-300 mx-1 hidden md:block"></span>
+                                    <!-- Text Style -->
+                                    <button onclick="execCommand('bold')" class="toolbar-btn font-bold bg-white" title="Bold (Ctrl+B)"><b>B</b></button>
+                                    <button onclick="execCommand('italic')" class="toolbar-btn italic bg-white" title="Italic (Ctrl+I)"><i>I</i></button>
+                                    <button onclick="execCommand('underline')" class="toolbar-btn underline bg-white" title="Underline (Ctrl+U)"><u>U</u></button>
+                                    <button onclick="execCommand('strikeThrough')" class="toolbar-btn line-through bg-white" title="Strikethrough"><s>S</s></button>
+                                    <span class="w-px h-6 bg-gray-300 mx-1 hidden md:block"></span>
+                                    <!-- Alignment -->
+                                    <button onclick="execCommand('justifyLeft')" class="toolbar-btn bg-white" title="Align Left">⬅</button>
+                                    <button onclick="execCommand('justifyCenter')" class="toolbar-btn bg-white" title="Center">⬌</button>
+                                    <button onclick="execCommand('justifyRight')" class="toolbar-btn bg-white" title="Align Right">➡</button>
+                                    <button onclick="execCommand('justifyFull')" class="toolbar-btn bg-white" title="Justify">☰</button>
+                                    <span class="w-px h-6 bg-gray-300 mx-1 hidden md:block"></span>
+                                    <!-- Lists -->
+                                    <button onclick="execCommand('insertUnorderedList')" class="toolbar-btn bg-white" title="Bullet List">• List</button>
+                                    <button onclick="execCommand('insertOrderedList')" class="toolbar-btn bg-white" title="Numbered List">1. List</button>
+                                    <span class="w-px h-6 bg-gray-300 mx-1 hidden md:block"></span>
+                                    <!-- Indent -->
+                                    <button onclick="execCommand('indent')" class="toolbar-btn bg-white" title="Indent">→</button>
+                                    <button onclick="execCommand('outdent')" class="toolbar-btn bg-white" title="Outdent">←</button>
+                                    <span class="w-px h-6 bg-gray-300 mx-1 hidden md:block"></span>
+                                    <!-- Special -->
+                                    <button onclick="insertBlockquote()" class="toolbar-btn bg-white" title="Blockquote">❝ Quote</button>
+                                    <button onclick="insertLink()" class="toolbar-btn bg-white text-[#007fc6]" title="Insert Link">🔗 Link</button>
+                                    <button onclick="insertTable()" class="toolbar-btn bg-white" title="Insert Table">📊 Table</button>
+                                    <button onclick="insertHorizontalRule()" class="toolbar-btn bg-white" title="Divider Line">— HR</button>
+                                    <span class="w-px h-6 bg-gray-300 mx-1 hidden md:block"></span>
+                                    <!-- Media -->
+                                    <button onclick="document.getElementById('inlineImageInput').click()" class="toolbar-btn bg-white text-green-600" title="Insert Image from Device">🖼 Add Image</button>
+                                    <input type="file" id="inlineImageInput" accept="image/*" class="hidden" onchange="uploadInlineImage(this.files[0])">
+                                    <span class="w-px h-6 bg-gray-300 mx-1 hidden md:block"></span>
+                                    <!-- Undo/Redo/Clear -->
+                                    <button onclick="execCommand('undo')" class="toolbar-btn bg-white" title="Undo (Ctrl+Z)">↩</button>
+                                    <button onclick="execCommand('redo')" class="toolbar-btn bg-white" title="Redo (Ctrl+Y)">↪</button>
+                                    <button onclick="execCommand('removeFormat')" class="toolbar-btn bg-white text-red-500" title="Clear Formatting">✕ Clear</button>
+                                    <button onclick="if(confirm('Delete all content in the editor?')) document.getElementById('richEditor').innerHTML='<p>Start writing here...</p>'" class="toolbar-btn bg-red-50 text-red-600 ml-auto" title="Delete All Content">🗑 Delete All</button>
                                 </div>
                             </div>
                             
-                            <!-- Rich Text Editor -->
-                            <div id="richEditor" contenteditable="true" class="bg-white">
-                                <p>Start writing your blog post here...</p>
+                            <!-- Editor Area -->
+                            <div id="richEditor" contenteditable="true">
+                                <p>Start writing your full blog post here...</p>
                             </div>
                         </div>
                         
                         <!-- Action Buttons -->
                         <div class="flex gap-3 pt-4 border-t border-gray-200">
-                            <button onclick="savePost()" class="flex-1 bg-[#007fc6] hover:bg-[#006096] text-white font-bold py-3.5 px-8 uppercase text-[11px] tracking-widest rounded-lg transition-smooth shadow-md">
-                                💾 Save & Publish
+                            <button onclick="savePost()" class="flex-1 bg-[#007fc6] hover:bg-[#006096] text-white font-bold py-4 px-8 uppercase text-[11px] tracking-widest rounded-xl transition-smooth shadow-md flex items-center justify-center gap-2">
+                                💾 Save & Publish Post
                             </button>
-                            <button onclick="closeEditor()" class="border-2 border-gray-300 text-gray-600 hover:bg-gray-100 font-bold py-3.5 px-6 uppercase text-[11px] tracking-widest rounded-lg transition-smooth">
+                            <button onclick="closeEditor()" class="border-2 border-gray-300 text-gray-600 hover:bg-gray-100 font-bold py-4 px-6 uppercase text-[11px] tracking-widest rounded-xl transition-smooth">
                                 Cancel
                             </button>
                         </div>
@@ -235,29 +322,33 @@
         </div>
 
         <!-- Posts List -->
-        <main class="max-w-5xl mx-auto py-10 px-6">
+        <main class="max-w-6xl mx-auto py-10 px-6">
             <div class="flex items-center justify-between mb-8">
-                <h2 class="text-xl font-bold uppercase tracking-widest border-l-4 border-[#007fc6] pl-4">Published Posts</h2>
+                <h2 class="text-xl font-bold uppercase tracking-widest border-l-4 border-[#007fc6] pl-4">📋 Published Posts</h2>
                 <div class="flex gap-2">
-                    <button onclick="exportPosts()" class="text-[10px] font-bold uppercase tracking-wider text-gray-500 hover:text-[#007fc6] px-3 py-2 transition-smooth">📥 Export</button>
-                    <button onclick="importPostsPrompt()" class="text-[10px] font-bold uppercase tracking-wider text-gray-500 hover:text-[#007fc6] px-3 py-2 transition-smooth">📤 Import</button>
+                    <button onclick="exportPosts()" class="text-[10px] font-bold uppercase tracking-wider text-gray-500 hover:text-[#007fc6] bg-white px-4 py-2 rounded-lg border border-gray-200 transition-smooth shadow-sm">📥 Export Backup</button>
+                    <button onclick="document.getElementById('importFileInput').click()" class="text-[10px] font-bold uppercase tracking-wider text-gray-500 hover:text-[#007fc6] bg-white px-4 py-2 rounded-lg border border-gray-200 transition-smooth shadow-sm">📤 Import Posts</button>
+                    <input type="file" id="importFileInput" accept=".json" class="hidden" onchange="importPosts(event)">
                 </div>
             </div>
             
             <div id="postsList" class="space-y-4">
-                <div class="text-center py-20 text-gray-400">
-                    <p class="text-5xl mb-4">📝</p>
-                    <p class="text-sm">No posts yet. Click <strong>"New Post"</strong> to create your first blog post.</p>
+                <div class="text-center py-20 text-gray-400 bg-white rounded-2xl border border-gray-100">
+                    <p class="text-6xl mb-4">📝</p>
+                    <p class="text-base font-bold text-gray-600 mb-2">No posts yet</p>
+                    <p class="text-sm">Click <strong>"New Post"</strong> above to create your first blog post.</p>
                 </div>
             </div>
         </main>
     </div>
 
-    <!-- Hidden file input for import -->
-    <input type="file" id="importFileInput" accept=".json" class="hidden" onchange="importPosts(event)">
-
+    <script src="https://widget.cloudinary.com/v2.0/global/all.js"></script>
     <script>
-        const ADMIN_PASSWORD = 'SPAC2026admin';
+        // === CONFIGURATION ===
+        const CLOUD_NAME = 'dmbjrohtn';
+        const UPLOAD_PRESET = 'pelumi';
+        const ADMIN_PASSWORD = 'tritech5665';
+        
         let posts = [];
 
         // === Password Gate ===
@@ -279,11 +370,12 @@
         });
 
         function logoutAdmin() {
-            if (confirm('Exit the editor? All unsaved changes will be lost.')) {
+            if (confirm('Exit the editor? Unsaved changes will be lost.')) {
                 document.getElementById('passwordGate').classList.remove('hidden');
                 document.getElementById('adminDashboard').classList.add('hidden');
                 document.getElementById('adminPassword').value = '';
                 document.getElementById('passwordError').classList.add('hidden');
+                closeEditor();
             }
         }
 
@@ -304,28 +396,33 @@
             const list = document.getElementById('postsList');
             if (posts.length === 0) {
                 list.innerHTML = `
-                    <div class="text-center py-20 text-gray-400">
-                        <p class="text-5xl mb-4">📝</p>
-                        <p class="text-sm">No posts yet. Click <strong>"New Post"</strong> to create your first blog post.</p>
+                    <div class="text-center py-20 text-gray-400 bg-white rounded-2xl border border-gray-100">
+                        <p class="text-6xl mb-4">📝</p>
+                        <p class="text-base font-bold text-gray-600 mb-2">No posts yet</p>
+                        <p class="text-sm">Click <strong>"New Post"</strong> above to create your first blog post.</p>
                     </div>`;
                 updatePostCount();
                 return;
             }
             list.innerHTML = posts.map((post, index) => `
-                <div class="post-card bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex flex-col md:flex-row gap-5">
-                    ${post.image ? `<div class="w-full md:w-44 h-32 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100"><img src="${post.image}" class="w-full h-full object-cover" alt="${post.title}" onerror="this.parentElement.innerHTML='<div class=\\'w-full h-full flex items-center justify-center text-gray-400 text-3xl\\'>🖼</div>'"></div>` : ''}
+                <div class="post-card bg-white p-5 rounded-xl border border-gray-200 shadow-sm flex flex-col md:flex-row gap-5">
+                    ${post.image ? `<div class="w-full md:w-48 h-36 flex-shrink-0 rounded-xl overflow-hidden bg-gray-100"><img src="${post.image}" class="w-full h-full object-cover" alt="${post.title}" onerror="this.parentElement.innerHTML='<div class=\\'w-full h-full flex items-center justify-center text-gray-400 text-4xl\\'>🖼</div>'"></div>` : ''}
                     <div class="flex-1 min-w-0">
                         <div class="flex items-start justify-between gap-3">
                             <div class="min-w-0">
-                                <h3 class="font-bold text-gray-900 text-lg truncate">${post.title}</h3>
-                                ${post.date ? `<span class="text-[10px] text-[#007fc6] uppercase tracking-widest font-bold">${post.date}</span>` : ''}
+                                <h3 class="font-bold text-gray-900 text-lg">${post.title}</h3>
+                                ${post.subheading ? `<p class="text-sm text-gray-500 italic mt-1">${post.subheading}</p>` : ''}
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    ${post.date ? `<span class="text-[10px] text-[#007fc6] uppercase tracking-widest font-bold bg-[#007fc6]/5 px-2 py-1 rounded-full">📅 ${post.date}</span>` : ''}
+                                    ${post.category ? `<span class="text-[10px] text-gray-500 uppercase tracking-wider bg-gray-100 px-2 py-1 rounded-full">🏷 ${post.category}</span>` : ''}
+                                </div>
                             </div>
                             <div class="flex gap-2 flex-shrink-0">
-                                <button onclick="editPost(${index})" class="text-[10px] font-bold uppercase tracking-wider bg-[#007fc6]/10 text-[#007fc6] hover:bg-[#007fc6]/20 px-3 py-1.5 rounded-lg transition-smooth">✏️ Edit</button>
-                                <button onclick="deletePost(${index})" class="text-[10px] font-bold uppercase tracking-wider bg-red-50 text-red-500 hover:bg-red-100 px-3 py-1.5 rounded-lg transition-smooth">🗑 Delete</button>
+                                <button onclick="editPost(${index})" class="text-[10px] font-bold uppercase tracking-wider bg-[#007fc6]/10 text-[#007fc6] hover:bg-[#007fc6]/20 px-4 py-2 rounded-lg transition-smooth">✏️ Edit</button>
+                                <button onclick="deletePost(${index})" class="text-[10px] font-bold uppercase tracking-wider bg-red-50 text-red-500 hover:bg-red-100 px-4 py-2 rounded-lg transition-smooth">🗑</button>
                             </div>
                         </div>
-                        ${post.excerpt ? `<p class="text-sm text-gray-500 mt-2 line-clamp-2">${post.excerpt}</p>` : ''}
+                        ${post.excerpt ? `<p class="text-sm text-gray-500 mt-3 line-clamp-2 leading-relaxed">${post.excerpt}</p>` : ''}
                     </div>
                 </div>
             `).join('');
@@ -336,25 +433,128 @@
             document.getElementById('postCount').textContent = posts.length + ' Posts';
         }
 
+        // === Cloudinary Image Upload ===
+        function uploadImageToCloudinary(file) {
+            if (!file) return;
+            if (file.size > 10 * 1024 * 1024) { alert('Image must be less than 10MB.'); return; }
+
+            const zoneContent = document.getElementById('uploadZoneContent');
+            const progressEl = document.getElementById('uploadProgress');
+            zoneContent.classList.add('hidden');
+            progressEl.classList.remove('hidden');
+
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('upload_preset', UPLOAD_PRESET);
+
+            fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.secure_url) {
+                    document.getElementById('postImage').value = data.secure_url;
+                    document.getElementById('featuredImageImg').src = data.secure_url;
+                    document.getElementById('featuredImagePreview').classList.remove('hidden');
+                } else {
+                    alert('Upload failed. Please try again.');
+                }
+                zoneContent.classList.remove('hidden');
+                progressEl.classList.add('hidden');
+            })
+            .catch(error => {
+                alert('Upload error. Please check your connection.');
+                zoneContent.classList.remove('hidden');
+                progressEl.classList.add('hidden');
+                console.error(error);
+            });
+        }
+
+        function uploadInlineImage(file) {
+            if (!file) return;
+            if (file.size > 10 * 1024 * 1024) { alert('Image must be less than 10MB.'); return; }
+
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = '<div class="spinner inline-block w-6 h-6 border-2 border-[#007fc6] border-t-transparent rounded-full"></div> Uploading...';
+            tempDiv.style.cssText = 'text-align:center;padding:20px;color:#007fc6;font-weight:bold;font-size:13px;';
+            document.getElementById('richEditor').appendChild(tempDiv);
+
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('upload_preset', UPLOAD_PRESET);
+
+            fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                tempDiv.remove();
+                if (data.secure_url) {
+                    const img = document.createElement('img');
+                    img.src = data.secure_url;
+                    img.alt = 'Blog image';
+                    img.style.cssText = 'max-width:100%;height:auto;border-radius:8px;margin:1.5em 0;cursor:pointer;';
+                    img.classList.add('selected-image');
+                    img.onclick = function() {
+                        if (confirm('Delete this image from the editor?')) {
+                            this.remove();
+                        }
+                    };
+                    document.getElementById('richEditor').appendChild(img);
+                    document.getElementById('richEditor').focus();
+                } else {
+                    alert('Inline image upload failed.');
+                }
+            })
+            .catch(error => {
+                tempDiv.remove();
+                alert('Upload error.');
+                console.error(error);
+            });
+        }
+
+        function removeFeaturedImage() {
+            document.getElementById('postImage').value = '';
+            document.getElementById('featuredImagePreview').classList.add('hidden');
+            document.getElementById('imageFileInput').value = '';
+        }
+
+        // === Drag & Drop for Featured Image ===
+        const uploadZone = document.getElementById('imageUploadZone');
+        uploadZone.addEventListener('dragover', function(e) { e.preventDefault(); this.classList.add('dragover'); });
+        uploadZone.addEventListener('dragleave', function() { this.classList.remove('dragover'); });
+        uploadZone.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('image/')) {
+                uploadImageToCloudinary(file);
+            }
+        });
+
         // === Editor Functions ===
         function openEditor() {
             document.getElementById('editorSection').classList.remove('hidden');
-            document.getElementById('editorTitle').textContent = 'Create New Post';
+            document.getElementById('editorTitle').textContent = '✨ Create New Post';
             document.getElementById('editingPostId').value = '';
             document.getElementById('postTitle').value = '';
+            document.getElementById('postSubheading').value = '';
             document.getElementById('postImage').value = '';
             document.getElementById('postDate').value = '';
+            document.getElementById('postCategory').value = '';
             document.getElementById('postExcerpt').value = '';
-            document.getElementById('richEditor').innerHTML = '<p>Start writing your blog post here...</p>';
-            document.getElementById('imagePreviewContainer').classList.add('hidden');
+            document.getElementById('postExcerpt2').value = '';
+            document.getElementById('richEditor').innerHTML = '<p>Start writing your full blog post here...</p>';
+            document.getElementById('featuredImagePreview').classList.add('hidden');
+            document.getElementById('imageFileInput').value = '';
+            document.getElementById('uploadZoneContent').classList.remove('hidden');
+            document.getElementById('uploadProgress').classList.add('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function closeEditor() {
-            if (document.getElementById('richEditor').innerHTML.trim() !== '<p>start writing your blog post here...</p>' && 
-                document.getElementById('richEditor').innerHTML.trim() !== '') {
-                if (!confirm('Close without saving? Changes will be lost.')) return;
-            }
             document.getElementById('editorSection').classList.add('hidden');
             document.getElementById('editingPostId').value = '';
         }
@@ -363,16 +563,23 @@
             const post = posts[index];
             if (!post) return;
             document.getElementById('editorSection').classList.remove('hidden');
-            document.getElementById('editorTitle').textContent = 'Edit Post';
+            document.getElementById('editorTitle').textContent = '✏️ Edit Post';
             document.getElementById('editingPostId').value = index;
             document.getElementById('postTitle').value = post.title || '';
+            document.getElementById('postSubheading').value = post.subheading || '';
             document.getElementById('postImage').value = post.image || '';
             document.getElementById('postDate').value = post.date || '';
+            document.getElementById('postCategory').value = post.category || '';
             document.getElementById('postExcerpt').value = post.excerpt || '';
+            document.getElementById('postExcerpt2').value = post.excerpt2 || '';
             document.getElementById('richEditor').innerHTML = post.content || '<p>Start writing...</p>';
+            document.getElementById('uploadZoneContent').classList.remove('hidden');
+            document.getElementById('uploadProgress').classList.add('hidden');
             if (post.image) {
-                document.getElementById('imagePreview').src = post.image;
-                document.getElementById('imagePreviewContainer').classList.remove('hidden');
+                document.getElementById('featuredImageImg').src = post.image;
+                document.getElementById('featuredImagePreview').classList.remove('hidden');
+            } else {
+                document.getElementById('featuredImagePreview').classList.add('hidden');
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -385,18 +592,32 @@
 
         function savePost() {
             const title = document.getElementById('postTitle').value.trim();
+            const subheading = document.getElementById('postSubheading').value.trim();
             const image = document.getElementById('postImage').value.trim();
             const date = document.getElementById('postDate').value.trim();
+            const category = document.getElementById('postCategory').value;
             const excerpt = document.getElementById('postExcerpt').value.trim();
+            const excerpt2 = document.getElementById('postExcerpt2').value.trim();
             const content = document.getElementById('richEditor').innerHTML.trim();
             const editId = document.getElementById('editingPostId').value;
 
-            if (!title) { alert('Please enter a post title.'); return; }
-            if (!content || content === '<p>start writing your blog post here...</p>') {
-                alert('Please write some content for your post.'); return;
+            if (!title) { alert('Please enter a main heading / title.'); return; }
+            if (!excerpt) { alert('Please write the first paragraph excerpt for the index page preview.'); return; }
+            if (!content || content === '<p>start writing your full blog post here...</p>') {
+                alert('Please write the full blog content.'); return;
             }
 
-            const postData = { title, image, date, excerpt, content };
+            const postData = {
+                title: title,
+                subheading: subheading,
+                image: image,
+                date: date,
+                category: category,
+                excerpt: excerpt,
+                excerpt2: excerpt2,
+                content: content,
+                publishedAt: new Date().toISOString()
+            };
 
             if (editId !== '') {
                 posts[parseInt(editId)] = postData;
@@ -406,15 +627,7 @@
 
             savePostsToStorage();
             closeEditor();
-            alert('✅ Post saved and published!');
-        }
-
-        function previewImage() {
-            const url = document.getElementById('postImage').value.trim();
-            if (url) {
-                document.getElementById('imagePreview').src = url;
-                document.getElementById('imagePreviewContainer').classList.remove('hidden');
-            }
+            alert('✅ Post saved and published successfully!');
         }
 
         // === Rich Text Commands ===
@@ -425,12 +638,16 @@
 
         function insertBlockquote() {
             const selection = window.getSelection();
-            if (selection.rangeCount > 0) {
+            if (selection.rangeCount > 0 && selection.toString().trim()) {
                 const range = selection.getRangeAt(0);
                 const blockquote = document.createElement('blockquote');
-                blockquote.textContent = selection.toString() || 'Enter quote here...';
+                blockquote.textContent = selection.toString();
                 range.deleteContents();
                 range.insertNode(blockquote);
+            } else {
+                const blockquote = document.createElement('blockquote');
+                blockquote.textContent = 'Enter your quote here...';
+                document.getElementById('richEditor').appendChild(blockquote);
             }
         }
 
@@ -451,10 +668,20 @@
             }
         }
 
-        function insertImage() {
-            const url = prompt('Enter image URL (from Cloudinary):', 'https://res.cloudinary.com/dmbjrohtn/image/upload/');
-            if (url) {
-                document.execCommand('insertImage', false, url);
+        function insertTable() {
+            const rows = prompt('Number of rows:', '3');
+            const cols = prompt('Number of columns:', '3');
+            if (rows && cols) {
+                let tableHTML = '<table><thead><tr>';
+                for (let c = 0; c < parseInt(cols); c++) tableHTML += '<th>Header ' + (c+1) + '</th>';
+                tableHTML += '</tr></thead><tbody>';
+                for (let r = 0; r < parseInt(rows) - 1; r++) {
+                    tableHTML += '<tr>';
+                    for (let c = 0; c < parseInt(cols); c++) tableHTML += '<td>Cell</td>';
+                    tableHTML += '</tr>';
+                }
+                tableHTML += '</tbody></table>';
+                document.execCommand('insertHTML', false, tableHTML);
             }
         }
 
@@ -475,10 +702,6 @@
             URL.revokeObjectURL(url);
         }
 
-        function importPostsPrompt() {
-            document.getElementById('importFileInput').click();
-        }
-
         function importPosts(event) {
             const file = event.target.files[0];
             if (!file) return;
@@ -487,35 +710,21 @@
                 try {
                     const imported = JSON.parse(e.target.result);
                     if (Array.isArray(imported)) {
-                        if (confirm(`Import ${imported.length} posts? This will replace all current posts.`)) {
+                        if (confirm(`Import ${imported.length} posts? This will REPLACE all current posts.`)) {
                             posts = imported;
                             savePostsToStorage();
                             alert('✅ Posts imported successfully!');
                         }
                     } else {
-                        alert('Invalid file format.');
+                        alert('Invalid file format. Please use a valid JSON backup file.');
                     }
                 } catch(err) {
-                    alert('Error reading file. Make sure it is a valid JSON file.');
+                    alert('Error reading file. Ensure it is a valid JSON file.');
                 }
             };
             reader.readAsText(file);
             event.target.value = '';
         }
-
-        // Auto-save indicator
-        let autoSaveTimeout;
-        document.getElementById('richEditor').addEventListener('input', function() {
-            clearTimeout(autoSaveTimeout);
-            autoSaveTimeout = setTimeout(() => {
-                const statusEl = document.getElementById('editorTitle');
-                if (statusEl) {
-                    const original = statusEl.textContent;
-                    statusEl.textContent = original.replace(' 💾', '') + ' 💾';
-                    setTimeout(() => { statusEl.textContent = original; }, 1500);
-                }
-            }, 2000);
-        });
     </script>
 </body>
 </html>
