@@ -3,11 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
-    <title>Prophet Samuel Adegboyega - SPAC Worldwide</title>
+    <title>Prophet Samuel Adegboyega - SPAC Worldwide | Helping You Become All God Created You To Be</title>
+    <meta name="description" content="Discover the life-changing ministry of Prophet Samuel Adegboyega. Watch sermons, get daily inspiration, and become all God created you to be. Click to experience transformation.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who is Prophet Samuel Adegboyega?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prophet Samuel Ajayi Adegboyega is a Nigerian pastor, prophet, and philanthropist. He is the Founder and First General Overseer of Salvation Proclaimers Anointed Church (SPAC) Worldwide, headquartered in Ibadan, Nigeria."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Focus For The Future (FFF) program?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FFF is a philanthropic initiative founded by Prophet Samuel Adegboyega dedicated to youth empowerment, educational advancement, scholarships, mentorship, and community development."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is SPAC Worldwide located?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SPAC Worldwide is headquartered in Ibadan, Oyo State, Nigeria, with branches across Nigeria including Lagos and Abeokuta, as well as an international presence in the United Kingdom."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I watch Prophet Samuel Adegboyega's sermons?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can watch his sermons and messages on the official website under the Sermons section, or visit the SPAC Ministry YouTube channel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the SPAC Bible Championship?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is a seasonal scriptural-based competition sponsored personally by Prophet Samuel Adegboyega, designed to root believers deeply in the Word of God."
+          }
+        }
+      ]
+    }
+    </script>
 
     <style>
         :root {
@@ -17,7 +67,6 @@
             --royal-dark: #0b132b;
         }
 
-        /* Base Rescaling for Desktop Feel */
         html { font-size: 14px; }
         body { background-color: #f9fafb; color: #1f2937; overflow-x: hidden; }
         
@@ -25,7 +74,6 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Custom Cursor */
         @media(hover: hover) and (pointer: fine) {
             .custom-cursor { width: 20px; height: 20px; border: 2px solid var(--jom-blue); border-radius: 50%; position: fixed; pointer-events: none; z-index: 99999; transition: width 0.3s, height 0.3s, background 0.3s; transform: translate(-50%, -50%); display: block; }
             .custom-cursor.hover { width: 45px; height: 45px; background: rgba(0, 127, 198, 0.1); border-color: var(--jom-dark-blue); }
@@ -33,7 +81,6 @@
         }
         @media(max-width: 768px), (hover: none) { .custom-cursor { display: none !important; } }
 
-        /* Loader */
         .loader-wrapper { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--royal-dark); display: flex; align-items: center; justify-content: center; z-index: 999999; transition: opacity 0.8s ease, visibility 0.8s ease; }
         .loader-wrapper.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
         .loader-image-container { width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem; border: 3px solid var(--jom-blue); animation: loaderZoom 2s ease-in-out infinite; }
@@ -43,23 +90,26 @@
         .loader-bar-fill { height: 100%; background: var(--jom-blue); animation: loaderBar 1.5s infinite; width: 0%; }
         @keyframes loaderBar { 0% { width: 0; margin-left: 0; } 50% { width: 50%; margin-left: 25%; } 100% { width: 0; margin-left: 100%; } }
 
-        /* Desktop Style Navbar */
         .navbar-scrolled { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
         .navbar-scrolled .nav-link { color: #1f2937; }
         .navbar-scrolled .logo-text { color: var(--jom-blue); }
 
-        /* Hero Slides */
         .hero { position: relative; width: 100%; min-height: 85vh; display: flex; align-items: center; background: #000; overflow: hidden; }
         .hero-slides { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
-        .hero-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.5s ease-in-out, transform 5s linear; transform: scale(1.05); z-index: 0; }
+        .hero-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; opacity: 0; transition: opacity 1.5s ease-in-out, transform 5s linear; transform: scale(1.05); z-index: 0; }
         .hero-slide.active { opacity: 1; transform: scale(1); z-index: 1; }
         .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%); z-index: 2; pointer-events: none; }
         
         .hero-text-shadow { text-shadow: 2px 2px 8px rgba(0,0,0,0.8); }
 
-        /* Book Carousel */
         .book-carousel { display: flex; animation: scrollBooks 12s infinite alternate ease-in-out; }
         @keyframes scrollBooks { 0%, 20% { transform: translateX(0); } 40%, 60% { transform: translateX(-33.33%); } 80%, 100% { transform: translateX(-66.66%); } }
+
+        .lang-dropdown { position: relative; display: inline-block; }
+        .lang-dropdown-content { display: none; position: absolute; top: 100%; right: 0; background: white; min-width: 120px; box-shadow: 0 8px 16px rgba(0,0,0,0.15); border-radius: 4px; z-index: 100; overflow: hidden; }
+        .lang-dropdown:hover .lang-dropdown-content { display: block; }
+        .lang-dropdown-content button { display: block; width: 100%; padding: 10px 16px; text-align: left; border: none; background: none; cursor: pointer; font-size: 12px; font-weight: 600; color: #1f2937; }
+        .lang-dropdown-content button:hover { background: #f3f4f6; color: #007fc6; }
     </style>
 </head>
 <body class="antialiased">
@@ -76,25 +126,28 @@
         </div>
     </div>
 
-    <!-- Header Update: Made responsive so desktop nav shows nicely on mobile too -->
     <header id="navbar" class="fixed w-full top-0 z-50 transition-smooth bg-transparent text-white py-3 px-4 md:px-12 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-0 border-b border-white/10">
         <a href="index.html" class="flex items-center gap-3 z-50 cursor-pointer">
-            <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Logo" class="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover border-2 border-white/50 shadow-md">
-            <span class="logo-text font-bold uppercase tracking-widest text-xs md:text-sm drop-shadow-md">Prophet Samuel Adegboyega</span>
+            <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Logo" class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-white/50 shadow-md">
+            <span class="logo-text font-bold uppercase tracking-widest text-sm md:text-base drop-shadow-md">Prophet Samuel Adegboyega</span>
         </a>
         
-        <!-- Navigation Updates: Increased spacing and made text bolder for clarity -->
         <nav class="flex flex-wrap justify-center items-center gap-5 md:gap-10 font-bold text-[10px] md:text-[12px] tracking-wider uppercase w-full md:w-auto">
             <a href="about.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">About</a>
             <a href="view.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">Sermons</a>
             <a href="FFF.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">FFF</a>
             <a href="adminblog.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">Blog</a>
             <a href="contact.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">Contact</a>
-            <span class="text-white/30 nav-link hidden md:inline">|</span>
-            <a href="cart.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md flex items-center gap-1 relative">
-                🛒 Store <span class="absolute -top-2 -right-3 bg-red-600 text-white text-[9px] rounded-full w-4 h-4 flex items-center justify-center">0</span>
-            </a>
             <button class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md text-sm md:text-lg">🔍</button>
+            
+            <div class="lang-dropdown">
+                <button class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md flex items-center gap-1 text-lg" title="Select Language">🌐</button>
+                <div class="lang-dropdown-content">
+                    <button onclick="switchLanguage('en')">🇬🇧 English</button>
+                    <button onclick="switchLanguage('fr')">🇫🇷 Français</button>
+                    <button onclick="switchLanguage('de')">🇩🇪 Deutsch</button>
+                </div>
+            </div>
         </nav>
     </header>
 
@@ -108,15 +161,13 @@
         </div>
         <div class="hero-overlay"></div>
         
-        <!-- Hero Text and Buttons Update -->
         <div class="relative z-10 w-full max-w-5xl mx-auto px-6 text-center pt-32 mt-16" data-aos="fade-up" data-aos-delay="1800">
-            <h1 class="text-3xl md:text-5xl font-light text-white mb-6 hero-text-shadow leading-tight mt-10 md:mt-0">
+            <h1 class="text-3xl md:text-5xl font-light text-white mb-6 hero-text-shadow leading-tight mt-10 md:mt-0" id="heroTitle">
                 Helping you become all God <br> created you to be.
             </h1>
-            <!-- Replaced flex column with grid to place buttons side-by-side on all screens -->
             <div class="grid grid-cols-2 gap-3 mt-10 max-w-sm mx-auto w-full">
                 <a href="view.html" class="bg-[#007fc6] text-white text-[10px] font-bold px-4 py-3 uppercase tracking-widest shadow-lg hover:bg-[#006096] transition-smooth hover:-translate-y-1 flex items-center justify-center text-center rounded-sm">Watch Live</a>
-                <a href="adminblog.html" class="bg-white/10 backdrop-blur-md border border-white/30 text-white text-[10px] font-bold px-4 py-3 uppercase tracking-widest hover:bg-white/20 transition-smooth hover:-translate-y-1 flex items-center justify-center text-center rounded-sm">Daily Inspiration</a>
+                <a href="FFF.html" class="bg-white/10 backdrop-blur-md border border-white/30 text-white text-[10px] font-bold px-4 py-3 uppercase tracking-widest hover:bg-white/20 transition-smooth hover:-translate-y-1 flex items-center justify-center text-center rounded-sm">Register for FFF</a>
             </div>
         </div>
     </section>
@@ -124,8 +175,8 @@
     <section class="max-w-6xl mx-auto py-20 px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div data-aos="fade-right">
             <span class="text-[10px] font-bold tracking-widest text-[#007fc6] block mb-3 uppercase">Founder & General Overseer</span>
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">About Prophet Samuel Adegboyega</h2>
-            <p class="text-sm text-gray-600 leading-relaxed mb-6 text-justify">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6" id="aboutTitle">About Prophet Samuel Adegboyega</h2>
+            <p class="text-sm text-gray-600 leading-relaxed mb-6 text-justify" id="aboutText">
                 Samuel Ajayi Adegboyega (born 22 June 1945) is a Nigerian pastor, prophet, philanthropist, and Christian leader who serves as the Founder, President, and First General Overseer of the Salvation Proclaimers Anointed Church (SPAC) Worldwide, headquartered in Ibadan, Oyo State, Nigeria. He is widely known for his commitment to prayer, holiness, prophetic ministry, and the transformative power of the Holy Spirit. Beyond his ecclesiastical work, Adegboyega is the founder of Focus for the Future (FFF), a philanthropic initiative dedicated to youth empowerment, educational advancement, and community development. Through FFF, hundreds of students receive scholarships annually, while numerous young people benefit from mentorship, leadership training, and financial support designed to help them realize their potential and contribute meaningfully to society. Over several decades of ministry and humanitarian service, he has earned recognition as a spiritual mentor, educator, and advocate for the advancement of future generations.
             </p>
             <a href="about.html" class="inline-block border-2 border-[#007fc6] text-[#007fc6] hover:bg-[#007fc6] hover:text-white transition-smooth px-8 py-3 text-[11px] font-bold uppercase tracking-widest rounded-sm">Read More Now</a>
@@ -133,7 +184,6 @@
         
         <div class="space-y-6" data-aos="fade-left">
             <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707363/IMG-20260617-WA0007_p9oyh1.jpg" alt="Prophet Samuel" class="w-full h-80 object-cover rounded-sm shadow-xl">
-            <!-- Documentary Image Update -->
             <a href="view.html" class="block relative group rounded-sm overflow-hidden shadow-lg bg-black">
                 <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0009_uekhmr.jpg" alt="Who is Prophet Samuel" class="w-full h-32 object-cover opacity-60 group-hover:scale-105 transition-smooth">
                 <div class="absolute inset-0 flex items-center p-4 gap-4">
@@ -150,7 +200,7 @@
     <section class="relative bg-black text-white py-24 px-6 text-center overflow-hidden">
         <div class="absolute inset-0 bg-cover bg-center opacity-40" style="background-image: url('https://img.youtube.com/vi/qXMHEvXepZM/maxresdefault.jpg');"></div>
         <div class="relative z-10 max-w-3xl mx-auto" data-aos="zoom-in">
-            <h2 class="text-4xl md:text-5xl font-light mb-4 drop-shadow-lg">Anointing and fresh fire convention</h2>
+            <h2 class="text-4xl md:text-5xl font-light mb-4 drop-shadow-lg" id="anointingTitle">Anointing and fresh fire convention</h2>
             <p class="text-xs text-gray-300 mb-8 uppercase tracking-widest font-semibold">Prophet Samuel Adegboyega</p>
             <a href="view.html" class="inline-flex items-center gap-3 bg-[#007fc6] hover:bg-[#006096] transition-smooth text-white text-xs font-bold px-8 py-4 uppercase tracking-widest shadow-xl rounded-sm">
                 <span class="text-xl">▶</span> Watch This Message
@@ -159,18 +209,12 @@
     </section>
 
     <section class="max-w-6xl mx-auto py-16 px-6 grid grid-cols-1 md:grid-cols-2 gap-10">
-        <!-- Video Link Update: Swapped video ID to AP09zlov9f0, updated title to "The prophecy", and directed link to view.html -->
         <a href="view.html" class="group block bg-white rounded-sm shadow-md hover:shadow-xl transition-smooth p-3 border border-gray-100" data-aos="fade-up">
             <div class="relative aspect-video bg-[#0b132b] rounded-sm overflow-hidden mb-4 flex items-center justify-center">
-                <!-- Background Image -->
                 <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=800&q=80" alt="Prophecy Thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700">
-                
-                <!-- The word PROPHECY overlay -->
                 <div class="absolute z-10 text-center pointer-events-none mb-6">
                     <span class="text-white font-black text-2xl md:text-3xl tracking-[0.2em] uppercase drop-shadow-xl">Prophecy</span>
                 </div>
-    
-                <!-- Play Button Overlay -->
                 <div class="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/40 transition-smooth z-20">
                     <div class="w-14 h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#007fc6] shadow-lg text-lg pl-1 mt-8">▶</div>
                 </div>
@@ -229,17 +273,14 @@
         </div>
     </section>
 
-    <!-- Blog Section Update: Removed mock data, added container to load content directly from adminblog.html -->
     <section id="admin-blog-feed" class="bg-[#0b132b] text-white py-20 px-6 border-t-[6px] border-[#007fc6]">
         <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
             <span class="text-[10px] text-[#007fc6] uppercase tracking-widest font-bold mb-8 block">Dynamic Content Feed</span>
             
             <div id="dynamic-blog-content" class="text-sm text-gray-300 space-y-5 text-justify max-w-3xl mx-auto leading-relaxed">
-                <!-- Content will be dynamically fetched and inserted here -->
             </div>
             
             <div class="mt-10">
-                <!-- Blog Link Update -->
                 <a href="adminblog.html" class="inline-block bg-[#007fc6] text-white hover:bg-white hover:text-[#0b132b] transition-smooth px-10 py-3.5 text-[11px] font-bold uppercase tracking-widest rounded-sm">Continue Reading</a>
             </div>
         </div>
@@ -269,10 +310,11 @@
                 <p class="text-sm text-gray-500 mt-2">Not new? <a href="cart.html" class="text-[#007fc6] font-bold hover:underline">Kindly go to cart</a></p>
             </div>
             
-            <form action="cart.html" class="space-y-4">
-                <input type="text" placeholder="First Name" required class="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 text-sm rounded-sm focus:outline-none focus:border-[#007fc6] focus:bg-white transition-smooth">
-                <input type="text" placeholder="Last Name" required class="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 text-sm rounded-sm focus:outline-none focus:border-[#007fc6] focus:bg-white transition-smooth">
-                <input type="email" placeholder="Email Address" required class="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 text-sm rounded-sm focus:outline-none focus:border-[#007fc6] focus:bg-white transition-smooth">
+            <form id="signupForm" class="space-y-4">
+                <input type="text" id="firstName" placeholder="First Name" required class="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 text-sm rounded-sm focus:outline-none focus:border-[#007fc6] focus:bg-white transition-smooth">
+                <input type="text" id="lastName" placeholder="Last Name" required class="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 text-sm rounded-sm focus:outline-none focus:border-[#007fc6] focus:bg-white transition-smooth">
+                <input type="email" id="emailAddress" placeholder="Email Address" required class="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 text-sm rounded-sm focus:outline-none focus:border-[#007fc6] focus:bg-white transition-smooth">
+                <input type="tel" id="whatsappNumber" placeholder="WhatsApp Number" required class="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 text-sm rounded-sm focus:outline-none focus:border-[#007fc6] focus:bg-white transition-smooth">
                 <button type="submit" class="bg-[#0b132b] hover:bg-black text-white font-bold py-4 px-8 uppercase text-[11px] tracking-widest rounded-sm w-full transition-smooth shadow-md mt-2">SIGN UP TO GET A COPY</button>
             </form>
         </div>
@@ -321,7 +363,6 @@
             <h2 class="text-2xl font-bold text-gray-900 mb-3" data-aos="fade-up">Follow Samuel Adegboyega</h2>
             <p class="text-sm text-gray-500 mb-10" data-aos="fade-up" data-aos-delay="100">Stay connected for daily inspiration and prophetic declarations.</p>
             
-            <!-- Inspirational Follow Images Update -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20 max-w-5xl mx-auto">
                 <a href="https://www.instagram.com/samuelajayiadegboyega?igsh=MWphZGd2MWdwOTFmdQ==" target="_blank" class="relative group aspect-square rounded-sm overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="0">
                     <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-smooth">
@@ -375,7 +416,6 @@
         </div>
     </section>
 
-    <!-- Footer Links Updated -->
     <footer class="bg-[#0b132b] text-gray-400 text-xs py-16 px-6 border-t-[8px] border-[#007fc6]">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
             <div>
@@ -411,25 +451,26 @@
 
         <div class="max-w-6xl mx-auto pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left text-[11px]">
             <div>
-                <p class="mb-2 text-gray-500 font-semibold tracking-wider uppercase">Copyright © 2026 SPAC Worldwide Ministry</p>
+                <p class="mb-2 text-gray-500 font-semibold tracking-wider uppercase">Copyright © 2026 Prophet Samuel Adegboyega</p>
                 <div class="space-x-4 text-gray-600">
                     <a href="#" class="hover:text-white transition-colors">Privacy Policy</a><span>|</span><a href="#" class="hover:text-white transition-colors">Terms of Use</a>
                 </div>
+            </div>
+            <div class="text-gray-500">
+                <p>Built by <span class="text-white font-semibold">TRIANGLE Company</span></p>
+                <a href="https://wa.me/2349056658864?text=Hi%20TRIANGLETech%2C%20I%20want%20to%20make%20an%20enquiry%20on%20website%20development" target="_blank" class="text-[#007fc6] hover:text-white transition-colors">09056658864</a>
             </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Preloader Logic
         window.addEventListener('load', () => {
             setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 1500);
         });
 
-        // Initialize Animate On Scroll
         AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
 
-        // Desktop Custom Cursor
         const cursor = document.getElementById('customCursor');
         if (cursor && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
             document.addEventListener('mousemove', (e) => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
@@ -441,14 +482,12 @@
             });
         }
 
-        // Sticky Navbar Effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) { navbar.classList.add('navbar-scrolled', 'shadow-md'); navbar.classList.remove('text-white', 'border-white/10'); } 
             else { navbar.classList.remove('navbar-scrolled', 'shadow-md'); navbar.classList.add('text-white', 'border-white/10'); }
         });
 
-        // Hero Image Cross-Fader
         const slides = document.querySelectorAll('.hero-slide');
         let currentSlide = 0;
         setInterval(() => {
@@ -457,7 +496,6 @@
             slides[currentSlide].classList.add('active');
         }, 5000);
 
-        // Fetch Dynamic Blog Content from adminblog.html
         fetch('adminblog.html')
             .then(response => {
                 if (response.ok) return response.text();
@@ -466,13 +504,76 @@
             .then(html => {
                 const container = document.getElementById('dynamic-blog-content');
                 if (container) {
-                    // This serves as a placeholder to receive the dynamic layout from adminblog.html
-                    // Note: Depending on your exact layout of adminblog.html, you may want to parse it
-                    // and select a specific element to load here instead of raw HTML.
                     container.innerHTML = html;
                 }
             })
             .catch(error => console.log('Dynamic blog will load once site is live on a server.'));
+
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('emailAddress').value.trim();
+            const whatsapp = document.getElementById('whatsappNumber').value.trim();
+            
+            if (!firstName || !lastName || !email || !whatsapp) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            
+            const message = `I need a copy of this book%0A%0AName: ${firstName} ${lastName}%0AEmail: ${email}%0AWhatsApp: ${whatsapp}`;
+            const url = `https://wa.me/2348169172686?text=${message}`;
+            window.open(url, '_blank');
+        });
+
+        const translations = {
+            en: {
+                heroTitle: "Helping you become all God <br> created you to be.",
+                watchLive: "Watch Live",
+                registerFFF: "Register for FFF",
+                aboutTitle: "About Prophet Samuel Adegboyega",
+                aboutText: "Samuel Ajayi Adegboyega (born 22 June 1945) is a Nigerian pastor, prophet, philanthropist, and Christian leader who serves as the Founder, President, and First General Overseer of the Salvation Proclaimers Anointed Church (SPAC) Worldwide, headquartered in Ibadan, Oyo State, Nigeria. He is widely known for his commitment to prayer, holiness, prophetic ministry, and the transformative power of the Holy Spirit. Beyond his ecclesiastical work, Adegboyega is the founder of Focus for the Future (FFF), a philanthropic initiative dedicated to youth empowerment, educational advancement, and community development. Through FFF, hundreds of students receive scholarships annually, while numerous young people benefit from mentorship, leadership training, and financial support designed to help them realize their potential and contribute meaningfully to society. Over several decades of ministry and humanitarian service, he has earned recognition as a spiritual mentor, educator, and advocate for the advancement of future generations.",
+                anointingTitle: "Anointing and fresh fire convention"
+            },
+            fr: {
+                heroTitle: "Vous aider à devenir tout ce que Dieu <br> vous a créé pour être.",
+                watchLive: "Regarder en direct",
+                registerFFF: "S'inscrire au FFF",
+                aboutTitle: "À propos du Prophète Samuel Adegboyega",
+                aboutText: "Samuel Ajayi Adegboyega (né le 22 juin 1945) est un pasteur, prophète, philanthrope et leader chrétien nigérian qui sert en tant que Fondateur, Président et Premier Surveillant Général de l'Église Ointe des Proclamateurs du Salut (SPAC) Worldwide, dont le siège est à Ibadan, dans l'État d'Oyo, au Nigeria. Il est largement connu pour son engagement envers la prière, la sainteté, le ministère prophétique et la puissance transformatrice du Saint-Esprit. Au-delà de son travail ecclésiastique, Adegboyega est le fondateur de Focus for the Future (FFF), une initiative philanthropique dédiée à l'autonomisation des jeunes, à l'avancement éducatif et au développement communautaire. Grâce à FFF, des centaines d'étudiants reçoivent des bourses chaque année, tandis que de nombreux jeunes bénéficient de mentorat, de formation au leadership et de soutien financier conçus pour les aider à réaliser leur potentiel et à contribuer de manière significative à la société. Au cours de plusieurs décennies de ministère et de service humanitaire, il a gagné la reconnaissance en tant que mentor spirituel, éducateur et défenseur de l'avancement des générations futures.",
+                anointingTitle: "Convention d'onction et de feu frais"
+            },
+            de: {
+                heroTitle: "Ihnen helfen, alles zu werden, was Gott <br> für Sie vorgesehen hat.",
+                watchLive: "Live ansehen",
+                registerFFF: "Für FFF registrieren",
+                aboutTitle: "Über Prophet Samuel Adegboyega",
+                aboutText: "Samuel Ajayi Adegboyega (geboren am 22. Juni 1945) ist ein nigerianischer Pastor, Prophet, Philanthrop und christlicher Führer, der als Gründer, Präsident und Erster Generalaufseher der Salvation Proclaimers Anointed Church (SPAC) Worldwide mit Hauptsitz in Ibadan, Oyo State, Nigeria, dient. Er ist weithin bekannt für sein Engagement für Gebet, Heiligkeit, prophetischen Dienst und die transformative Kraft des Heiligen Geistes. Über seine kirchliche Arbeit hinaus ist Adegboyega der Gründer von Focus for the Future (FFF), einer philanthropischen Initiative, die sich der Stärkung der Jugend, der Bildungsförderung und der Gemeindeentwicklung widmet. Durch FFF erhalten jährlich Hunderte von Studenten Stipendien, während zahlreiche junge Menschen von Mentoring, Führungstraining und finanzieller Unterstützung profitieren, die ihnen helfen sollen, ihr Potenzial zu verwirklichen und einen sinnvollen Beitrag zur Gesellschaft zu leisten. Über mehrere Jahrzehnte des Dienstes und humanitären Einsatzes hat er Anerkennung als spiritueller Mentor, Pädagoge und Verfechter der Förderung zukünftiger Generationen erlangt.",
+                anointingTitle: "Salbung und frisches Feuer Konvention"
+            }
+        };
+
+        function switchLanguage(lang) {
+            const t = translations[lang];
+            if (!t) return;
+            
+            document.getElementById('heroTitle').innerHTML = t.heroTitle;
+            
+            const buttons = document.querySelectorAll('.hero .grid a');
+            if (buttons.length >= 2) {
+                buttons[0].textContent = t.watchLive;
+                buttons[1].textContent = t.registerFFF;
+            }
+            
+            const aboutTitleEl = document.getElementById('aboutTitle');
+            if (aboutTitleEl) aboutTitleEl.textContent = t.aboutTitle;
+            
+            const aboutTextEl = document.getElementById('aboutText');
+            if (aboutTextEl) aboutTextEl.textContent = t.aboutText;
+            
+            const anointingTitleEl = document.getElementById('anointingTitle');
+            if (anointingTitleEl) anointingTitleEl.textContent = t.anointingTitle;
+        }
     </script>
 </body>
 </html>
