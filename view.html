@@ -2,107 +2,561 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sermons | Prophet Samuel Adegboyega - SPAC Worldwide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <title>Watch Sermons & Prophetic Messages | Prophet Samuel Adegboyega - SPAC Worldwide</title>
+    <meta name="description" content="Watch life-changing sermons and prophetic messages by Prophet Samuel Adegboyega. Click to experience anointing services, prophecy, Bible Championship, and fresh fire conventions.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Where can I watch Prophet Samuel Adegboyega's sermons?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can watch Prophet Samuel Adegboyega's sermons on the SPAC Worldwide website under the Sermons section, or on the SPAC Ministry YouTube channel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Anointing and Fresh Fire Convention?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Anointing and Fresh Fire Convention is a powerful prophetic gathering led by Prophet Samuel Adegboyega, focused on prayer, the Holy Spirit, and spiritual transformation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I watch the SPAC Bible Championship?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The SPAC Bible Championship is available to watch on the sermons page of the SPAC Worldwide website and on the SPAC Ministry YouTube channel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is Pastor Tobi Adegboyega?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pastor Tobi Adegboyega is the son of Prophet Samuel Adegboyega. He leads SPAC Nxtion Family in the United Kingdom, the international extension of SPAC Worldwide."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are Prophet Samuel Adegboyega's messages available for free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, all sermons and prophetic messages by Prophet Samuel Adegboyega are available to watch for free on the SPAC Worldwide website and YouTube channel."
+          }
+        }
+      ]
+    }
+    </script>
+
     <style>
-        :root { --jom-blue: #007fc6; --royal-dark: #0b132b; }
+        :root {
+            --jom-blue: #007fc6;
+            --jom-dark-blue: #004e7c;
+            --royal-gold: #C8963E;
+            --royal-dark: #0b132b;
+        }
+
+        html { font-size: 14px; }
+        body { background-color: #f9fafb; color: #1f2937; overflow-x: hidden; }
+        
         .transition-smooth { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        @media(hover: hover) and (pointer: fine) {
+            .custom-cursor { width: 20px; height: 20px; border: 2px solid var(--jom-blue); border-radius: 50%; position: fixed; pointer-events: none; z-index: 99999; transition: width 0.3s, height 0.3s, background 0.3s; transform: translate(-50%, -50%); display: block; }
+            .custom-cursor.hover { width: 45px; height: 45px; background: rgba(0, 127, 198, 0.1); border-color: var(--jom-dark-blue); }
+            .custom-cursor.hidden { opacity: 0; }
+        }
+        @media(max-width: 768px), (hover: none) { .custom-cursor { display: none !important; } }
+
+        .loader-wrapper { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--royal-dark); display: flex; align-items: center; justify-content: center; z-index: 999999; transition: opacity 0.8s ease, visibility 0.8s ease; }
+        .loader-wrapper.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        .loader-image-container { width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem; border: 3px solid var(--jom-blue); animation: loaderZoom 2s ease-in-out infinite; }
+        .loader-image-container img { width: 100%; height: 100%; object-fit: cover; }
+        @keyframes loaderZoom { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        .loader-bar { width: 150px; height: 2px; background: rgba(255,255,255,0.1); margin: 1.5rem auto 0; overflow: hidden; }
+        .loader-bar-fill { height: 100%; background: var(--jom-blue); animation: loaderBar 1.5s infinite; width: 0%; }
+        @keyframes loaderBar { 0% { width: 0; margin-left: 0; } 50% { width: 50%; margin-left: 25%; } 100% { width: 0; margin-left: 100%; } }
+
         .navbar-scrolled { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
         .navbar-scrolled .nav-link { color: #1f2937; }
         .navbar-scrolled .logo-text { color: var(--jom-blue); }
+
+        .lang-dropdown { position: relative; display: inline-block; }
+        .lang-dropdown-content { display: none; position: absolute; top: 100%; right: 0; background: white; min-width: 130px; box-shadow: 0 8px 16px rgba(0,0,0,0.15); border-radius: 4px; z-index: 100; overflow: hidden; }
+        .lang-dropdown:hover .lang-dropdown-content { display: block; }
+        .lang-dropdown-content button { display: block; width: 100%; padding: 10px 16px; text-align: left; border: none; background: none; cursor: pointer; font-size: 12px; font-weight: 600; color: #1f2937; white-space: nowrap; }
+        .lang-dropdown-content button:hover { background: #f3f4f6; color: #007fc6; }
+
+        .video-card { position: relative; overflow: hidden; border-radius: 4px; }
+        .video-card .play-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); opacity: 0; transition: all 0.4s ease; z-index: 5; }
+        .video-card:hover .play-overlay { opacity: 1; }
+        .video-card .play-btn { width: 60px; height: 60px; background: var(--jom-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; transform: scale(0.8); transition: all 0.3s ease; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+        .video-card:hover .play-btn { transform: scale(1); }
+        .video-card img { transition: transform 0.6s ease; }
+        .video-card:hover img { transform: scale(1.08); }
+
+        .active-video-indicator { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(0, 127, 198, 0.4); } 50% { box-shadow: 0 0 0 8px rgba(0, 127, 198, 0); } }
+
+        .category-tab { cursor: pointer; transition: all 0.3s ease; }
+        .category-tab.active { background: var(--jom-blue); color: white; border-color: var(--jom-blue); }
+
+        #mainPlayerContainer { position: relative; }
+        #mainPlayerContainer::before { content: ''; position: absolute; inset: -4px; border-radius: 6px; background: linear-gradient(135deg, var(--jom-blue), var(--royal-gold), var(--jom-dark-blue)); z-index: -1; opacity: 0.6; }
     </style>
 </head>
-<body class="antialiased bg-gray-50">
+<body class="antialiased">
 
-    <!-- Header (Matching index.html) -->
-    <header id="navbar" class="fixed w-full top-0 z-50 transition-smooth bg-white text-[#1f2937] py-3 px-4 md:px-12 flex flex-col md:flex-row justify-between items-center gap-3 border-b border-gray-200">
-        <a href="index.html" class="flex items-center gap-3 z-50">
-            <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Logo" class="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover border-2 border-[#007fc6]">
-            <span class="logo-text font-bold uppercase tracking-widest text-xs md:text-sm">Prophet Samuel Adegboyega</span>
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <div class="loader-wrapper" id="loader">
+        <div class="text-center">
+            <div class="loader-image-container">
+                <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Loading">
+            </div>
+            <h2 class="text-white text-sm tracking-widest font-bold uppercase">Prophet Samuel Adegboyega</h2>
+            <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+        </div>
+    </div>
+
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-smooth bg-[#0b132b] text-white py-3 px-4 md:px-12 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-0 border-b border-white/10">
+        <a href="index.html" class="flex items-center gap-3 z-50 cursor-pointer">
+            <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Logo" class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-white/50 shadow-md">
+            <span class="logo-text font-bold uppercase tracking-widest text-sm md:text-base drop-shadow-md">Prophet Samuel Adegboyega</span>
         </a>
-        <nav class="flex flex-wrap justify-center items-center gap-5 md:gap-10 font-bold text-[10px] md:text-[12px] tracking-wider uppercase">
-            <a href="about.html" class="nav-link hover:text-[#007fc6]">About</a>
-            <a href="view.html" class="nav-link text-[#007fc6]">Sermons</a>
-            <a href="FFF.html" class="nav-link hover:text-[#007fc6]">FFF</a>
-            <a href="adminblog.html" class="nav-link hover:text-[#007fc6]">Blog</a>
-            <a href="contact.html" class="nav-link hover:text-[#007fc6]">Contact</a>
+        
+        <nav class="flex flex-wrap justify-center items-center gap-5 md:gap-10 font-bold text-[10px] md:text-[12px] tracking-wider uppercase w-full md:w-auto">
+            <a href="about.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navAbout">About</a>
+            <a href="view.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md text-[#007fc6]" data-translate="navSermons">Sermons</a>
+            <a href="FFF.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">FFF</a>
+            <a href="adminblog.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navBlog">Blog</a>
+            <a href="contact.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navContact">Contact</a>
+            <button class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md text-sm md:text-lg">🔍</button>
+            
+            <div class="lang-dropdown">
+                <button class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md flex items-center gap-1 text-lg" title="Select Language">🌐</button>
+                <div class="lang-dropdown-content">
+                    <button onclick="switchLanguage('en')">🇬🇧 English</button>
+                    <button onclick="switchLanguage('fr')">🇫🇷 Français</button>
+                    <button onclick="switchLanguage('de')">🇩🇪 Deutsch</button>
+                    <button onclick="switchLanguage('yo')">🇳🇬 Yoruba</button>
+                    <button onclick="switchLanguage('ha')">🇳🇬 Hausa</button>
+                    <button onclick="switchLanguage('ig')">🇳🇬 Igbo</button>
+                </div>
+            </div>
         </nav>
     </header>
 
-    <!-- Hero Video Viewing Center -->
-    <section class="pt-24 pb-10 px-6 bg-black">
+    <!-- Hero Video Player Section -->
+    <section class="pt-28 pb-12 px-6 bg-gradient-to-b from-[#0b132b] via-[#0b132b] to-[#1a1a2e]">
         <div class="max-w-5xl mx-auto">
-            <div id="videoContainer" class="w-full aspect-video bg-black shadow-2xl border border-gray-800 rounded-sm overflow-hidden">
+            <span class="text-[#007fc6] font-bold tracking-[0.3em] uppercase text-xs mb-4 block text-center" data-translate="nowPlaying">Now Playing</span>
+            <div id="mainPlayerContainer" class="relative w-full aspect-video bg-black shadow-2xl rounded-sm overflow-hidden active-video-indicator">
                 <iframe id="mainPlayer" class="w-full h-full" 
                     src="https://www.youtube-nocookie.com/embed/qXMHEvXepZM?rel=0&modestbranding=1&autoplay=1" 
                     allow="autoplay; encrypted-media; picture-in-picture" 
                     allowfullscreen>
                 </iframe>
             </div>
-            <div class="mt-6 text-center text-white">
-                <h2 id="videoTitle" class="text-2xl font-bold">Anointing and fresh fire convention</h2>
+            <div class="mt-6 text-center text-white" data-aos="fade-up">
+                <h2 id="videoTitle" class="text-2xl md:text-3xl font-bold">Anointing and fresh fire convention</h2>
                 <p class="text-[#007fc6] text-[10px] uppercase tracking-widest mt-2 font-bold">Prophet Samuel Adegboyega</p>
+                <div class="flex items-center justify-center gap-6 mt-4 text-xs text-gray-400">
+                    <span id="videoViews">👁 12.5k views</span>
+                    <span id="videoDuration">⏱ 2:34:18</span>
+                    <span id="videoDate">📅 June 2025</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Library Grid -->
-    <main class="max-w-6xl mx-auto py-20 px-6">
-        <h3 class="text-xl font-bold mb-10 uppercase tracking-widest border-l-4 border-[#007fc6] pl-4">Sermon Library</h3>
+    <!-- Category Filter Tabs -->
+    <section class="max-w-6xl mx-auto pt-12 px-6">
+        <div class="flex flex-wrap justify-center gap-3" data-aos="fade-up">
+            <button class="category-tab active px-6 py-2.5 border-2 border-[#007fc6] text-[#007fc6] rounded-full text-[11px] font-bold uppercase tracking-widest bg-[#007fc6] text-white" onclick="filterVideos('all', this)" data-translate="catAll">All Messages</button>
+            <button class="category-tab px-6 py-2.5 border-2 border-gray-300 text-gray-600 rounded-full text-[11px] font-bold uppercase tracking-widest hover:border-[#007fc6] hover:text-[#007fc6]" onclick="filterVideos('convention', this)" data-translate="catConvention">Conventions</button>
+            <button class="category-tab px-6 py-2.5 border-2 border-gray-300 text-gray-600 rounded-full text-[11px] font-bold uppercase tracking-widest hover:border-[#007fc6] hover:text-[#007fc6]" onclick="filterVideos('prophecy', this)" data-translate="catProphecy">Prophecy</button>
+            <button class="category-tab px-6 py-2.5 border-2 border-gray-300 text-gray-600 rounded-full text-[11px] font-bold uppercase tracking-widest hover:border-[#007fc6] hover:text-[#007fc6]" onclick="filterVideos('service', this)" data-translate="catService">Anointing Services</button>
+            <button class="category-tab px-6 py-2.5 border-2 border-gray-300 text-gray-600 rounded-full text-[11px] font-bold uppercase tracking-widest hover:border-[#007fc6] hover:text-[#007fc6]" onclick="filterVideos('bible', this)" data-translate="catBible">Bible Championship</button>
+        </div>
+    </section>
+
+    <!-- Video Library Grid -->
+    <main class="max-w-6xl mx-auto py-16 px-6">
+        <div class="flex items-center gap-4 mb-10">
+            <h3 class="text-xl font-bold uppercase tracking-widest border-l-4 border-[#007fc6] pl-4" data-translate="sermonLibrary">Sermon Library</h3>
+            <span class="text-xs text-gray-400" id="videoCount">5 messages</span>
+        </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10" id="videoGrid">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="videoGrid">
             
-            <!-- Video 1 -->
-            <div class="cursor-pointer group" onclick="playVideo('qXMHEvXepZM', 'Anointing and fresh fire convention')">
-                <div class="relative aspect-video rounded-sm overflow-hidden shadow-md group-hover:shadow-xl transition-smooth">
-                    <img src="https://img.youtube.com/vi/qXMHEvXepZM/maxresdefault.jpg" class="w-full h-full object-cover">
+            <!-- Video 1: Convention -->
+            <div class="cursor-pointer group video-card shadow-lg hover:shadow-2xl transition-smooth bg-white rounded-sm" data-aos="fade-up" data-category="convention" onclick="playVideo('qXMHEvXepZM', 'Anointing and fresh fire convention', '12.5k views', '2:34:18', 'June 2025')">
+                <div class="relative aspect-video overflow-hidden">
+                    <img src="https://img.youtube.com/vi/qXMHEvXepZM/maxresdefault.jpg" class="w-full h-full object-cover" alt="Anointing and fresh fire convention">
+                    <div class="play-overlay">
+                        <div class="play-btn">▶</div>
+                    </div>
+                    <div class="absolute top-3 right-3 bg-[#007fc6] text-white text-[9px] font-bold px-2.5 py-1 rounded-sm uppercase tracking-wider">Convention</div>
+                    <div class="absolute bottom-3 right-3 bg-black/80 text-white text-[9px] font-bold px-2 py-0.5 rounded-sm">2:34:18</div>
                 </div>
-                <h4 class="mt-4 font-bold text-gray-900 group-hover:text-[#007fc6]">Anointing and fresh fire convention</h4>
+                <div class="p-4">
+                    <h4 class="font-bold text-gray-900 group-hover:text-[#007fc6] transition-smooth text-sm">Anointing and fresh fire convention</h4>
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Prophet Samuel Adegboyega</p>
+                    <div class="flex items-center gap-3 mt-3 text-[10px] text-gray-400">
+                        <span>👁 12.5k</span>
+                        <span>📅 June 2025</span>
+                    </div>
+                </div>
             </div>
 
             <!-- Video 2: Prophecy -->
-            <div class="cursor-pointer group" onclick="playVideo('AP09zlov9f0', 'The prophecy')">
-                <div class="relative aspect-video rounded-sm overflow-hidden shadow-md group-hover:shadow-xl transition-smooth bg-[#0b132b] flex items-center justify-center">
-                    <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-50">
-                    <span class="absolute text-white font-black text-2xl uppercase tracking-[0.2em] drop-shadow-xl">Prophecy</span>
+            <div class="cursor-pointer group video-card shadow-lg hover:shadow-2xl transition-smooth bg-white rounded-sm" data-aos="fade-up" data-aos-delay="100" data-category="prophecy" onclick="playVideo('AP09zlov9f0', 'The prophecy', '8.2k views', '1:47:05', 'May 2025')">
+                <div class="relative aspect-video overflow-hidden bg-[#0b132b]">
+                    <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-50" alt="The prophecy">
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <span class="text-white font-black text-xl md:text-2xl tracking-[0.2em] uppercase drop-shadow-xl">Prophecy</span>
+                    </div>
+                    <div class="play-overlay">
+                        <div class="play-btn">▶</div>
+                    </div>
+                    <div class="absolute top-3 right-3 bg-[#C8963E] text-white text-[9px] font-bold px-2.5 py-1 rounded-sm uppercase tracking-wider">Prophecy</div>
+                    <div class="absolute bottom-3 right-3 bg-black/80 text-white text-[9px] font-bold px-2 py-0.5 rounded-sm">1:47:05</div>
                 </div>
-                <h4 class="mt-4 font-bold text-gray-900 group-hover:text-[#007fc6]">The prophecy</h4>
+                <div class="p-4">
+                    <h4 class="font-bold text-gray-900 group-hover:text-[#007fc6] transition-smooth text-sm">The prophecy</h4>
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Prophet Samuel Adegboyega</p>
+                    <div class="flex items-center gap-3 mt-3 text-[10px] text-gray-400">
+                        <span>👁 8.2k</span>
+                        <span>📅 May 2025</span>
+                    </div>
+                </div>
             </div>
 
-            <!-- Video 3 -->
-            <div class="cursor-pointer group" onclick="playVideo('ZsWstXAwBgE', 'The only thing that provoke God\'s blessings')">
-                <div class="relative aspect-video rounded-sm overflow-hidden shadow-md group-hover:shadow-xl transition-smooth">
-                    <img src="https://img.youtube.com/vi/ZsWstXAwBgE/maxresdefault.jpg" class="w-full h-full object-cover">
+            <!-- Video 3: Convention -->
+            <div class="cursor-pointer group video-card shadow-lg hover:shadow-2xl transition-smooth bg-white rounded-sm" data-aos="fade-up" data-aos-delay="200" data-category="convention" onclick="playVideo('ZsWstXAwBgE', 'The only thing that provoke God\'s blessings', '6.8k views', '1:55:42', 'April 2025')">
+                <div class="relative aspect-video overflow-hidden">
+                    <img src="https://img.youtube.com/vi/ZsWstXAwBgE/maxresdefault.jpg" class="w-full h-full object-cover" alt="Provoke God's blessings">
+                    <div class="play-overlay">
+                        <div class="play-btn">▶</div>
+                    </div>
+                    <div class="absolute top-3 right-3 bg-[#007fc6] text-white text-[9px] font-bold px-2.5 py-1 rounded-sm uppercase tracking-wider">Convention</div>
+                    <div class="absolute bottom-3 right-3 bg-black/80 text-white text-[9px] font-bold px-2 py-0.5 rounded-sm">1:55:42</div>
                 </div>
-                <h4 class="mt-4 font-bold text-gray-900 group-hover:text-[#007fc6]">The only thing that provoke God's blessings</h4>
+                <div class="p-4">
+                    <h4 class="font-bold text-gray-900 group-hover:text-[#007fc6] transition-smooth text-sm">The only thing that provoke God's blessings</h4>
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Prophet Samuel Adegboyega</p>
+                    <div class="flex items-center gap-3 mt-3 text-[10px] text-gray-400">
+                        <span>👁 6.8k</span>
+                        <span>📅 April 2025</span>
+                    </div>
+                </div>
             </div>
 
-            <!-- Video 4 -->
-            <div class="cursor-pointer group" onclick="playVideo('y4OyVOLJGAI', 'Anointing Service')">
-                <div class="relative aspect-video rounded-sm overflow-hidden shadow-md group-hover:shadow-xl transition-smooth">
-                    <img src="https://img.youtube.com/vi/y4OyVOLJGAI/maxresdefault.jpg" class="w-full h-full object-cover">
+            <!-- Video 4: Service -->
+            <div class="cursor-pointer group video-card shadow-lg hover:shadow-2xl transition-smooth bg-white rounded-sm" data-aos="fade-up" data-category="service" onclick="playVideo('y4OyVOLJGAI', 'Anointing Service', '9.1k views', '2:12:30', 'March 2025')">
+                <div class="relative aspect-video overflow-hidden">
+                    <img src="https://img.youtube.com/vi/y4OyVOLJGAI/maxresdefault.jpg" class="w-full h-full object-cover" alt="Anointing Service">
+                    <div class="play-overlay">
+                        <div class="play-btn">▶</div>
+                    </div>
+                    <div class="absolute top-3 right-3 bg-[#004e7c] text-white text-[9px] font-bold px-2.5 py-1 rounded-sm uppercase tracking-wider">Service</div>
+                    <div class="absolute bottom-3 right-3 bg-black/80 text-white text-[9px] font-bold px-2 py-0.5 rounded-sm">2:12:30</div>
                 </div>
-                <h4 class="mt-4 font-bold text-gray-900 group-hover:text-[#007fc6]">Anointing Service</h4>
+                <div class="p-4">
+                    <h4 class="font-bold text-gray-900 group-hover:text-[#007fc6] transition-smooth text-sm">Anointing Service</h4>
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Prophet Samuel Adegboyega</p>
+                    <div class="flex items-center gap-3 mt-3 text-[10px] text-gray-400">
+                        <span>👁 9.1k</span>
+                        <span>📅 March 2025</span>
+                    </div>
+                </div>
             </div>
 
-            <!-- Video 5 -->
-            <div class="cursor-pointer group" onclick="playVideo('9bzefYiLSQQ', 'SPAC Bible Championship')">
-                <div class="relative aspect-video rounded-sm overflow-hidden shadow-md group-hover:shadow-xl transition-smooth">
-                    <img src="https://img.youtube.com/vi/9bzefYiLSQQ/maxresdefault.jpg" class="w-full h-full object-cover">
+            <!-- Video 5: Bible -->
+            <div class="cursor-pointer group video-card shadow-lg hover:shadow-2xl transition-smooth bg-white rounded-sm" data-aos="fade-up" data-aos-delay="100" data-category="bible" onclick="playVideo('9bzefYiLSQQ', 'SPAC Bible Championship', '11.3k views', '3:05:22', 'February 2025')">
+                <div class="relative aspect-video overflow-hidden">
+                    <img src="https://img.youtube.com/vi/9bzefYiLSQQ/maxresdefault.jpg" class="w-full h-full object-cover" alt="Bible Championship">
+                    <div class="play-overlay">
+                        <div class="play-btn">▶</div>
+                    </div>
+                    <div class="absolute top-3 right-3 bg-[#C8963E] text-white text-[9px] font-bold px-2.5 py-1 rounded-sm uppercase tracking-wider">Bible</div>
+                    <div class="absolute bottom-3 right-3 bg-black/80 text-white text-[9px] font-bold px-2 py-0.5 rounded-sm">3:05:22</div>
                 </div>
-                <h4 class="mt-4 font-bold text-gray-900 group-hover:text-[#007fc6]">SPAC Bible Championship</h4>
+                <div class="p-4">
+                    <h4 class="font-bold text-gray-900 group-hover:text-[#007fc6] transition-smooth text-sm">SPAC Bible Championship</h4>
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Prophet Samuel Adegboyega</p>
+                    <div class="flex items-center gap-3 mt-3 text-[10px] text-gray-400">
+                        <span>👁 11.3k</span>
+                        <span>📅 February 2025</span>
+                    </div>
+                </div>
             </div>
+
+            <!-- Video 6: Service -->
+            <div class="cursor-pointer group video-card shadow-lg hover:shadow-2xl transition-smooth bg-white rounded-sm" data-aos="fade-up" data-aos-delay="200" data-category="service" onclick="playVideo('qXMHEvXepZM', 'Fresh Fire Impartation Service', '7.4k views', '1:38:55', 'January 2025')">
+                <div class="relative aspect-video overflow-hidden">
+                    <img src="https://img.youtube.com/vi/qXMHEvXepZM/maxresdefault.jpg" class="w-full h-full object-cover" alt="Fresh Fire">
+                    <div class="play-overlay">
+                        <div class="play-btn">▶</div>
+                    </div>
+                    <div class="absolute top-3 right-3 bg-[#004e7c] text-white text-[9px] font-bold px-2.5 py-1 rounded-sm uppercase tracking-wider">Service</div>
+                    <div class="absolute bottom-3 right-3 bg-black/80 text-white text-[9px] font-bold px-2 py-0.5 rounded-sm">1:38:55</div>
+                </div>
+                <div class="p-4">
+                    <h4 class="font-bold text-gray-900 group-hover:text-[#007fc6] transition-smooth text-sm">Fresh Fire Impartation Service</h4>
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Prophet Samuel Adegboyega</p>
+                    <div class="flex items-center gap-3 mt-3 text-[10px] text-gray-400">
+                        <span>👁 7.4k</span>
+                        <span>📅 January 2025</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 
+    <!-- YouTube CTA Section -->
+    <section class="bg-[#0b132b] py-16 px-6 border-t-[6px] border-[#007fc6]" data-aos="fade-up">
+        <div class="max-w-4xl mx-auto text-center text-white">
+            <h2 class="text-3xl font-bold mb-4" data-translate="subscribeTitle">Never Miss a Message</h2>
+            <p class="text-gray-400 text-sm mb-8" data-translate="subscribeText">Subscribe to the SPAC Ministry YouTube channel and be the first to watch powerful sermons and prophetic declarations.</p>
+            <a href="https://youtube.com/@spacministryintl?si=c3IiCAbYjDl8hKKi" target="_blank" class="inline-flex items-center gap-3 bg-red-600 hover:bg-red-700 transition-smooth text-white font-bold px-10 py-4 uppercase tracking-widest text-[11px] rounded-sm shadow-xl">
+                <span class="text-xl">▶</span> <span data-translate="subscribeBtn">Subscribe on YouTube</span>
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-[#0b132b] text-gray-400 text-xs py-16 px-6 border-t-[8px] border-[#007fc6]">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            <div>
+                <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Logo" class="w-16 h-16 rounded-full object-cover border-2 border-gray-700 mb-6 opacity-80">
+                <p class="leading-relaxed pr-4 text-sm" data-translate="footerDesc">Helping you become all God created you to be through the power of the Holy Spirit, prayer, and prophetic declarations.</p>
+            </div>
+            <div>
+                <h5 class="text-white font-bold uppercase mb-6 tracking-widest text-[11px] border-b border-gray-800 pb-2 inline-block" data-translate="footerMinistry">Our Ministry</h5>
+                <ul class="space-y-3">
+                    <li><a href="about.html" class="hover:text-white transition-colors" data-translate="footerAboutProphet">About Prophet Samuel</a></li>
+                    <li><a href="about.html" class="hover:text-white transition-colors" data-translate="footerAboutSpac">About SPAC Worldwide</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors" data-translate="footerBranch">Find a Branch</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors" data-translate="footerContact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white font-bold uppercase mb-6 tracking-widest text-[11px] border-b border-gray-800 pb-2 inline-block" data-translate="footerMedia">Media & Store</h5>
+                <ul class="space-y-3">
+                    <li><a href="view.html" class="hover:text-white transition-colors" data-translate="footerWatch">Watch Messages</a></li>
+                    <li><a href="adminblog.html" class="hover:text-white transition-colors" data-translate="footerBlog">Daily Inspiration Blog</a></li>
+                    <li><a href="cart.html" class="hover:text-white transition-colors" data-translate="footerStore">Bookstore</a></li>
+                    <li><a href="cart.html" class="hover:text-white transition-colors" data-translate="footerBook">The Road Less Travelled</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white font-bold uppercase mb-6 tracking-widest text-[11px] border-b border-gray-800 pb-2 inline-block" data-translate="footerInitiatives">Initiatives</h5>
+                <ul class="space-y-3">
+                    <li><a href="FFF.html" class="hover:text-white transition-colors">Focus For The Future (FFF)</a></li>
+                    <li><a href="about.html" class="hover:text-white transition-colors" data-translate="footerBible">SPAC Bible Championship</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left text-[11px]">
+            <div>
+                <p class="mb-2 text-gray-500 font-semibold tracking-wider uppercase">Copyright © 2026 Prophet Samuel Adegboyega</p>
+                <div class="space-x-4 text-gray-600">
+                    <a href="#" class="hover:text-white transition-colors" data-translate="privacy">Privacy Policy</a><span>|</span><a href="#" class="hover:text-white transition-colors" data-translate="terms">Terms of Use</a>
+                </div>
+            </div>
+            <div class="text-gray-500">
+                <p>Built by <span class="text-white font-semibold">TRIANGLE Company</span></p>
+                <a href="https://wa.me/2349056658864?text=Hi%20TRIANGLETech%2C%20I%20want%20to%20make%20an%20enquiry%20on%20website%20development" target="_blank" class="text-[#007fc6] hover:text-white transition-colors">09056658864</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        function playVideo(id, title) {
+        window.addEventListener('load', () => { setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 1500); });
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+
+        const cursor = document.getElementById('customCursor');
+        if (cursor && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            document.addEventListener('mousemove', (e) => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
+            document.addEventListener('mouseleave', () => cursor.classList.add('hidden'));
+            document.addEventListener('mouseenter', () => cursor.classList.remove('hidden'));
+            document.querySelectorAll('a, button, .video-card').forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+            });
+        }
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { navbar.classList.add('navbar-scrolled', 'shadow-md'); } 
+            else { navbar.classList.remove('navbar-scrolled', 'shadow-md'); }
+        });
+
+        let currentVideoId = 'qXMHEvXepZM';
+
+        function playVideo(id, title, views, duration, date) {
+            currentVideoId = id;
             const player = document.getElementById('mainPlayer');
             const titleEl = document.getElementById('videoTitle');
+            const viewsEl = document.getElementById('videoViews');
+            const durationEl = document.getElementById('videoDuration');
+            const dateEl = document.getElementById('videoDate');
+            
             player.src = `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1&autoplay=1`;
             titleEl.innerText = title;
+            if (viewsEl) viewsEl.innerText = '👁 ' + views;
+            if (durationEl) durationEl.innerText = '⏱ ' + duration;
+            if (dateEl) dateEl.innerText = '📅 ' + date;
+            
+            document.getElementById('mainPlayerContainer').classList.add('active-video-indicator');
+            setTimeout(() => {
+                document.getElementById('mainPlayerContainer').classList.remove('active-video-indicator');
+            }, 2000);
+            
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function filterVideos(category, btn) {
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.classList.remove('active', 'bg-[#007fc6]', 'text-white', 'border-[#007fc6]');
+                tab.classList.add('border-gray-300', 'text-gray-600');
+            });
+            btn.classList.add('active', 'bg-[#007fc6]', 'text-white', 'border-[#007fc6]');
+            btn.classList.remove('border-gray-300', 'text-gray-600');
+            
+            const cards = document.querySelectorAll('#videoGrid > div');
+            let visibleCount = 0;
+            
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = '';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            document.getElementById('videoCount').textContent = visibleCount + ' messages';
+        }
+
+        const translations = {
+            en: {
+                navAbout:"About",navSermons:"Sermons",navBlog:"Blog",navContact:"Contact",
+                nowPlaying:"Now Playing",
+                videoTitle:"Anointing and fresh fire convention",
+                catAll:"All Messages",catConvention:"Conventions",catProphecy:"Prophecy",catService:"Anointing Services",catBible:"Bible Championship",
+                sermonLibrary:"Sermon Library",
+                subscribeTitle:"Never Miss a Message",
+                subscribeText:"Subscribe to the SPAC Ministry YouTube channel and be the first to watch powerful sermons and prophetic declarations.",
+                subscribeBtn:"Subscribe on YouTube",
+                footerDesc:"Helping you become all God created you to be through the power of the Holy Spirit, prayer, and prophetic declarations.",
+                footerMinistry:"Our Ministry",footerAboutProphet:"About Prophet Samuel",footerAboutSpac:"About SPAC Worldwide",footerBranch:"Find a Branch",footerContact:"Contact Us",
+                footerMedia:"Media & Store",footerWatch:"Watch Messages",footerBlog:"Daily Inspiration Blog",footerStore:"Bookstore",footerBook:"The Road Less Travelled",
+                footerInitiatives:"Initiatives",footerBible:"SPAC Bible Championship",
+                privacy:"Privacy Policy",terms:"Terms of Use"
+            },
+            fr: {
+                navAbout:"À propos",navSermons:"Sermons",navBlog:"Blog",navContact:"Contact",
+                nowPlaying:"En Cours de Lecture",
+                videoTitle:"Convention d'onction et de feu frais",
+                catAll:"Tous les Messages",catConvention:"Conventions",catProphecy:"Prophétie",catService:"Services d'Onction",catBible:"Championnat Biblique",
+                sermonLibrary:"Bibliothèque de Sermons",
+                subscribeTitle:"Ne Manquez Jamais un Message",
+                subscribeText:"Abonnez-vous à la chaîne YouTube de SPAC Ministry et soyez le premier à regarder des sermons puissants et des déclarations prophétiques.",
+                subscribeBtn:"S'abonner sur YouTube",
+                footerDesc:"Vous aider à devenir tout ce que Dieu vous a créé pour être par la puissance du Saint-Esprit, la prière et les déclarations prophétiques.",
+                footerMinistry:"Notre Ministère",footerAboutProphet:"À propos du Prophète Samuel",footerAboutSpac:"À propos de SPAC Worldwide",footerBranch:"Trouver une Branche",footerContact:"Contactez-Nous",
+                footerMedia:"Médias & Boutique",footerWatch:"Voir les Messages",footerBlog:"Blog d'Inspiration Quotidienne",footerStore:"Librairie",footerBook:"Le Chemin Le Moins Fréquenté",
+                footerInitiatives:"Initiatives",footerBible:"Championnat Biblique SPAC",
+                privacy:"Politique de Confidentialité",terms:"Conditions d'Utilisation"
+            },
+            de: {
+                navAbout:"Über",navSermons:"Predigten",navBlog:"Blog",navContact:"Kontakt",
+                nowPlaying:"Jetzt Läuft",
+                videoTitle:"Salbung und frisches Feuer Konvention",
+                catAll:"Alle Botschaften",catConvention:"Konventionen",catProphecy:"Prophetie",catService:"Salbungsgottesdienste",catBible:"Bibelmeisterschaft",
+                sermonLibrary:"Predigtbibliothek",
+                subscribeTitle:"Verpassen Sie Keine Botschaft",
+                subscribeText:"Abonnieren Sie den YouTube-Kanal von SPAC Ministry und sehen Sie als Erster kraftvolle Predigten und prophetische Erklärungen.",
+                subscribeBtn:"Auf YouTube Abonnieren",
+                footerDesc:"Ihnen helfen, alles zu werden, was Gott für Sie vorgesehen hat, durch die Kraft des Heiligen Geistes, Gebet und prophetische Erklärungen.",
+                footerMinistry:"Unser Dienst",footerAboutProphet:"Über Prophet Samuel",footerAboutSpac:"Über SPAC Worldwide",footerBranch:"Eine Gemeinde Finden",footerContact:"Kontaktieren Sie Uns",
+                footerMedia:"Medien & Shop",footerWatch:"Botschaften Ansehen",footerBlog:"Täglicher Inspirationsblog",footerStore:"Buchhandlung",footerBook:"Der Weniger Begangene Weg",
+                footerInitiatives:"Initiativen",footerBible:"SPAC Bibelmeisterschaft",
+                privacy:"Datenschutzrichtlinie",terms:"Nutzungsbedingungen"
+            },
+            yo: {
+                navAbout:"Nipa",navSermons:"Awọn Iwaasu",navBlog:"Bulọọgi",navContact:"Kan si",
+                nowPlaying:"Ti N Ṣiṣẹ Bayi",
+                videoTitle:"Apejọ Ẹni-ami-ororo ati Ina Titun",
+                catAll:"Gbogbo Awọn Ifiranṣẹ",catConvention:"Awọn Apejọ",catProphecy:"Asọtẹlẹ",catService:"Awọn Iṣẹ Ẹni-ami-ororo",catBible:"Idije Bibeli",
+                sermonLibrary:"Ibi-ipamọ Iwaasu",
+                subscribeTitle:"Maṣe Padanu Ifiranṣẹ Kan",
+                subscribeText:"Ṣe alabapin si ikanni YouTube ti Iṣẹ-iranṣẹ SPAC ki o jẹ ẹni akọkọ lati wo awọn iwaasu alagbara ati awọn ikede woli.",
+                subscribeBtn:"Ṣe Alabapin lori YouTube",
+                footerDesc:"Ṣe iranlọwọ fun ọ lati di gbogbo ohun ti Ọlọrun dá ọ lati jẹ nipasẹ agbara Ẹmi Mimọ, adura, ati awọn ikede woli.",
+                footerMinistry:"Iṣẹ-iranṣẹ Wa",footerAboutProphet:"Nipa Woli Samuel",footerAboutSpac:"Nipa SPAC Kariaye",footerBranch:"Wa Ẹka Kan",footerContact:"Kan Si Wa",
+                footerMedia:"Media & Ile-itaja",footerWatch:"Wo Awọn Ifiranṣẹ",footerBlog:"Bulọọgi Awokose Ojoojumọ",footerStore:"Ile-itaja Iwe",footerBook:"Ọna Ti A Ko Rin Pupọ",
+                footerInitiatives:"Awọn Ipilẹṣẹ",footerBible:"Idije Bibeli SPAC",
+                privacy:"Ilana Aṣiri",terms:"Awọn Ofin Lilo"
+            },
+            ha: {
+                navAbout:"Game da",navSermons:"Wa'azai",navBlog:"Bulog",navContact:"Tuntuɓi",
+                nowPlaying:"Ana Kunnawa Yanzu",
+                videoTitle:"Taron Shafawa da Sabon Wuta",
+                catAll:"Duk Saƙonni",catConvention:"Tarurruka",catProphecy:"Annabci",catService:"Hidimomin Shafawa",catBible:"Gasar Littafi Mai Tsarki",
+                sermonLibrary:"Laburaren Wa'azai",
+                subscribeTitle:"Kada Ka Taɓa Rasa Saƙo",
+                subscribeText:"Yi subscribing zuwa tashar YouTube na SPAC Ministry kuma ka kasance farkon wanda zai kalli wa'azai masu ƙarfi da shelar annabci.",
+                subscribeBtn:"Subscribe a YouTube",
+                footerDesc:"Taimaka muku zama duk abin da Allah ya halicce ku ku zama ta wurin ikon Ruhu Mai Tsarki, addu'a, da shelar annabci.",
+                footerMinistry:"Hidimarmu",footerAboutProphet:"Game da Annabi Samuel",footerAboutSpac:"Game da SPAC na Duniya",footerBranch:"Nemi Reshe",footerContact:"Tuntuɓe Mu",
+                footerMedia:"Kafofin Watsa Labarai & Shago",footerWatch:"Kalli Saƙonni",footerBlog:"Bulogin Wahayi na Yau da Kullum",footerStore:"Shagon Littattafai",footerBook:"Hanyar Da Ba A Yi Tafiya Fiya ba",
+                footerInitiatives:"Shirye-shirye",footerBible:"Gasar Littafi Mai Tsarki ta SPAC",
+                privacy:"Manufar Sirri",terms:"Sharuɗɗan Amfani"
+            },
+            ig: {
+                navAbout:"Banyere",navSermons:"Okwuchukwu",navBlog:"Blog",navContact:"Kpọtụrụ",
+                nowPlaying:"Na-egwu Ugbu a",
+                videoTitle:"Mgbakọ Mmanụ Nsọ na Ọkụ Ọhụrụ",
+                catAll:"Ozi Niile",catConvention:"Mgbakọ",catProphecy:"Amụma",catService:"Ozi Mmanụ Nsọ",catBible:"Asọmpi Baịbụl",
+                sermonLibrary:"Ọbá akwụkwọ Okwuchukwu",
+                subscribeTitle:"Ahapụla Ozi Ọ bụla",
+                subscribeText:"Debanye aha na ọwa YouTube nke SPAC Ministry ka ị bụrụ onye mbụ na-ekiri okwuchukwu dị ike na nkwupụta amụma.",
+                subscribeBtn:"Debanye aha na YouTube",
+                footerDesc:"Na-enyere gị aka ịbụ ihe niile Chineke kere gị ịbụ site n'ike nke Mmụọ Nsọ, ekpere, na nkwupụta amụma.",
+                footerMinistry:"Ozi Anyị",footerAboutProphet:"Banyere Onye Amụma Samuel",footerAboutSpac:"Banyere SPAC zuru ụwa ọnụ",footerBranch:"Chọta Alaka",footerContact:"Kpọtụrụ Anyị",
+                footerMedia:"Mgbasa Ozi & Ụlọ Ahịa",footerWatch:"Lelee Ozi",footerBlog:"Blog Mmụọ Nsọ Kwa Ụbọchị",footerStore:"Ụlọ Ahịa Akwụkwọ",footerBook:"Ụzọ A Na-ejighị Eje",
+                footerInitiatives:"Atụmatụ",footerBible:"Asọmpi Baịbụl SPAC",
+                privacy:"Iwu Nzuzo",terms:"Usoro Iji"
+            }
+        };
+
+        function switchLanguage(lang) {
+            const t = translations[lang];
+            if (!t) return;
+            
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (t[key]) el.textContent = t[key];
+            });
         }
     </script>
 </body>
