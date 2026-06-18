@@ -106,9 +106,9 @@
         @keyframes scrollBooks { 0%, 20% { transform: translateX(0); } 40%, 60% { transform: translateX(-33.33%); } 80%, 100% { transform: translateX(-66.66%); } }
 
         .lang-dropdown { position: relative; display: inline-block; }
-        .lang-dropdown-content { display: none; position: absolute; top: 100%; right: 0; background: white; min-width: 120px; box-shadow: 0 8px 16px rgba(0,0,0,0.15); border-radius: 4px; z-index: 100; overflow: hidden; }
+        .lang-dropdown-content { display: none; position: absolute; top: 100%; right: 0; background: white; min-width: 130px; box-shadow: 0 8px 16px rgba(0,0,0,0.15); border-radius: 4px; z-index: 100; overflow: hidden; }
         .lang-dropdown:hover .lang-dropdown-content { display: block; }
-        .lang-dropdown-content button { display: block; width: 100%; padding: 10px 16px; text-align: left; border: none; background: none; cursor: pointer; font-size: 12px; font-weight: 600; color: #1f2937; }
+        .lang-dropdown-content button { display: block; width: 100%; padding: 10px 16px; text-align: left; border: none; background: none; cursor: pointer; font-size: 12px; font-weight: 600; color: #1f2937; white-space: nowrap; }
         .lang-dropdown-content button:hover { background: #f3f4f6; color: #007fc6; }
     </style>
 </head>
@@ -133,11 +133,11 @@
         </a>
         
         <nav class="flex flex-wrap justify-center items-center gap-5 md:gap-10 font-bold text-[10px] md:text-[12px] tracking-wider uppercase w-full md:w-auto">
-            <a href="about.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">About</a>
-            <a href="view.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">Sermons</a>
+            <a href="about.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navAbout">About</a>
+            <a href="view.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navSermons">Sermons</a>
             <a href="FFF.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">FFF</a>
-            <a href="adminblog.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">Blog</a>
-            <a href="contact.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">Contact</a>
+            <a href="adminblog.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navBlog">Blog</a>
+            <a href="contact.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navContact">Contact</a>
             <button class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md text-sm md:text-lg">🔍</button>
             
             <div class="lang-dropdown">
@@ -146,6 +146,9 @@
                     <button onclick="switchLanguage('en')">🇬🇧 English</button>
                     <button onclick="switchLanguage('fr')">🇫🇷 Français</button>
                     <button onclick="switchLanguage('de')">🇩🇪 Deutsch</button>
+                    <button onclick="switchLanguage('yo')">🇳🇬 Yoruba</button>
+                    <button onclick="switchLanguage('ha')">🇳🇬 Hausa</button>
+                    <button onclick="switchLanguage('ig')">🇳🇬 Igbo</button>
                 </div>
             </div>
         </nav>
@@ -166,20 +169,20 @@
                 Helping you become all God <br> created you to be.
             </h1>
             <div class="grid grid-cols-2 gap-3 mt-10 max-w-sm mx-auto w-full">
-                <a href="view.html" class="bg-[#007fc6] text-white text-[10px] font-bold px-4 py-3 uppercase tracking-widest shadow-lg hover:bg-[#006096] transition-smooth hover:-translate-y-1 flex items-center justify-center text-center rounded-sm">Watch Live</a>
-                <a href="FFF.html" class="bg-white/10 backdrop-blur-md border border-white/30 text-white text-[10px] font-bold px-4 py-3 uppercase tracking-widest hover:bg-white/20 transition-smooth hover:-translate-y-1 flex items-center justify-center text-center rounded-sm">Register for FFF</a>
+                <a href="view.html" class="bg-[#007fc6] text-white text-[10px] font-bold px-4 py-3 uppercase tracking-widest shadow-lg hover:bg-[#006096] transition-smooth hover:-translate-y-1 flex items-center justify-center text-center rounded-sm" id="btnWatchLive">Watch Live</a>
+                <a href="FFF.html" class="bg-white/10 backdrop-blur-md border border-white/30 text-white text-[10px] font-bold px-4 py-3 uppercase tracking-widest hover:bg-white/20 transition-smooth hover:-translate-y-1 flex items-center justify-center text-center rounded-sm" id="btnRegisterFFF">Register for FFF</a>
             </div>
         </div>
     </section>
 
     <section class="max-w-6xl mx-auto py-20 px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div data-aos="fade-right">
-            <span class="text-[10px] font-bold tracking-widest text-[#007fc6] block mb-3 uppercase">Founder & General Overseer</span>
+            <span class="text-[10px] font-bold tracking-widest text-[#007fc6] block mb-3 uppercase" data-translate="founderLabel">Founder & General Overseer</span>
             <h2 class="text-3xl font-bold text-gray-900 mb-6" id="aboutTitle">About Prophet Samuel Adegboyega</h2>
             <p class="text-sm text-gray-600 leading-relaxed mb-6 text-justify" id="aboutText">
                 Samuel Ajayi Adegboyega (born 22 June 1945) is a Nigerian pastor, prophet, philanthropist, and Christian leader who serves as the Founder, President, and First General Overseer of the Salvation Proclaimers Anointed Church (SPAC) Worldwide, headquartered in Ibadan, Oyo State, Nigeria. He is widely known for his commitment to prayer, holiness, prophetic ministry, and the transformative power of the Holy Spirit. Beyond his ecclesiastical work, Adegboyega is the founder of Focus for the Future (FFF), a philanthropic initiative dedicated to youth empowerment, educational advancement, and community development. Through FFF, hundreds of students receive scholarships annually, while numerous young people benefit from mentorship, leadership training, and financial support designed to help them realize their potential and contribute meaningfully to society. Over several decades of ministry and humanitarian service, he has earned recognition as a spiritual mentor, educator, and advocate for the advancement of future generations.
             </p>
-            <a href="about.html" class="inline-block border-2 border-[#007fc6] text-[#007fc6] hover:bg-[#007fc6] hover:text-white transition-smooth px-8 py-3 text-[11px] font-bold uppercase tracking-widest rounded-sm">Read More Now</a>
+            <a href="about.html" class="inline-block border-2 border-[#007fc6] text-[#007fc6] hover:bg-[#007fc6] hover:text-white transition-smooth px-8 py-3 text-[11px] font-bold uppercase tracking-widest rounded-sm" data-translate="readMoreBtn">Read More Now</a>
         </div>
         
         <div class="space-y-6" data-aos="fade-left">
@@ -189,8 +192,8 @@
                 <div class="absolute inset-0 flex items-center p-4 gap-4">
                     <div class="w-10 h-10 bg-[#007fc6] rounded-full flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-smooth shrink-0 text-xs">▶</div>
                     <div>
-                        <h4 class="text-white font-bold text-sm">Who is Prophet Samuel Adegboyega of SPAC Church</h4>
-                        <p class="text-[10px] text-gray-300 uppercase tracking-widest mt-1">Watch Documentary</p>
+                        <h4 class="text-white font-bold text-sm" id="docTitle">Who is Prophet Samuel Adegboyega of SPAC Church</h4>
+                        <p class="text-[10px] text-gray-300 uppercase tracking-widest mt-1" data-translate="watchDoc">Watch Documentary</p>
                     </div>
                 </div>
             </a>
@@ -202,7 +205,7 @@
         <div class="relative z-10 max-w-3xl mx-auto" data-aos="zoom-in">
             <h2 class="text-4xl md:text-5xl font-light mb-4 drop-shadow-lg" id="anointingTitle">Anointing and fresh fire convention</h2>
             <p class="text-xs text-gray-300 mb-8 uppercase tracking-widest font-semibold">Prophet Samuel Adegboyega</p>
-            <a href="view.html" class="inline-flex items-center gap-3 bg-[#007fc6] hover:bg-[#006096] transition-smooth text-white text-xs font-bold px-8 py-4 uppercase tracking-widest shadow-xl rounded-sm">
+            <a href="view.html" class="inline-flex items-center gap-3 bg-[#007fc6] hover:bg-[#006096] transition-smooth text-white text-xs font-bold px-8 py-4 uppercase tracking-widest shadow-xl rounded-sm" data-translate="watchMessageBtn">
                 <span class="text-xl">▶</span> Watch This Message
             </a>
         </div>
@@ -213,13 +216,13 @@
             <div class="relative aspect-video bg-[#0b132b] rounded-sm overflow-hidden mb-4 flex items-center justify-center">
                 <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=800&q=80" alt="Prophecy Thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700">
                 <div class="absolute z-10 text-center pointer-events-none mb-6">
-                    <span class="text-white font-black text-2xl md:text-3xl tracking-[0.2em] uppercase drop-shadow-xl">Prophecy</span>
+                    <span class="text-white font-black text-2xl md:text-3xl tracking-[0.2em] uppercase drop-shadow-xl" id="prophecyOverlay">Prophecy</span>
                 </div>
                 <div class="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/40 transition-smooth z-20">
                     <div class="w-14 h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#007fc6] shadow-lg text-lg pl-1 mt-8">▶</div>
                 </div>
             </div>
-            <h3 class="text-lg font-bold text-gray-900 group-hover:text-[#007fc6] transition-smooth px-2">The prophecy</h3>
+            <h3 class="text-lg font-bold text-gray-900 group-hover:text-[#007fc6] transition-smooth px-2" id="prophecyTitle">The prophecy</h3>
             <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-2 px-2 pb-2">Samuel Adegboyega</p>
         </a>
         
@@ -230,7 +233,7 @@
                     <div class="w-14 h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#007fc6] shadow-lg text-lg pl-1">▶</div>
                 </div>
             </div>
-            <h3 class="text-lg font-bold text-gray-900 group-hover:text-[#007fc6] transition-smooth px-2">Anointing Service</h3>
+            <h3 class="text-lg font-bold text-gray-900 group-hover:text-[#007fc6] transition-smooth px-2" id="anointingServiceTitle">Anointing Service</h3>
             <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-2 px-2 pb-2">Samuel Adegboyega</p>
         </a>
     </section>
@@ -242,24 +245,24 @@
                 <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=600&q=80" alt="Mentorship" class="w-full aspect-square object-cover rounded-sm shadow-md translate-y-6">
             </div>
             <div class="order-1 md:order-2" data-aos="fade-left">
-                <span class="text-[10px] font-bold tracking-widest text-[#007fc6] block mb-3 uppercase">Youth Empowerment</span>
+                <span class="text-[10px] font-bold tracking-widest text-[#007fc6] block mb-3 uppercase" data-translate="youthLabel">Youth Empowerment</span>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">Focus For The Future (FFF)</h2>
-                <p class="text-sm text-gray-600 leading-relaxed mb-6 text-justify">
+                <p class="text-sm text-gray-600 leading-relaxed mb-6 text-justify" id="fffText">
                     FFF has helped hundreds of students to achieve what they thought could never be possible. The platform has helped them navigate life, find purpose, and provided the helping hands necessary to make their journey and goals easier to reach. Through scholarships, leadership training, and dedicated mentorship, FFF is actively building the next generation of global changemakers and spiritual leaders.
                 </p>
-                <a href="FFF.html" class="inline-block bg-[#0b132b] hover:bg-black transition-smooth text-white px-8 py-3.5 text-[11px] font-bold uppercase tracking-widest rounded-sm shadow-md">Read More & Apply for FFF Program</a>
+                <a href="FFF.html" class="inline-block bg-[#0b132b] hover:bg-black transition-smooth text-white px-8 py-3.5 text-[11px] font-bold uppercase tracking-widest rounded-sm shadow-md" data-translate="fffBtn">Read More & Apply for FFF Program</a>
             </div>
         </div>
     </section>
 
     <section class="max-w-6xl mx-auto py-20 px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div data-aos="fade-right">
-            <span class="text-[10px] font-bold tracking-widest text-[#007fc6] block mb-3 uppercase">Spiritual Growth Initiative</span>
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">SPAC Bible Championship</h2>
-            <p class="text-sm text-gray-600 leading-relaxed mb-6 text-justify">
+            <span class="text-[10px] font-bold tracking-widest text-[#007fc6] block mb-3 uppercase" data-translate="spiritualLabel">Spiritual Growth Initiative</span>
+            <h2 class="text-3xl font-bold text-gray-900 mb-6" id="bibleChampTitle">SPAC Bible Championship</h2>
+            <p class="text-sm text-gray-600 leading-relaxed mb-6 text-justify" id="bibleChampText">
                 The SPAC Bible Championship is a seasonal, scriptural-based competition where believers—youths and adults alike—enroll to test their biblical knowledge. Sponsored personally by Prophet Samuel Adegboyega, this divine and humanitarian initiative is designed to deeply root people's minds in the Word of God, fostering profound spiritual growth and mental strength across the community.
             </p>
-            <a href="about.html" class="inline-block border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white transition-smooth px-8 py-3.5 text-[11px] font-bold uppercase tracking-widest rounded-sm">Read More About The Championship</a>
+            <a href="about.html" class="inline-block border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white transition-smooth px-8 py-3.5 text-[11px] font-bold uppercase tracking-widest rounded-sm" data-translate="bibleChampBtn">Read More About The Championship</a>
         </div>
         
         <div data-aos="fade-left">
@@ -267,7 +270,7 @@
                 <img src="https://img.youtube.com/vi/9bzefYiLSQQ/maxresdefault.jpg" alt="Bible Championship" class="w-full aspect-video object-cover group-hover:scale-105 transition-smooth">
                 <div class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-smooth flex flex-col items-center justify-center p-6 text-center">
                     <div class="w-16 h-16 bg-[#007fc6] rounded-full flex items-center justify-center text-white shadow-xl mb-4 text-xl pl-1">▶</div>
-                    <h3 class="text-white font-bold text-lg drop-shadow-md">Watch The Bible Championship</h3>
+                    <h3 class="text-white font-bold text-lg drop-shadow-md" id="watchBibleChamp">Watch The Bible Championship</h3>
                 </div>
             </a>
         </div>
@@ -275,13 +278,13 @@
 
     <section id="admin-blog-feed" class="bg-[#0b132b] text-white py-20 px-6 border-t-[6px] border-[#007fc6]">
         <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-            <span class="text-[10px] text-[#007fc6] uppercase tracking-widest font-bold mb-8 block">Dynamic Content Feed</span>
+            <span class="text-[10px] text-[#007fc6] uppercase tracking-widest font-bold mb-8 block" data-translate="dynamicFeed">Dynamic Content Feed</span>
             
             <div id="dynamic-blog-content" class="text-sm text-gray-300 space-y-5 text-justify max-w-3xl mx-auto leading-relaxed">
             </div>
             
             <div class="mt-10">
-                <a href="adminblog.html" class="inline-block bg-[#007fc6] text-white hover:bg-white hover:text-[#0b132b] transition-smooth px-10 py-3.5 text-[11px] font-bold uppercase tracking-widest rounded-sm">Continue Reading</a>
+                <a href="adminblog.html" class="inline-block bg-[#007fc6] text-white hover:bg-white hover:text-[#0b132b] transition-smooth px-10 py-3.5 text-[11px] font-bold uppercase tracking-widest rounded-sm" data-translate="continueReading">Continue Reading</a>
             </div>
         </div>
     </section>
@@ -296,18 +299,17 @@
         </div>
         
         <div class="w-full md:w-2/3" data-aos="fade-left">
-            <span class="text-[10px] font-bold tracking-widest text-[#007fc6] block mb-3 uppercase">Featured Resource</span>
-            <h2 class="text-3xl font-bold text-gray-900 mb-2">Read the life changing book by Prophet Samuel Adegboyega.</h2>
-            <h3 class="text-xl italic text-gray-500 mb-6 border-b border-gray-200 pb-4">THE ROAD LESS TRAVELLED: My unique path to success</h3>
-            <p class="text-sm text-gray-600 leading-relaxed mb-8 text-justify">Discover the extraordinary journey, principles, and divine encounters that shaped the ministry and life of Prophet Samuel Adegboyega. This powerful memoir offers profound spiritual counsel rooted in personal experiences, showing you how to navigate life's challenges through unwavering faith.</p>
+            <span class="text-[10px] font-bold tracking-widest text-[#007fc6] block mb-3 uppercase" data-translate="featuredResource">Featured Resource</span>
+            <h2 class="text-3xl font-bold text-gray-900 mb-2" id="bookTitle">Read the life changing book by Prophet Samuel Adegboyega.</h2>
+            <h3 class="text-xl italic text-gray-500 mb-6 border-b border-gray-200 pb-4" id="bookSubtitle">THE ROAD LESS TRAVELLED: My unique path to success</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-8 text-justify" id="bookDesc">Discover the extraordinary journey, principles, and divine encounters that shaped the ministry and life of Prophet Samuel Adegboyega. This powerful memoir offers profound spiritual counsel rooted in personal experiences, showing you how to navigate life's challenges through unwavering faith.</p>
         </div>
     </section>
 
     <section class="bg-gray-100 py-16 px-6 border-y border-gray-200">
         <div class="max-w-lg mx-auto bg-white p-8 rounded-sm shadow-xl border-t-4 border-[#007fc6]" data-aos="zoom-in">
             <div class="text-center mb-6">
-                <h2 class="text-2xl font-bold text-gray-900">New? Sign up here.</h2>
-                <p class="text-sm text-gray-500 mt-2">Not new? <a href="cart.html" class="text-[#007fc6] font-bold hover:underline">Kindly go to cart</a></p>
+                <h2 class="text-2xl font-bold text-gray-900" id="signupTitle">Sign up here.</h2>
             </div>
             
             <form id="signupForm" class="space-y-4">
@@ -315,7 +317,7 @@
                 <input type="text" id="lastName" placeholder="Last Name" required class="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 text-sm rounded-sm focus:outline-none focus:border-[#007fc6] focus:bg-white transition-smooth">
                 <input type="email" id="emailAddress" placeholder="Email Address" required class="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 text-sm rounded-sm focus:outline-none focus:border-[#007fc6] focus:bg-white transition-smooth">
                 <input type="tel" id="whatsappNumber" placeholder="WhatsApp Number" required class="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 text-sm rounded-sm focus:outline-none focus:border-[#007fc6] focus:bg-white transition-smooth">
-                <button type="submit" class="bg-[#0b132b] hover:bg-black text-white font-bold py-4 px-8 uppercase text-[11px] tracking-widest rounded-sm w-full transition-smooth shadow-md mt-2">SIGN UP TO GET A COPY</button>
+                <button type="submit" class="bg-[#0b132b] hover:bg-black text-white font-bold py-4 px-8 uppercase text-[11px] tracking-widest rounded-sm w-full transition-smooth shadow-md mt-2" data-translate="signupBtn">SIGN UP TO GET A COPY</button>
             </form>
         </div>
     </section>
@@ -328,19 +330,19 @@
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-sm shadow-xl hover:-translate-y-2 transition-smooth">
-                    <h4 class="text-[#007fc6] text-[11px] font-bold mb-2 uppercase tracking-widest">GOD</h4>
+                    <h4 class="text-[#007fc6] text-[11px] font-bold mb-2 uppercase tracking-widest" data-translate="statGod">GOD</h4>
                     <p class="text-4xl md:text-5xl font-light">1</p>
                 </div>
                 <div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-sm shadow-xl hover:-translate-y-2 transition-smooth">
-                    <h4 class="text-[#007fc6] text-[11px] font-bold mb-2 uppercase tracking-widest">Wife</h4>
+                    <h4 class="text-[#007fc6] text-[11px] font-bold mb-2 uppercase tracking-widest" data-translate="statWife">Wife</h4>
                     <p class="text-4xl md:text-5xl font-light">1</p>
                 </div>
                 <div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-sm shadow-xl hover:-translate-y-2 transition-smooth">
-                    <h4 class="text-[#007fc6] text-[11px] font-bold mb-2 uppercase tracking-widest">Children</h4>
+                    <h4 class="text-[#007fc6] text-[11px] font-bold mb-2 uppercase tracking-widest" data-translate="statChildren">Children</h4>
                     <p class="text-4xl md:text-5xl font-light">5</p>
                 </div>
                 <div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-sm shadow-xl hover:-translate-y-2 transition-smooth">
-                    <h4 class="text-[#007fc6] text-[11px] font-bold mb-2 uppercase tracking-widest">Spiritual Children</h4>
+                    <h4 class="text-[#007fc6] text-[11px] font-bold mb-2 uppercase tracking-widest" data-translate="statSpiritual">Spiritual Children</h4>
                     <p class="text-3xl md:text-4xl font-light mt-1">1,000+</p>
                 </div>
             </div>
@@ -350,18 +352,18 @@
     <section class="bg-white py-20 px-6">
         <div class="max-w-5xl mx-auto text-center">
             
-            <h2 class="text-2xl font-bold text-gray-900 mb-10" data-aos="fade-up">Adegboyega's Word of today</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-10" data-aos="fade-up" data-translate="wordToday">Adegboyega's Word of today</h2>
             <div class="bg-gray-50 p-10 shadow-lg max-w-3xl mx-auto mb-20 rounded-sm relative border border-gray-100" data-aos="zoom-in">
                 <div class="absolute -top-10 left-1/2 transform -translate-x-1/2">
                     <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Logo" class="w-20 h-20 rounded-full object-cover border-4 border-white shadow-xl">
                 </div>
-                <p class="text-xl md:text-2xl text-gray-800 font-light italic mt-6 leading-relaxed">
+                <p class="text-xl md:text-2xl text-gray-800 font-light italic mt-6 leading-relaxed" id="dailyQuote">
                     "Life does not give you what you deserve, you have to demand it."
                 </p>
             </div>
 
-            <h2 class="text-2xl font-bold text-gray-900 mb-3" data-aos="fade-up">Follow Samuel Adegboyega</h2>
-            <p class="text-sm text-gray-500 mb-10" data-aos="fade-up" data-aos-delay="100">Stay connected for daily inspiration and prophetic declarations.</p>
+            <h2 class="text-2xl font-bold text-gray-900 mb-3" data-aos="fade-up" data-translate="followTitle">Follow Samuel Adegboyega</h2>
+            <p class="text-sm text-gray-500 mb-10" data-aos="fade-up" data-aos-delay="100" data-translate="followSub">Stay connected for daily inspiration and prophetic declarations.</p>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20 max-w-5xl mx-auto">
                 <a href="https://www.instagram.com/samuelajayiadegboyega?igsh=MWphZGd2MWdwOTFmdQ==" target="_blank" class="relative group aspect-square rounded-sm overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="0">
@@ -398,13 +400,13 @@
             </div>
 
             <div class="bg-gray-50 p-10 shadow-sm border border-gray-200 text-left max-w-4xl mx-auto rounded-sm" data-aos="fade-up">
-                <h3 class="text-xl font-bold text-gray-900 mb-4 pb-4 border-b border-gray-200">About the Salvation Proclaimers Anointed Church (SPAC)</h3>
-                <div class="text-sm text-gray-700 leading-relaxed space-y-4">
+                <h3 class="text-xl font-bold text-gray-900 mb-4 pb-4 border-b border-gray-200" data-translate="aboutSpacTitle">About the Salvation Proclaimers Anointed Church (SPAC)</h3>
+                <div class="text-sm text-gray-700 leading-relaxed space-y-4" id="aboutSpacText">
                     <p>The Salvation Proclaimers Anointed Church (SPAC) Worldwide is a Pentecostal Christian ministry founded by Prophet Samuel Ajayi Adegboyega and headquartered in Ibadan, Oyo State, Nigeria. The church is committed to proclaiming the message of salvation through Jesus Christ, promoting holiness, prayer, evangelism, prophetic ministry, and the power of the Holy Spirit.</p>
                     <p>Over the years, SPAC has expanded across Nigeria with branches in cities including Ibadan, Lagos, and Abeokuta, as well as an international presence in the United Kingdom through SPAC Nxtion Family, led by Pastor Tobi Adegboyega. Beyond its spiritual mission, the church is actively involved in youth empowerment, scholarships, welfare support, and community development initiatives aimed at transforming lives and raising future leaders.</p>
                     
                     <div class="pt-6 mt-6">
-                        <p class="font-bold text-gray-900 mb-3 text-[11px] uppercase tracking-widest">External Links:</p>
+                        <p class="font-bold text-gray-900 mb-3 text-[11px] uppercase tracking-widest" data-translate="externalLinks">External Links:</p>
                         <div class="flex flex-col gap-3 text-sm">
                             <a href="https://www.spacnxtionfamily.co.uk/" target="_blank" class="text-[#007fc6] font-semibold hover:underline inline-flex items-center gap-2"><span class="text-xs">▶</span> SPAC Nxtion Family</a>
                             <a href="https://www.instagram.com/tobiadegboyega_/" target="_blank" class="text-[#007fc6] font-semibold hover:underline inline-flex items-center gap-2"><span class="text-xs">▶</span> Pastor Tobi Adegboyega</a>
@@ -420,31 +422,31 @@
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
             <div>
                 <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Logo" class="w-16 h-16 rounded-full object-cover border-2 border-gray-700 mb-6 opacity-80">
-                <p class="leading-relaxed pr-4 text-sm">Helping you become all God created you to be through the power of the Holy Spirit, prayer, and prophetic declarations.</p>
+                <p class="leading-relaxed pr-4 text-sm" data-translate="footerDesc">Helping you become all God created you to be through the power of the Holy Spirit, prayer, and prophetic declarations.</p>
             </div>
             <div>
-                <h5 class="text-white font-bold uppercase mb-6 tracking-widest text-[11px] border-b border-gray-800 pb-2 inline-block">Our Ministry</h5>
+                <h5 class="text-white font-bold uppercase mb-6 tracking-widest text-[11px] border-b border-gray-800 pb-2 inline-block" data-translate="footerMinistry">Our Ministry</h5>
                 <ul class="space-y-3">
-                    <li><a href="about.html" class="hover:text-white transition-colors">About Prophet Samuel</a></li>
-                    <li><a href="about.html" class="hover:text-white transition-colors">About SPAC Worldwide</a></li>
-                    <li><a href="contact.html" class="hover:text-white transition-colors">Find a Branch</a></li>
-                    <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                    <li><a href="about.html" class="hover:text-white transition-colors" data-translate="footerAboutProphet">About Prophet Samuel</a></li>
+                    <li><a href="about.html" class="hover:text-white transition-colors" data-translate="footerAboutSpac">About SPAC Worldwide</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors" data-translate="footerBranch">Find a Branch</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors" data-translate="footerContact">Contact Us</a></li>
                 </ul>
             </div>
             <div>
-                <h5 class="text-white font-bold uppercase mb-6 tracking-widest text-[11px] border-b border-gray-800 pb-2 inline-block">Media & Store</h5>
+                <h5 class="text-white font-bold uppercase mb-6 tracking-widest text-[11px] border-b border-gray-800 pb-2 inline-block" data-translate="footerMedia">Media & Store</h5>
                 <ul class="space-y-3">
-                    <li><a href="view.html" class="hover:text-white transition-colors">Watch Messages</a></li>
-                    <li><a href="adminblog.html" class="hover:text-white transition-colors">Daily Inspiration Blog</a></li>
-                    <li><a href="cart.html" class="hover:text-white transition-colors">Bookstore</a></li>
-                    <li><a href="cart.html" class="hover:text-white transition-colors">The Road Less Travelled</a></li>
+                    <li><a href="view.html" class="hover:text-white transition-colors" data-translate="footerWatch">Watch Messages</a></li>
+                    <li><a href="adminblog.html" class="hover:text-white transition-colors" data-translate="footerBlog">Daily Inspiration Blog</a></li>
+                    <li><a href="cart.html" class="hover:text-white transition-colors" data-translate="footerStore">Bookstore</a></li>
+                    <li><a href="cart.html" class="hover:text-white transition-colors" data-translate="footerBook">The Road Less Travelled</a></li>
                 </ul>
             </div>
             <div>
-                <h5 class="text-white font-bold uppercase mb-6 tracking-widest text-[11px] border-b border-gray-800 pb-2 inline-block">Initiatives</h5>
+                <h5 class="text-white font-bold uppercase mb-6 tracking-widest text-[11px] border-b border-gray-800 pb-2 inline-block" data-translate="footerInitiatives">Initiatives</h5>
                 <ul class="space-y-3">
                     <li><a href="FFF.html" class="hover:text-white transition-colors">Focus For The Future (FFF)</a></li>
-                    <li><a href="about.html" class="hover:text-white transition-colors">SPAC Bible Championship</a></li>
+                    <li><a href="about.html" class="hover:text-white transition-colors" data-translate="footerBible">SPAC Bible Championship</a></li>
                 </ul>
             </div>
         </div>
@@ -453,7 +455,7 @@
             <div>
                 <p class="mb-2 text-gray-500 font-semibold tracking-wider uppercase">Copyright © 2026 Prophet Samuel Adegboyega</p>
                 <div class="space-x-4 text-gray-600">
-                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a><span>|</span><a href="#" class="hover:text-white transition-colors">Terms of Use</a>
+                    <a href="#" class="hover:text-white transition-colors" data-translate="privacy">Privacy Policy</a><span>|</span><a href="#" class="hover:text-white transition-colors" data-translate="terms">Terms of Use</a>
                 </div>
             </div>
             <div class="text-gray-500">
@@ -531,25 +533,367 @@
                 heroTitle: "Helping you become all God <br> created you to be.",
                 watchLive: "Watch Live",
                 registerFFF: "Register for FFF",
+                founderLabel: "Founder & General Overseer",
                 aboutTitle: "About Prophet Samuel Adegboyega",
                 aboutText: "Samuel Ajayi Adegboyega (born 22 June 1945) is a Nigerian pastor, prophet, philanthropist, and Christian leader who serves as the Founder, President, and First General Overseer of the Salvation Proclaimers Anointed Church (SPAC) Worldwide, headquartered in Ibadan, Oyo State, Nigeria. He is widely known for his commitment to prayer, holiness, prophetic ministry, and the transformative power of the Holy Spirit. Beyond his ecclesiastical work, Adegboyega is the founder of Focus for the Future (FFF), a philanthropic initiative dedicated to youth empowerment, educational advancement, and community development. Through FFF, hundreds of students receive scholarships annually, while numerous young people benefit from mentorship, leadership training, and financial support designed to help them realize their potential and contribute meaningfully to society. Over several decades of ministry and humanitarian service, he has earned recognition as a spiritual mentor, educator, and advocate for the advancement of future generations.",
-                anointingTitle: "Anointing and fresh fire convention"
+                readMoreBtn: "Read More Now",
+                docTitle: "Who is Prophet Samuel Adegboyega of SPAC Church",
+                watchDoc: "Watch Documentary",
+                anointingTitle: "Anointing and fresh fire convention",
+                watchMessageBtn: "▶ Watch This Message",
+                prophecyOverlay: "Prophecy",
+                prophecyTitle: "The prophecy",
+                anointingServiceTitle: "Anointing Service",
+                youthLabel: "Youth Empowerment",
+                fffText: "FFF has helped hundreds of students to achieve what they thought could never be possible. The platform has helped them navigate life, find purpose, and provided the helping hands necessary to make their journey and goals easier to reach. Through scholarships, leadership training, and dedicated mentorship, FFF is actively building the next generation of global changemakers and spiritual leaders.",
+                fffBtn: "Read More & Apply for FFF Program",
+                spiritualLabel: "Spiritual Growth Initiative",
+                bibleChampTitle: "SPAC Bible Championship",
+                bibleChampText: "The SPAC Bible Championship is a seasonal, scriptural-based competition where believers—youths and adults alike—enroll to test their biblical knowledge. Sponsored personally by Prophet Samuel Adegboyega, this divine and humanitarian initiative is designed to deeply root people's minds in the Word of God, fostering profound spiritual growth and mental strength across the community.",
+                bibleChampBtn: "Read More About The Championship",
+                watchBibleChamp: "Watch The Bible Championship",
+                dynamicFeed: "Dynamic Content Feed",
+                continueReading: "Continue Reading",
+                featuredResource: "Featured Resource",
+                bookTitle: "Read the life changing book by Prophet Samuel Adegboyega.",
+                bookSubtitle: "THE ROAD LESS TRAVELLED: My unique path to success",
+                bookDesc: "Discover the extraordinary journey, principles, and divine encounters that shaped the ministry and life of Prophet Samuel Adegboyega. This powerful memoir offers profound spiritual counsel rooted in personal experiences, showing you how to navigate life's challenges through unwavering faith.",
+                signupTitle: "Sign up here.",
+                signupBtn: "SIGN UP TO GET A COPY",
+                statGod: "GOD",
+                statWife: "Wife",
+                statChildren: "Children",
+                statSpiritual: "Spiritual Children",
+                wordToday: "Adegboyega's Word of today",
+                dailyQuote: "\"Life does not give you what you deserve, you have to demand it.\"",
+                followTitle: "Follow Samuel Adegboyega",
+                followSub: "Stay connected for daily inspiration and prophetic declarations.",
+                aboutSpacTitle: "About the Salvation Proclaimers Anointed Church (SPAC)",
+                externalLinks: "External Links:",
+                navAbout: "About",
+                navSermons: "Sermons",
+                navBlog: "Blog",
+                navContact: "Contact",
+                footerDesc: "Helping you become all God created you to be through the power of the Holy Spirit, prayer, and prophetic declarations.",
+                footerMinistry: "Our Ministry",
+                footerAboutProphet: "About Prophet Samuel",
+                footerAboutSpac: "About SPAC Worldwide",
+                footerBranch: "Find a Branch",
+                footerContact: "Contact Us",
+                footerMedia: "Media & Store",
+                footerWatch: "Watch Messages",
+                footerBlog: "Daily Inspiration Blog",
+                footerStore: "Bookstore",
+                footerBook: "The Road Less Travelled",
+                footerInitiatives: "Initiatives",
+                footerBible: "SPAC Bible Championship",
+                privacy: "Privacy Policy",
+                terms: "Terms of Use"
             },
             fr: {
                 heroTitle: "Vous aider à devenir tout ce que Dieu <br> vous a créé pour être.",
                 watchLive: "Regarder en direct",
                 registerFFF: "S'inscrire au FFF",
+                founderLabel: "Fondateur & Surveillant Général",
                 aboutTitle: "À propos du Prophète Samuel Adegboyega",
                 aboutText: "Samuel Ajayi Adegboyega (né le 22 juin 1945) est un pasteur, prophète, philanthrope et leader chrétien nigérian qui sert en tant que Fondateur, Président et Premier Surveillant Général de l'Église Ointe des Proclamateurs du Salut (SPAC) Worldwide, dont le siège est à Ibadan, dans l'État d'Oyo, au Nigeria. Il est largement connu pour son engagement envers la prière, la sainteté, le ministère prophétique et la puissance transformatrice du Saint-Esprit. Au-delà de son travail ecclésiastique, Adegboyega est le fondateur de Focus for the Future (FFF), une initiative philanthropique dédiée à l'autonomisation des jeunes, à l'avancement éducatif et au développement communautaire. Grâce à FFF, des centaines d'étudiants reçoivent des bourses chaque année, tandis que de nombreux jeunes bénéficient de mentorat, de formation au leadership et de soutien financier conçus pour les aider à réaliser leur potentiel et à contribuer de manière significative à la société. Au cours de plusieurs décennies de ministère et de service humanitaire, il a gagné la reconnaissance en tant que mentor spirituel, éducateur et défenseur de l'avancement des générations futures.",
-                anointingTitle: "Convention d'onction et de feu frais"
+                readMoreBtn: "Lire Plus",
+                docTitle: "Qui est le Prophète Samuel Adegboyega de l'Église SPAC",
+                watchDoc: "Voir le Documentaire",
+                anointingTitle: "Convention d'onction et de feu frais",
+                watchMessageBtn: "▶ Voir Ce Message",
+                prophecyOverlay: "Prophétie",
+                prophecyTitle: "La prophétie",
+                anointingServiceTitle: "Service d'Onction",
+                youthLabel: "Autonomisation des Jeunes",
+                fffText: "FFF a aidé des centaines d'étudiants à réaliser ce qu'ils pensaient impossible. La plateforme les a aidés à naviguer dans la vie, à trouver un but, et a fourni les mains secourables nécessaires pour rendre leur parcours et leurs objectifs plus faciles à atteindre. Grâce aux bourses, à la formation au leadership et au mentorat dédié, FFF construit activement la prochaine génération de bâtisseurs de changement mondiaux et de leaders spirituels.",
+                fffBtn: "Lire Plus et Postuler au Programme FFF",
+                spiritualLabel: "Initiative de Croissance Spirituelle",
+                bibleChampTitle: "Championnat Biblique SPAC",
+                bibleChampText: "Le Championnat Biblique SPAC est une compétition saisonnière basée sur les Écritures où les croyants—jeunes et adultes—s'inscrivent pour tester leurs connaissances bibliques. Parrainé personnellement par le Prophète Samuel Adegboyega, cette initiative divine et humanitaire est conçue pour enraciner profondément l'esprit des gens dans la Parole de Dieu, favorisant une croissance spirituelle profonde et une force mentale à travers la communauté.",
+                bibleChampBtn: "En Savoir Plus Sur Le Championnat",
+                watchBibleChamp: "Voir Le Championnat Biblique",
+                dynamicFeed: "Flux de Contenu Dynamique",
+                continueReading: "Continuer la Lecture",
+                featuredResource: "Ressource en Vedette",
+                bookTitle: "Lisez le livre qui change la vie du Prophète Samuel Adegboyega.",
+                bookSubtitle: "LE CHEMIN LE MOINS FRÉQUENTÉ : Mon chemin unique vers le succès",
+                bookDesc: "Découvrez le parcours extraordinaire, les principes et les rencontres divines qui ont façonné le ministère et la vie du Prophète Samuel Adegboyega. Ce mémoire puissant offre des conseils spirituels profonds enracinés dans des expériences personnelles, vous montrant comment naviguer dans les défis de la vie par une foi inébranlable.",
+                signupTitle: "Inscrivez-vous ici.",
+                signupBtn: "INSCRIVEZ-VOUS POUR OBTENIR UN EXEMPLAIRE",
+                statGod: "DIEU",
+                statWife: "Épouse",
+                statChildren: "Enfants",
+                statSpiritual: "Enfants Spirituels",
+                wordToday: "La Parole d'Adegboyega du jour",
+                dailyQuote: "\"La vie ne vous donne pas ce que vous méritez, vous devez l'exiger.\"",
+                followTitle: "Suivez Samuel Adegboyega",
+                followSub: "Restez connecté pour l'inspiration quotidienne et les déclarations prophétiques.",
+                aboutSpacTitle: "À propos de l'Église Ointe des Proclamateurs du Salut (SPAC)",
+                externalLinks: "Liens Externes:",
+                navAbout: "À propos",
+                navSermons: "Sermons",
+                navBlog: "Blog",
+                navContact: "Contact",
+                footerDesc: "Vous aider à devenir tout ce que Dieu vous a créé pour être par la puissance du Saint-Esprit, la prière et les déclarations prophétiques.",
+                footerMinistry: "Notre Ministère",
+                footerAboutProphet: "À propos du Prophète Samuel",
+                footerAboutSpac: "À propos de SPAC Worldwide",
+                footerBranch: "Trouver une Branche",
+                footerContact: "Contactez-Nous",
+                footerMedia: "Médias & Boutique",
+                footerWatch: "Voir les Messages",
+                footerBlog: "Blog d'Inspiration Quotidienne",
+                footerStore: "Librairie",
+                footerBook: "Le Chemin Le Moins Fréquenté",
+                footerInitiatives: "Initiatives",
+                footerBible: "Championnat Biblique SPAC",
+                privacy: "Politique de Confidentialité",
+                terms: "Conditions d'Utilisation"
             },
             de: {
                 heroTitle: "Ihnen helfen, alles zu werden, was Gott <br> für Sie vorgesehen hat.",
                 watchLive: "Live ansehen",
                 registerFFF: "Für FFF registrieren",
+                founderLabel: "Gründer & Generalaufseher",
                 aboutTitle: "Über Prophet Samuel Adegboyega",
                 aboutText: "Samuel Ajayi Adegboyega (geboren am 22. Juni 1945) ist ein nigerianischer Pastor, Prophet, Philanthrop und christlicher Führer, der als Gründer, Präsident und Erster Generalaufseher der Salvation Proclaimers Anointed Church (SPAC) Worldwide mit Hauptsitz in Ibadan, Oyo State, Nigeria, dient. Er ist weithin bekannt für sein Engagement für Gebet, Heiligkeit, prophetischen Dienst und die transformative Kraft des Heiligen Geistes. Über seine kirchliche Arbeit hinaus ist Adegboyega der Gründer von Focus for the Future (FFF), einer philanthropischen Initiative, die sich der Stärkung der Jugend, der Bildungsförderung und der Gemeindeentwicklung widmet. Durch FFF erhalten jährlich Hunderte von Studenten Stipendien, während zahlreiche junge Menschen von Mentoring, Führungstraining und finanzieller Unterstützung profitieren, die ihnen helfen sollen, ihr Potenzial zu verwirklichen und einen sinnvollen Beitrag zur Gesellschaft zu leisten. Über mehrere Jahrzehnte des Dienstes und humanitären Einsatzes hat er Anerkennung als spiritueller Mentor, Pädagoge und Verfechter der Förderung zukünftiger Generationen erlangt.",
-                anointingTitle: "Salbung und frisches Feuer Konvention"
+                readMoreBtn: "Mehr Lesen",
+                docTitle: "Wer ist Prophet Samuel Adegboyega der SPAC Kirche",
+                watchDoc: "Dokumentation Ansehen",
+                anointingTitle: "Salbung und frisches Feuer Konvention",
+                watchMessageBtn: "▶ Diese Botschaft Ansehen",
+                prophecyOverlay: "Prophetie",
+                prophecyTitle: "Die Prophetie",
+                anointingServiceTitle: "Salbungsgottesdienst",
+                youthLabel: "Jugendförderung",
+                fffText: "FFF hat Hunderten von Studenten geholfen, das zu erreichen, was sie für unmöglich hielten. Die Plattform hat ihnen geholfen, das Leben zu meistern, einen Sinn zu finden, und die notwendige Unterstützung geboten, um ihren Weg und ihre Ziele leichter zu erreichen. Durch Stipendien, Führungstraining und engagiertes Mentoring baut FFF aktiv die nächste Generation globaler Veränderer und geistlicher Führer auf.",
+                fffBtn: "Mehr Lesen & Für FFF-Programm Bewerben",
+                spiritualLabel: "Initiative für Geistliches Wachstum",
+                bibleChampTitle: "SPAC Bibelmeisterschaft",
+                bibleChampText: "Die SPAC Bibelmeisterschaft ist ein saisonaler, schriftbasierter Wettbewerb, bei dem sich Gläubige—Jugendliche und Erwachsene gleichermaßen—einschreiben, um ihr Bibelwissen zu testen. Persönlich gesponsert von Prophet Samuel Adegboyega, ist diese göttliche und humanitäre Initiative darauf ausgerichtet, die Gedanken der Menschen tief im Wort Gottes zu verwurzeln und tiefgreifendes geistliches Wachstum und mentale Stärke in der Gemeinschaft zu fördern.",
+                bibleChampBtn: "Mehr Über Die Meisterschaft Lesen",
+                watchBibleChamp: "Die Bibelmeisterschaft Ansehen",
+                dynamicFeed: "Dynamischer Inhaltsfeed",
+                continueReading: "Weiterlesen",
+                featuredResource: "Empfohlene Ressource",
+                bookTitle: "Lesen Sie das lebensverändernde Buch von Prophet Samuel Adegboyega.",
+                bookSubtitle: "DER WENIGER BEGANGENE WEG: Mein einzigartiger Weg zum Erfolg",
+                bookDesc: "Entdecken Sie die außergewöhnliche Reise, Prinzipien und göttlichen Begegnungen, die das Ministerium und das Leben von Prophet Samuel Adegboyega geprägt haben. Diese kraftvollen Memoiren bieten tiefgründige geistliche Ratschläge, die in persönlichen Erfahrungen verwurzelt sind, und zeigen Ihnen, wie Sie die Herausforderungen des Lebens durch unerschütterlichen Glauben meistern können.",
+                signupTitle: "Hier anmelden.",
+                signupBtn: "ANMELDEN, UM EIN EXEMPLAR ZU ERHALTEN",
+                statGod: "GOTT",
+                statWife: "Ehefrau",
+                statChildren: "Kinder",
+                statSpiritual: "Geistliche Kinder",
+                wordToday: "Adegboyegas Wort von heute",
+                dailyQuote: "\"Das Leben gibt dir nicht, was du verdienst, du musst es einfordern.\"",
+                followTitle: "Folgen Sie Samuel Adegboyega",
+                followSub: "Bleiben Sie verbunden für tägliche Inspiration und prophetische Erklärungen.",
+                aboutSpacTitle: "Über die Salvation Proclaimers Anointed Church (SPAC)",
+                externalLinks: "Externe Links:",
+                navAbout: "Über",
+                navSermons: "Predigten",
+                navBlog: "Blog",
+                navContact: "Kontakt",
+                footerDesc: "Ihnen helfen, alles zu werden, was Gott für Sie vorgesehen hat, durch die Kraft des Heiligen Geistes, Gebet und prophetische Erklärungen.",
+                footerMinistry: "Unser Dienst",
+                footerAboutProphet: "Über Prophet Samuel",
+                footerAboutSpac: "Über SPAC Worldwide",
+                footerBranch: "Eine Gemeinde Finden",
+                footerContact: "Kontaktieren Sie Uns",
+                footerMedia: "Medien & Shop",
+                footerWatch: "Botschaften Ansehen",
+                footerBlog: "Täglicher Inspirationsblog",
+                footerStore: "Buchhandlung",
+                footerBook: "Der Weniger Begangene Weg",
+                footerInitiatives: "Initiativen",
+                footerBible: "SPAC Bibelmeisterschaft",
+                privacy: "Datenschutzrichtlinie",
+                terms: "Nutzungsbedingungen"
+            },
+            yo: {
+                heroTitle: "Ṣe iranlọwọ fun ọ lati di gbogbo ohun ti Ọlọrun <br> dá ọ lati jẹ.",
+                watchLive: "Wo Laaye",
+                registerFFF: "Forukọsilẹ fun FFF",
+                founderLabel: "Oludasile & Alabojuto Gbogbogbo",
+                aboutTitle: "Nipa Woli Samuel Adegboyega",
+                aboutText: "Samuel Ajayi Adegboyega (ti a bi ni 22 Okudu 1945) jẹ Aguntan, Woli, Oninuure, ati Olori Kristiani Naijiria kan ti o nṣe iranṣẹ gẹgẹbi Oludasile, Alakoso, ati Alabojuto Gbogbogbo Akọkọ ti Ile-ijọsin Ẹni-ami-ororo Awọn Apolongo Igbala (SPAC) Kariaye, ti olú rẹ wa ni Ibadan, Ipinle Oyo, Naijiria. A mọ ọ kaakiri fun ifaramọ rẹ si adura, iwa-mimọ, iṣẹ-iranṣẹ woli, ati agbara iyipada ti Ẹmi Mimọ. Ni ikọja iṣẹ ile-ijọsin rẹ, Adegboyega ni oludasile Focus for the Future (FFF), ipilẹṣẹ oninuure kan ti a yasọtọ si ifiagbara fun awọn ọdọ, ilọsiwaju eto-ẹkọ, ati idagbasoke agbegbe. Nipasẹ FFF, ọgọọgọrun awọn ọmọ ile-iwe n gba awọn sikolashipu lọdọdun, lakoko ti ọpọlọpọ awọn ọdọ n jẹ anfani lati ọwọ itọnisọna, ikẹkọ olori, ati atilẹyin owo ti a ṣe lati ṣe iranlọwọ fun wọn lati mọ agbara wọn ati lati ṣe alabapin pẹlu itumọ si awujọ. Ni ọpọlọpọ awọn ọdun ti iṣẹ-iranṣẹ ati iṣẹ omoniyan, o ti jẹri idanimọ gẹgẹbi olutọju ẹmí, olukọni, ati agbẹjọro fun ilọsiwaju awọn iran iwaju.",
+                readMoreBtn: "Ka Siwaju",
+                docTitle: "Ta ni Woli Samuel Adegboyega ti Ile-ijọsin SPAC",
+                watchDoc: "Wo Iwe Itan",
+                anointingTitle: "Apejọ Ẹni-ami-ororo ati Ina Titun",
+                watchMessageBtn: "▶ Wo Ifiranṣẹ Yii",
+                prophecyOverlay: "Asọtẹlẹ",
+                prophecyTitle: "Asọtẹlẹ naa",
+                anointingServiceTitle: "Iṣẹ Ẹni-ami-ororo",
+                youthLabel: "Ifiagbara fun Ọdọ",
+                fffText: "FFF ti ṣe iranlọwọ fun ọgọọgọrun awọn ọmọ ile-iwe lati ṣaṣeyọri ohun ti wọn ro pe ko le ṣeeṣe rara. Syeedii naa ti ṣe iranlọwọ fun wọn lati lilö kiri igbesi aye, wa idi, ati pese awọn ọwọ iranlọwọ ti o nilati lati jẹ ki irin-ajo ati awọn ibi-afẹde wọn rọrun lati de. Nipasẹ awọn sikolashipu, ikẹkọ olori, ati itọnisọna ti a yasọtọ, FFF n kọ iran ti n bọ ti awọn oluṣe iyipada agbaye ati awọn olori ẹmí.",
+                fffBtn: "Ka Siwaju & Waye fun Eto FFF",
+                spiritualLabel: "Ipilẹṣẹ Idagbasoke Ẹmí",
+                bibleChampTitle: "Idije Bibeli SPAC",
+                bibleChampText: "Idije Bibeli SPAC jẹ idije akoko kan, ti o da lori iwe-mimọ nibiti awọn onigbagbọ — awọn ọdọ ati agbalagba bakanna — forukọsilẹ lati danwo imọ Bibeli wọn. Ti Woli Samuel Adegboyega tikararẹ ṣe onigbọwọ, ipilẹṣẹ atọrunwa ati omoniyan yii jẹ apẹrẹ lati fi ọkan awọn eniyan jinlẹ sinu Ọrọ Ọlọrun, ti n dagba idagbasoke ẹmí ti o jinlẹ ati agbara ọpọlọ kọja agbegbe.",
+                bibleChampBtn: "Ka Siwaju Nipa Idije naa",
+                watchBibleChamp: "Wo Idije Bibeli",
+                dynamicFeed: "Kikọ Akoonu Yiyi",
+                continueReading: "Tesiwaju Kika",
+                featuredResource: "Ohun elo Ifihan",
+                bookTitle: "Ka iwe ti n yi igbesi aye pada nipasẹ Woli Samuel Adegboyega.",
+                bookSubtitle: "ỌNA TI A KO RIN PUPỌ: Ọna alailẹgbẹ mi si aṣeyọri",
+                bookDesc: "Ṣawari irin-ajo alailẹgbẹ, awọn ilana, ati awọn ipade atọrunwa ti o ṣe agbekalẹ iṣẹ-iranṣẹ ati igbesi aye Woli Samuel Adegboyega. Akọsilẹ igbesi aye alagbara yii nfunni ni imọran ẹmí ti o jinlẹ ti o fidimule ninu awọn iriri ti ara ẹni, ti n fihan ọ bi o ṣe le lilö kiri awọn ipenija igbesi aye nipasẹ igbagbọ ti ko ṣe é gbọn.",
+                signupTitle: "Forukọsilẹ nibi.",
+                signupBtn: "FORUKỌSILẸ LATI GBA ẸDA KAN",
+                statGod: "ỌLỌRUN",
+                statWife: "Iyawo",
+                statChildren: "Awọn Ọmọ",
+                statSpiritual: "Awọn Ọmọ Ẹmí",
+                wordToday: "Ọrọ Adegboyega ti Oni",
+                dailyQuote: "\"Igbesi aye ko fun ọ ni ohun ti o tọ si, o ni lati beere fun.\"",
+                followTitle: "Tẹle Samuel Adegboyega",
+                followSub: "Wa ni asopọ fun awokose ojoojumọ ati awọn ikede woli.",
+                aboutSpacTitle: "Nipa Ile-ijọsin Ẹni-ami-ororo Awọn Apolongo Igbala (SPAC)",
+                externalLinks: "Awọn Ọna Ita:",
+                navAbout: "Nipa",
+                navSermons: "Awọn Iwaasu",
+                navBlog: "Bulọọgi",
+                navContact: "Kan si",
+                footerDesc: "Ṣe iranlọwọ fun ọ lati di gbogbo ohun ti Ọlọrun dá ọ lati jẹ nipasẹ agbara Ẹmi Mimọ, adura, ati awọn ikede woli.",
+                footerMinistry: "Iṣẹ-iranṣẹ Wa",
+                footerAboutProphet: "Nipa Woli Samuel",
+                footerAboutSpac: "Nipa SPAC Kariaye",
+                footerBranch: "Wa Ẹka Kan",
+                footerContact: "Kan Si Wa",
+                footerMedia: "Media & Ile-itaja",
+                footerWatch: "Wo Awọn Ifiranṣẹ",
+                footerBlog: "Bulọọgi Awokose Ojoojumọ",
+                footerStore: "Ile-itaja Iwe",
+                footerBook: "Ọna Ti A Ko Rin Pupọ",
+                footerInitiatives: "Awọn Ipilẹṣẹ",
+                footerBible: "Idije Bibeli SPAC",
+                privacy: "Ilana Aṣiri",
+                terms: "Awọn Ofin Lilo"
+            },
+            ha: {
+                heroTitle: "Taimaka muku zama duk abin da Allah <br> ya halicce ku ku zama.",
+                watchLive: "Kallo Kai Tsaye",
+                registerFFF: "Yi Rajista don FFF",
+                founderLabel: "Wanda Ya Kafa & Babban Mai Kula",
+                aboutTitle: "Game da Annabi Samuel Adegboyega",
+                aboutText: "Samuel Ajayi Adegboyega (an haife shi 22 Yuni 1945) fasto ne, annabi, mai taimakon jama'a, kuma shugaban Kirista na Najeriya wanda ke aiki a matsayin Wanda Ya Kafa, Shugaba, da Babban Mai Kula na Farko na Cocin Salvation Proclaimers Anointed Church (SPAC) na Duniya, wanda hedkwatarsa ke Ibadan, Jihar Oyo, Najeriya. An san shi sosai don sadaukarwarsa ga addu'a, tsarki, hidimar annabci, da ikon canzawa na Ruhu Mai Tsarki. Bayan aikinsa na coci, Adegboyega shine wanda ya kafa Focus for the Future (FFF), wani shiri na taimakon jama'a da aka sadaukar don ƙarfafa matasa, ci gaban ilimi, da ci gaban al'umma. Ta hanyar FFF, ɗaruruwan ɗalibai suna karɓar tallafin karatu kowace shekara, yayin da matasa da yawa ke amfana daga jagoranci, horar da jagoranci, da tallafin kuɗi da aka tsara don taimaka musu su gane damarsu kuma su ba da gudummawa mai ma'ana ga al'umma. Fiye da shekaru da yawa na hidima da hidimar ɗan adam, ya sami karɓuwa a matsayin mai ba da shawara na ruhaniya, malami, da mai ba da shawara ga ci gaban tsararraki masu zuwa.",
+                readMoreBtn: "Kara Karantawa",
+                docTitle: "Wane ne Annabi Samuel Adegboyega na Cocin SPAC",
+                watchDoc: "Kalli Takardun Tarihi",
+                anointingTitle: "Taron Shafawa da Sabon Wuta",
+                watchMessageBtn: "▶ Kalli Wannan Saƙo",
+                prophecyOverlay: "Annabci",
+                prophecyTitle: "Annabcin",
+                anointingServiceTitle: "Hidimar Shafawa",
+                youthLabel: "Ƙarfafa Matasa",
+                fffText: "FFF ta taimaka wa ɗaruruwan ɗalibai su cimma abin da suke tsammanin ba zai taɓa yiwuwa ba. Dandalin ya taimaka musu su kewaya rayuwa, su sami manufa, kuma ya ba da hannayen taimako da ake buƙata don sauƙaƙe tafiyarsu da burinsu. Ta hanyar tallafin karatu, horar da jagoranci, da jagoranci mai sadaukarwa, FFF tana gina ƙarni na gaba na masu kawo canji na duniya da shugabannin ruhaniya.",
+                fffBtn: "Kara Karantawa & Nema don Shirin FFF",
+                spiritualLabel: "Shirin Ci gaban Ruhaniya",
+                bibleChampTitle: "Gasar Littafi Mai Tsarki ta SPAC",
+                bibleChampText: "Gasar Littafi Mai Tsarki ta SPAC gasa ce ta zamani, bisa nassi inda masu bi—matasa da manya baki ɗaya—suke rajista don gwada iliminsu na Littafi Mai Tsarki. Wanda Annabi Samuel Adegboyega da kansa ya ɗauki nauyi, wannan shiri na allahntaka da na ɗan adam an tsara shi don zurfafa zukatan mutane cikin Kalmar Allah, yana haɓaka ci gaban ruhaniya mai zurfi da ƙarfin tunani a cikin al'umma.",
+                bibleChampBtn: "Kara Karantawa Game da Gasar",
+                watchBibleChamp: "Kalli Gasar Littafi Mai Tsarki",
+                dynamicFeed: "Ciyar da Abun Ciki Mai Sauyi",
+                continueReading: "Ci Gaba da Karatu",
+                featuredResource: "Abin da Aka Fitar",
+                bookTitle: "Karanta littafin canza rayuwa ta Annabi Samuel Adegboyega.",
+                bookSubtitle: "HANYAR DA BA A YI TA FIYA TAFIYA BA: Hanyata ta musamman zuwa nasara",
+                bookDesc: "Gano tafiya mai ban mamaki, ƙa'idodi, da saduwa da allahntaka waɗanda suka tsara hidima da rayuwar Annabi Samuel Adegboyega. Wannan tarihin mai ƙarfi yana ba da shawara mai zurfi ta ruhaniya wadda ta samo asali daga abubuwan sirri, yana nuna muku yadda za ku kewaya ƙalubalen rayuwa ta hanyar bangaskiya mara karkarwa.",
+                signupTitle: "Yi rajista a nan.",
+                signupBtn: "YI RAJISTA DON SAMUN KWAFI",
+                statGod: "ALLAH",
+                statWife: "Mata",
+                statChildren: "'Ya'ya",
+                statSpiritual: "'Ya'yan Ruhaniya",
+                wordToday: "Kalmar Adegboyega ta Yau",
+                dailyQuote: "\"Rayuwa ba ta ba ku abin da kuka cancanci ba, dole ne ku nema.\"",
+                followTitle: "Bi Samuel Adegboyega",
+                followSub: "Kasance da haɗi don wahayi na yau da kullun da shelar annabci.",
+                aboutSpacTitle: "Game da Cocin Salvation Proclaimers Anointed Church (SPAC)",
+                externalLinks: "Hanyoyin Waje:",
+                navAbout: "Game da",
+                navSermons: "Wa'azai",
+                navBlog: "Bulog",
+                navContact: "Tuntuɓi",
+                footerDesc: "Taimaka muku zama duk abin da Allah ya halicce ku ku zama ta wurin ikon Ruhu Mai Tsarki, addu'a, da shelar annabci.",
+                footerMinistry: "Hidimarmu",
+                footerAboutProphet: "Game da Annabi Samuel",
+                footerAboutSpac: "Game da SPAC na Duniya",
+                footerBranch: "Nemi Reshe",
+                footerContact: "Tuntuɓe Mu",
+                footerMedia: "Kafofin Watsa Labarai & Shago",
+                footerWatch: "Kalli Saƙonni",
+                footerBlog: "Bulogin Wahayi na Yau da Kullum",
+                footerStore: "Shagon Littattafai",
+                footerBook: "Hanyar Da Ba A Yi Tafiya Fiya ba",
+                footerInitiatives: "Shirye-shirye",
+                footerBible: "Gasar Littafi Mai Tsarki ta SPAC",
+                privacy: "Manufar Sirri",
+                terms: "Sharuɗɗan Amfani"
+            },
+            ig: {
+                heroTitle: "Na-enyere gị aka ịbụ ihe niile Chineke <br> kere gị ịbụ.",
+                watchLive: "Lelee Na Ndụ",
+                registerFFF: "Deba Aha maka FFF",
+                founderLabel: "Onye Nhazi & Onye Nlekọta Ọha",
+                aboutTitle: "Banyere Onye Amụma Samuel Adegboyega",
+                aboutText: "Samuel Ajayi Adegboyega (amụrụ na 22 June 1945) bụ onye ụkọchukwu Naijiria, onye amụma, onye enyemaka, na onye ndu Ndị Kraịst nke na-eje ozi dị ka Onye Nhazi, Onye Isi, na Onye Nlekọta Ọha nke Mbụ nke Ụka Mmanụ Nsọ nke Ndị Mgbasa Ozi Ọma nke Nzọpụta (SPAC) zuru ụwa ọnụ, nke isi ụlọ ọrụ ya dị na Ibadan, Ọyọ Steeti, Naijiria. A maara ya nke ọma maka ntinye aka ya na ekpere, ịdị nsọ, ozi amụma, na ike mgbanwe nke Mmụọ Nsọ. Karịa ọrụ ụka ya, Adegboyega bụ onye nhazi nke Focus for the Future (FFF), atụmatụ enyemaka nke enyere maka ịkwado ndị ntorobịa, ọganihu agụmakwụkwọ, na mmepe obodo. Site na FFF, ọtụtụ narị ụmụ akwụkwọ na-enweta scholarships kwa afọ, ebe ọtụtụ ndị ntorobịa na-erite uru site na nduzi, ọzụzụ onye ndu, na nkwado ego e mere iji nyere ha aka ịghọta ikike ha na inye aka n'ụzọ bara uru na ọha mmadụ. N'ime ọtụtụ iri afọ nke ozi na ọrụ enyemaka, o nwetara nkwado dị ka onye ndụmọdụ ime mmụọ, onye nkụzi, na onye na-akwado maka ọganihu nke ọgbọ n'ọdịnihu.",
+                readMoreBtn: "Gụọ Ọzọ Ugbu a",
+                docTitle: "Onye bụ Onye Amụma Samuel Adegboyega nke Ụka SPAC",
+                watchDoc: "Lelee Ihe Omume",
+                anointingTitle: "Mgbakọ Mmanụ Nsọ na Ọkụ Ọhụrụ",
+                watchMessageBtn: "▶ Lelee Ozi A",
+                prophecyOverlay: "Amụma",
+                prophecyTitle: "Amụma ahụ",
+                anointingServiceTitle: "Ozi Mmanụ Nsọ",
+                youthLabel: "Ịkwado Ndị Ntorobịa",
+                fffText: "FFF enyerela ọtụtụ narị ụmụ akwụkwọ aka imezu ihe ha chere na ọ gaghị ekwe omume. Usoro a enyerela ha aka ịnyagharịa ndụ, chọta nzube, ma nye aka enyemaka dị mkpa iji mee ka njem ha na ebumnuche ha dị mfe iru. Site na scholarships, ọzụzụ onye ndu, na nduzi raara onwe ya nye, FFF na-arụsi ọrụ ike iwulite ọgbọ na-abịa nke ndị na-eweta mgbanwe n'ụwa na ndị ndu ime mmụọ.",
+                fffBtn: "Gụọ Ọzọ & Tinye Akwụkwọ maka Mmemme FFF",
+                spiritualLabel: "Atụmatụ Ọganihu Ime Mmụọ",
+                bibleChampTitle: "Asọmpi Baịbụl SPAC",
+                bibleChampText: "Asọmpi Baịbụl SPAC bụ asọmpi nke oge, nke dabere na akwụkwọ nsọ ebe ndị kwere ekwe—ndị ntorobịa na ndị okenye n'otu aka ahụ—na-edebanye aha iji nwalee ihe ọmụma Baịbụl ha. Nke Onye Amụma Samuel Adegboyega ji aka ya kwado, atụmatụ Chukwu na nke enyemaka a bụ iji mee ka uche ndị mmadụ gbanye mkpọrọgwụ n'Okwu Chineke, na-akwalite ọganihu ime mmụọ miri emi na ike iche echiche n'ofe obodo.",
+                bibleChampBtn: "Gụọ Ọzọ Banyere Asọmpi ahụ",
+                watchBibleChamp: "Lelee Asọmpi Baịbụl",
+                dynamicFeed: "Nri Ọdịnaya Na-agbanwe",
+                continueReading: "Gaa N'ihu Na-agụ",
+                featuredResource: "Ihe Enyere Pụtara Ihe",
+                bookTitle: "Gụọ akwụkwọ na-agbanwe ndụ nke Onye Amụma Samuel Adegboyega dere.",
+                bookSubtitle: "Ụzọ A Na-ejighị Eje: Ụzọ m Pụrụ Iche na-aga Ịga nke Ọma",
+                bookDesc: "Chọpụta njem pụrụ iche, ụkpụrụ, na izute Chukwu ndị kpụrụ ozi na ndụ Onye Amụma Samuel Adegboyega. Ihe ndekọ a dị ike na-enye ndụmọdụ ime mmụọ miri emi gbanyere mkpọrọgwụ n'ahụmahụ onwe onye, na-egosi gị otu ị ga-esi nyagharịa ihe ịma aka ndụ site n'okwukwe na-adịghị agbanwe agbanwe.",
+                signupTitle: "Deba aha ebe a.",
+                signupBtn: "DEBA AHA IJI NWETA OTU",
+                statGod: "CHINEKE",
+                statWife: "Nwunye",
+                statChildren: "Ụmụaka",
+                statSpiritual: "Ụmụ Ime Mmụọ",
+                wordToday: "Okwu Adegboyega nke Taa",
+                dailyQuote: "\"Ndụ anaghị enye gị ihe ị kwesịrị, ị ghaghị ịchọ ya.\"",
+                followTitle: "Soro Samuel Adegboyega",
+                followSub: "Nọgide na-enwe njikọ maka mmụọ nsọ kwa ụbọchị na nkwupụta amụma.",
+                aboutSpacTitle: "Banyere Ụka Mmanụ Nsọ nke Ndị Mgbasa Ozi Ọma nke Nzọpụta (SPAC)",
+                externalLinks: "Njikọ Ndị Ọzọ:",
+                navAbout: "Banyere",
+                navSermons: "Okwuchukwu",
+                navBlog: "Blog",
+                navContact: "Kpọtụrụ",
+                footerDesc: "Na-enyere gị aka ịbụ ihe niile Chineke kere gị ịbụ site n'ike nke Mmụọ Nsọ, ekpere, na nkwupụta amụma.",
+                footerMinistry: "Ozi Anyị",
+                footerAboutProphet: "Banyere Onye Amụma Samuel",
+                footerAboutSpac: "Banyere SPAC zuru ụwa ọnụ",
+                footerBranch: "Chọta Alaka",
+                footerContact: "Kpọtụrụ Anyị",
+                footerMedia: "Mgbasa Ozi & Ụlọ Ahịa",
+                footerWatch: "Lelee Ozi",
+                footerBlog: "Blog Mmụọ Nsọ Kwa Ụbọchị",
+                footerStore: "Ụlọ Ahịa Akwụkwọ",
+                footerBook: "Ụzọ A Na-ejighị Eje",
+                footerInitiatives: "Atụmatụ",
+                footerBible: "Asọmpi Baịbụl SPAC",
+                privacy: "Iwu Nzuzo",
+                terms: "Usoro Iji"
             }
         };
 
@@ -557,22 +901,42 @@
             const t = translations[lang];
             if (!t) return;
             
-            document.getElementById('heroTitle').innerHTML = t.heroTitle;
+            // Update all elements with data-translate attribute
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (t[key]) {
+                    el.textContent = t[key];
+                }
+            });
             
-            const buttons = document.querySelectorAll('.hero .grid a');
-            if (buttons.length >= 2) {
-                buttons[0].textContent = t.watchLive;
-                buttons[1].textContent = t.registerFFF;
+            // Update elements with specific IDs
+            if (t.heroTitle) document.getElementById('heroTitle').innerHTML = t.heroTitle;
+            if (t.aboutTitle) document.getElementById('aboutTitle').textContent = t.aboutTitle;
+            if (t.aboutText) document.getElementById('aboutText').textContent = t.aboutText;
+            if (t.docTitle) document.getElementById('docTitle').textContent = t.docTitle;
+            if (t.anointingTitle) document.getElementById('anointingTitle').textContent = t.anointingTitle;
+            if (t.prophecyOverlay) document.getElementById('prophecyOverlay').textContent = t.prophecyOverlay;
+            if (t.prophecyTitle) document.getElementById('prophecyTitle').textContent = t.prophecyTitle;
+            if (t.anointingServiceTitle) document.getElementById('anointingServiceTitle').textContent = t.anointingServiceTitle;
+            if (t.fffText) document.getElementById('fffText').textContent = t.fffText;
+            if (t.bibleChampTitle) document.getElementById('bibleChampTitle').textContent = t.bibleChampTitle;
+            if (t.bibleChampText) document.getElementById('bibleChampText').textContent = t.bibleChampText;
+            if (t.watchBibleChamp) document.getElementById('watchBibleChamp').textContent = t.watchBibleChamp;
+            if (t.bookTitle) document.getElementById('bookTitle').textContent = t.bookTitle;
+            if (t.bookSubtitle) document.getElementById('bookSubtitle').textContent = t.bookSubtitle;
+            if (t.bookDesc) document.getElementById('bookDesc').textContent = t.bookDesc;
+            if (t.signupTitle) document.getElementById('signupTitle').textContent = t.signupTitle;
+            if (t.dailyQuote) document.getElementById('dailyQuote').textContent = t.dailyQuote;
+            
+            // Update about SPAC text paragraphs
+            const aboutSpacTextEl = document.getElementById('aboutSpacText');
+            if (aboutSpacTextEl && t.aboutSpacText1 && t.aboutSpacText2) {
+                const paragraphs = aboutSpacTextEl.querySelectorAll('p');
+                if (paragraphs.length >= 2) {
+                    paragraphs[0].textContent = t.aboutSpacText1;
+                    paragraphs[1].textContent = t.aboutSpacText2;
+                }
             }
-            
-            const aboutTitleEl = document.getElementById('aboutTitle');
-            if (aboutTitleEl) aboutTitleEl.textContent = t.aboutTitle;
-            
-            const aboutTextEl = document.getElementById('aboutText');
-            if (aboutTextEl) aboutTextEl.textContent = t.aboutText;
-            
-            const anointingTitleEl = document.getElementById('anointingTitle');
-            if (anointingTitleEl) anointingTitleEl.textContent = t.anointingTitle;
         }
     </script>
 </body>
