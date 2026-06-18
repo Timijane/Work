@@ -2,114 +2,602 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Focus for the Future | Prophet Samuel Adegboyega</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <title>Focus For The Future (FFF) - Empowering Generations | Prophet Samuel Adegboyega</title>
+    <meta name="description" content="Discover Focus for the Future (FFF) — the youth empowerment foundation by Prophet Samuel Adegboyega. Scholarships, mentorship, leadership development. Click to learn how we're building future leaders.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Focus for the Future (FFF)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Focus for the Future (FFF) is a non-profit educational, humanitarian, and youth development foundation established by Prophet Samuel Ajayi Adegboyega. It empowers young people through education, mentorship, leadership development, scholarships, and life-changing opportunities."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who founded Focus for the Future (FFF)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FFF was founded by Prophet Samuel Ajayi Adegboyega, the Founder, President, and First General Overseer of Salvation Proclaimers Anointed Church (SPAC) Worldwide, headquartered in Ibadan, Nigeria."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I apply for an FFF scholarship?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Deserving students can apply for FFF scholarships through the foundation's official programmes. Scholarships are awarded to students who demonstrate academic promise, determination, leadership potential, and financial need."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What programmes does Focus for the Future offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FFF offers scholarship awards, tuition assistance, educational grants, academic mentoring, learning materials support, career guidance, youth empowerment programmes, mentorship and leadership development, and community development initiatives."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How has FFF impacted communities?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FFF has supported hundreds of students through scholarships, assisted families facing educational challenges, provided mentorship opportunities, encouraged academic excellence, and empowered individuals to pursue higher education and professional careers."
+          }
+        }
+      ]
+    }
+    </script>
+
     <style>
-        :root { --jom-blue: #007fc6; --royal-dark: #0b132b; }
-        .prose-custom p { margin-bottom: 1.5rem; line-height: 1.8; color: #4b5563; text-align: justify; }
-        .hero-overlay { background: linear-gradient(rgba(11, 19, 43, 0.75), rgba(11, 19, 43, 0.75)); }
+        :root {
+            --jom-blue: #007fc6;
+            --jom-dark-blue: #004e7c;
+            --royal-gold: #C8963E;
+            --royal-dark: #0b132b;
+        }
+
+        html { font-size: 14px; }
+        body { background-color: #f9fafb; color: #1f2937; overflow-x: hidden; }
+        
+        .transition-smooth { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        @media(hover: hover) and (pointer: fine) {
+            .custom-cursor { width: 20px; height: 20px; border: 2px solid var(--jom-blue); border-radius: 50%; position: fixed; pointer-events: none; z-index: 99999; transition: width 0.3s, height 0.3s, background 0.3s; transform: translate(-50%, -50%); display: block; }
+            .custom-cursor.hover { width: 45px; height: 45px; background: rgba(0, 127, 198, 0.1); border-color: var(--jom-dark-blue); }
+            .custom-cursor.hidden { opacity: 0; }
+        }
+        @media(max-width: 768px), (hover: none) { .custom-cursor { display: none !important; } }
+
+        .loader-wrapper { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--royal-dark); display: flex; align-items: center; justify-content: center; z-index: 999999; transition: opacity 0.8s ease, visibility 0.8s ease; }
+        .loader-wrapper.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        .loader-image-container { width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem; border: 3px solid var(--jom-blue); animation: loaderZoom 2s ease-in-out infinite; }
+        .loader-image-container img { width: 100%; height: 100%; object-fit: cover; }
+        @keyframes loaderZoom { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        .loader-bar { width: 150px; height: 2px; background: rgba(255,255,255,0.1); margin: 1.5rem auto 0; overflow: hidden; }
+        .loader-bar-fill { height: 100%; background: var(--jom-blue); animation: loaderBar 1.5s infinite; width: 0%; }
+        @keyframes loaderBar { 0% { width: 0; margin-left: 0; } 50% { width: 50%; margin-left: 25%; } 100% { width: 0; margin-left: 100%; } }
+
+        .navbar-scrolled { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+        .navbar-scrolled .nav-link { color: #1f2937; }
+        .navbar-scrolled .logo-text { color: var(--jom-blue); }
+
+        .lang-dropdown { position: relative; display: inline-block; }
+        .lang-dropdown-content { display: none; position: absolute; top: 100%; right: 0; background: white; min-width: 130px; box-shadow: 0 8px 16px rgba(0,0,0,0.15); border-radius: 4px; z-index: 100; overflow: hidden; }
+        .lang-dropdown:hover .lang-dropdown-content { display: block; }
+        .lang-dropdown-content button { display: block; width: 100%; padding: 10px 16px; text-align: left; border: none; background: none; cursor: pointer; font-size: 12px; font-weight: 600; color: #1f2937; white-space: nowrap; }
+        .lang-dropdown-content button:hover { background: #f3f4f6; color: #007fc6; }
+
+        .drop-cap::first-letter { font-size: 4rem; font-weight: bold; float: left; margin-right: 0.75rem; color: #007fc6; line-height: 0.8; padding-top: 0.5rem; }
+        .divider { height: 2px; background: #0b132b; width: 100%; margin: 1.5rem 0; }
+        .article-text p { margin-bottom: 1.5rem; line-height: 1.8; color: #4b5563; text-align: justify; }
+        .section-title { border-left: 4px solid var(--jom-blue); padding-left: 1rem; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="antialiased">
 
-    <!-- Header -->
-    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 py-4 px-8 flex justify-between items-center shadow-sm">
-        <a href="index.html" class="flex items-center gap-3">
-            <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" class="w-10 h-10 rounded-full border-2 border-[#007fc6] object-cover">
-            <span class="font-bold uppercase tracking-widest text-xs">Prophet Samuel Adegboyega</span>
-        </a>
-        <nav class="hidden md:flex gap-10 font-bold text-[11px] uppercase tracking-widest">
-            <a href="index.html" class="hover:text-[#007fc6]">Home</a>
-            <a href="about.html" class="hover:text-[#007fc6]">About</a>
-            <a href="view.html" class="hover:text-[#007fc6]">Sermons</a>
-            <a href="FFF.html" class="text-[#007fc6]">FFF</a>
-        </nav>
-    </header>
+    <div class="custom-cursor" id="customCursor"></div>
 
-    <!-- Hero -->
-    <section class="relative h-[70vh] flex items-center justify-center text-white text-center px-6">
-        <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781738332/1781738170375_mopl98.jpg" class="absolute w-full h-full object-cover">
-        <div class="absolute inset-0 hero-overlay"></div>
-        <div class="relative z-10 max-w-4xl">
-            <h1 class="text-5xl md:text-7xl font-serif mb-6 tracking-tight">Focus for the Future (FFF)</h1>
-            <p class="text-xl md:text-2xl font-light italic">Empowering Today’s Youth. Transforming Tomorrow’s World.</p>
-            <button onclick="document.getElementById('register-modal').classList.remove('hidden')" class="mt-10 bg-[#007fc6] hover:bg-blue-700 text-white px-12 py-4 uppercase font-bold tracking-widest text-xs transition-all">Register Now</button>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <main class="max-w-4xl mx-auto py-20 px-6 prose-custom">
-        <section>
-            <h2 class="text-3xl font-serif mb-8 text-[#0b132b] border-l-4 border-[#007fc6] pl-4">About the Initiative</h2>
-            <p>Focus for the Future (FFF) is a humanitarian, educational, and youth empowerment initiative founded by Prophet Samuel Ajayi Adegboyega. Established from a deep passion for education, leadership development, and social transformation, the foundation is committed to helping young people overcome barriers, discover their potential, and build meaningful futures.</p>
-            <p>The vision behind FFF is rooted in the personal life journey of its founder. Having experienced severe poverty and financial hardship during his childhood, Prophet Adegboyega understands firsthand the challenges that many young people face in pursuing education and achieving their dreams. Through determination, faith, hard work, and the support of a few compassionate individuals, he was able to rise above those circumstances and build a life of purpose and impact. Focus for the Future was established to extend similar opportunities to others, ensuring that financial limitations do not prevent talented and determined young people from reaching their full potential.</p>
-            <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781738332/1781738149483_a4zeih.jpg" class="w-full my-10 shadow-lg rounded-sm">
-            <p>Since its inception, FFF has become a platform of hope and opportunity for countless students, families, and communities. The foundation has supported hundreds of students through scholarship programmes, educational assistance, mentorship initiatives, and leadership development opportunities. By investing in education and human capital, FFF seeks to create lasting change that extends beyond individual beneficiaries to entire families and communities.</p>
-            <p>At Focus for the Future, we believe that every young person possesses unique gifts, talents, and abilities capable of making a positive contribution to society. However, many gifted individuals are denied opportunities because of economic challenges, lack of guidance, or limited access to resources. Our mission is to bridge that gap by providing practical support, encouragement, and opportunities that enable young people to succeed academically, professionally, and personally.</p>
-        </section>
-
-        <section class="grid md:grid-cols-2 gap-12 my-16 bg-gray-100 p-10 rounded-sm">
-            <div>
-                <h3 class="text-2xl font-serif mb-6 text-[#0b132b]">Our Vision</h3>
-                <p>To raise a generation of educated, empowered, responsible, and purpose-driven leaders who will positively transform their communities, nations, and the world.</p>
+    <div class="loader-wrapper" id="loader">
+        <div class="text-center">
+            <div class="loader-image-container">
+                <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Loading">
             </div>
-            <div>
-                <h3 class="text-2xl font-serif mb-6 text-[#0b132b]">Our Mission</h3>
-                <p>To provide educational opportunities, scholarships, mentorship, leadership development, and community support programmes that help young people discover their potential and achieve their aspirations.</p>
-            </div>
-        </section>
-
-        <section>
-            <h3 class="text-2xl font-serif mb-8 text-[#0b132b]">Our Core Values</h3>
-            <ul class="space-y-4 mb-12">
-                <li><strong class="text-[#007fc6]">Excellence:</strong> We encourage the pursuit of academic, professional, and personal excellence in every area of life.</li>
-                <li><strong class="text-[#007fc6]">Integrity:</strong> We promote honesty, accountability, responsibility, and ethical leadership.</li>
-                <li><strong class="text-[#007fc6]">Service:</strong> We believe true leadership is demonstrated through service to others and commitment to community development.</li>
-                <li><strong class="text-[#007fc6]">Empowerment:</strong> We are committed to equipping individuals with the knowledge, skills, and opportunities they need to succeed.</li>
-                <li><strong class="text-[#007fc6]">Compassion:</strong> We seek to uplift the disadvantaged and provide hope where it is most needed.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h3 class="text-2xl font-serif mb-8 text-[#0b132b]">What We Do</h3>
-            <div class="space-y-8">
-                <div><h4 class="font-bold text-[#007fc6]">Educational Scholarships</h4><p>Education remains one of the most effective tools for breaking the cycle of poverty. Through our scholarship programmes, FFF provides financial assistance to deserving students from various backgrounds.</p></div>
-                <div><h4 class="font-bold text-[#007fc6]">Student Support Initiatives</h4><p>Beyond scholarships, the foundation provides educational materials, learning resources, counselling support, and other forms of assistance.</p></div>
-                <div><h4 class="font-bold text-[#007fc6]">Youth Empowerment Programmes</h4><p>FFF organises programmes designed to equip young people with practical life skills, leadership abilities, and entrepreneurial knowledge.</p></div>
-                <div><h4 class="font-bold text-[#007fc6]">Mentorship and Leadership Development</h4><p>The foundation connects young people with experienced mentors, professionals, educators, and leaders who provide guidance and encouragement.</p></div>
-            </div>
-        </section>
-
-        <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781738332/1781738164319_ukpfpq.jpg" class="w-full my-10 shadow-lg rounded-sm">
-
-        <section>
-            <h3 class="text-2xl font-serif mb-8 text-[#0b132b]">Our Founder</h3>
-            <div class="flex flex-col md:flex-row gap-8 items-center">
-                <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781738332/1781738226259_mhirqn.jpg" class="w-48 h-48 rounded-full object-cover border-4 border-[#007fc6]">
-                <p>Focus for the Future was founded by Prophet Samuel Ajayi Adegboyega, Founder, President, and First General Overseer of the Salvation Proclaimers Anointed Church (SPAC) Worldwide. Inspired by his own journey from rural poverty to becoming a respected leader, he established FFF as a vehicle for creating opportunities for future generations.</p>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-[#0b132b] text-gray-400 py-16 text-center">
-        <p class="text-xs uppercase tracking-widest mb-6">Shaping the Future Together &copy; 2026 Focus for the Future</p>
-    </footer>
-
-    <!-- Mock Modal -->
-    <div id="register-modal" class="hidden fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-6">
-        <div class="bg-white p-10 max-w-lg w-full relative shadow-2xl">
-            <button onclick="document.getElementById('register-modal').classList.add('hidden')" class="absolute top-4 right-4 text-3xl font-light">&times;</button>
-            <h2 class="font-serif text-3xl mb-6 text-[#0b132b]">Register for FFF</h2>
-            <form class="space-y-4">
-                <input type="text" placeholder="Full Name" class="w-full border p-3 text-sm focus:border-[#007fc6] outline-none">
-                <input type="email" placeholder="Email Address" class="w-full border p-3 text-sm focus:border-[#007fc6] outline-none">
-                <textarea placeholder="Your Aspiration" class="w-full border p-3 text-sm h-32 focus:border-[#007fc6] outline-none"></textarea>
-                <button type="button" class="w-full bg-[#007fc6] text-white py-4 font-bold uppercase text-xs hover:bg-blue-700">Submit Application</button>
-            </form>
+            <h2 class="text-white text-sm tracking-widest font-bold uppercase">Prophet Samuel Adegboyega</h2>
+            <div class="loader-bar"><div class="loader-bar-fill"></div></div>
         </div>
     </div>
 
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-smooth bg-[#0b132b] text-white py-3 px-4 md:px-12 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-0 border-b border-white/10">
+        <a href="index.html" class="flex items-center gap-3 z-50 cursor-pointer">
+            <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Logo" class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-white/50 shadow-md">
+            <span class="logo-text font-bold uppercase tracking-widest text-sm md:text-base drop-shadow-md">Prophet Samuel Adegboyega</span>
+        </a>
+        
+        <nav class="flex flex-wrap justify-center items-center gap-5 md:gap-10 font-bold text-[10px] md:text-[12px] tracking-wider uppercase w-full md:w-auto">
+            <a href="about.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navAbout">About</a>
+            <a href="view.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navSermons">Sermons</a>
+            <a href="FFF.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md text-[#007fc6]">FFF</a>
+            <a href="adminblog.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navBlog">Blog</a>
+            <a href="contact.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navContact">Contact</a>
+            <button class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md text-sm md:text-lg">🔍</button>
+            
+            <div class="lang-dropdown">
+                <button class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md flex items-center gap-1 text-lg" title="Select Language">🌐</button>
+                <div class="lang-dropdown-content">
+                    <button onclick="switchLanguage('en')">🇬🇧 English</button>
+                    <button onclick="switchLanguage('fr')">🇫🇷 Français</button>
+                    <button onclick="switchLanguage('de')">🇩🇪 Deutsch</button>
+                    <button onclick="switchLanguage('yo')">🇳🇬 Yoruba</button>
+                    <button onclick="switchLanguage('ha')">🇳🇬 Hausa</button>
+                    <button onclick="switchLanguage('ig')">🇳🇬 Igbo</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="relative h-[70vh] w-full flex items-center justify-center mt-16">
+        <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781738332/1781738170375_mopl98.jpg" class="absolute w-full h-full object-cover" style="object-position: center 30%;" alt="Focus for the Future">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0b132b]/90 to-transparent"></div>
+        <div class="relative z-10 text-center px-6 max-w-4xl" data-aos="fade-up">
+            <span class="text-[#007fc6] font-bold tracking-[0.3em] uppercase text-xs mb-4 block" data-translate="heroLabel">Youth Empowerment Foundation</span>
+            <h1 class="text-5xl md:text-7xl text-white tracking-tight leading-tight" id="fffHeroTitle">Focus for the Future (FFF)</h1>
+            <p class="text-gray-200 mt-6 text-lg font-light italic" id="fffHeroSub">Investing in People. Empowering Generations. Building the Future.</p>
+        </div>
+    </section>
+
+    <main class="max-w-4xl mx-auto py-16 px-6 article-text">
+        
+        <section class="mb-12" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-6 section-title" id="sectionIntroTitle">Focus for the Future (FFF)</h2>
+            <p class="drop-cap" id="sectionIntroText1">
+                Focus for the Future (FFF) is a non-profit educational, humanitarian, and youth development foundation established by Prophet Samuel Ajayi Adegboyega with a clear and enduring vision: to empower individuals, especially young people, through education, mentorship, leadership development, and life-changing opportunities that enable them to reach their God-given potential.
+            </p>
+            <p id="sectionIntroText2">
+                The foundation was born out of a deep understanding of the challenges faced by countless young people across Nigeria and beyond. Having personally experienced the realities of poverty, limited opportunities, and financial hardship while growing up, Prophet Adegboyega developed a lifelong passion for helping others overcome similar obstacles. His own journey—from a rural village in Ogun State to becoming a respected Christian leader, professional administrator, philanthropist, and founder of an international ministry—serves as a powerful testimony to what can happen when determination, education, faith, and opportunity come together.
+            </p>
+            <p id="sectionIntroText3">
+                Focus for the Future was therefore established not merely as a charitable organisation, but as a transformational movement dedicated to identifying potential, nurturing talent, removing barriers, and creating opportunities for future generations.
+            </p>
+        </section>
+
+        <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781738332/1781738149483_a4zeih.jpg" class="w-full my-10 shadow-lg rounded-sm" data-aos="fade-up" alt="FFF Initiative">
+
+        <div class="divider"></div>
+
+        <section class="mb-12" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-6 section-title" data-translate="ourStoryTitle">Our Story</h2>
+            <p class="drop-cap" id="ourStoryText1">
+                The story of FFF begins with a simple belief: no child should be denied the opportunity to succeed because of poverty.
+            </p>
+            <p id="ourStoryText2">
+                Throughout his life, Prophet Samuel Ajayi Adegboyega witnessed countless brilliant young people abandon their education due to financial difficulties. He saw students forced to leave school because their parents could not afford tuition fees. He encountered gifted individuals whose dreams remained unrealised because they lacked mentorship, encouragement, or access to opportunities.
+            </p>
+            <p id="ourStoryText3">
+                Rather than merely observing these challenges, he chose to become part of the solution.
+            </p>
+            <p id="ourStoryText4">
+                What began as personal acts of generosity—paying school fees, sponsoring students, supporting struggling families, mentoring young people, and helping individuals build better futures—gradually evolved into a structured vision. That vision became Focus for the Future.
+            </p>
+            <p id="ourStoryText5">
+                Today, FFF continues that mission by providing educational support, scholarships, mentorship, leadership development programmes, and community-based initiatives that empower people to overcome limitations and pursue excellence.
+            </p>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="grid md:grid-cols-2 gap-12 my-12 bg-gray-100 p-10 rounded-sm" data-aos="fade-up">
+            <div>
+                <h3 class="text-2xl font-bold mb-6 section-title" data-translate="visionTitle">Our Vision</h3>
+                <p id="visionText">To build a future where every young person has access to the education, mentorship, resources, and opportunities necessary to achieve their full potential and become a positive force in society.</p>
+            </div>
+            <div>
+                <h3 class="text-2xl font-bold mb-6 section-title" data-translate="missionTitle">Our Mission</h3>
+                <p id="missionText">Our mission is to empower individuals through education, leadership development, mentorship, skills acquisition, and strategic support programmes that create pathways to personal success, community development, and national transformation.</p>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="mb-12" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-6 section-title" data-translate="coreBeliefsTitle">Our Core Beliefs</h2>
+            <p class="mb-3" data-translate="coreBeliefsIntro">At Focus for the Future, we believe:</p>
+            <ul class="space-y-3 mb-8 list-disc pl-6" id="coreBeliefsList">
+                <li id="belief1">Every individual possesses unique talents and abilities.</li>
+                <li id="belief2">Education is one of the most powerful tools for social transformation.</li>
+                <li id="belief3">Leadership should be rooted in integrity, responsibility, and service.</li>
+                <li id="belief4">Opportunities should not be limited by economic circumstances.</li>
+                <li id="belief5">Empowered individuals create empowered communities.</li>
+                <li id="belief6">Sustainable development begins with investing in people.</li>
+                <li id="belief7">The future can be transformed when today's youth are equipped to succeed.</li>
+            </ul>
+            <p id="coreBeliefsOutro">These beliefs guide every programme, initiative, and partnership undertaken by the foundation.</p>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="mb-12" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-6 section-title" data-translate="educationTitle">Education: The Heart of Our Mission</h2>
+            <p id="educationText1">
+                Education remains the cornerstone of the foundation's work.
+            </p>
+            <p id="educationText2">
+                We recognise that quality education provides individuals with the knowledge, confidence, and opportunities required to improve their lives and contribute meaningfully to society. Unfortunately, many capable students face significant financial and social barriers that prevent them from completing their education.
+            </p>
+            <p id="educationText3">
+                Through our educational initiatives, FFF seeks to remove these barriers and create opportunities for academic success.
+            </p>
+            <p class="font-bold mt-4 mb-3" data-translate="educationProgramsTitle">Our educational support programmes include:</p>
+            <ul class="space-y-2 list-disc pl-6" id="educationProgramsList">
+                <li id="eduProg1">Scholarship awards</li>
+                <li id="eduProg2">Tuition assistance</li>
+                <li id="eduProg3">Educational grants</li>
+                <li id="eduProg4">Academic mentoring</li>
+                <li id="eduProg5">Learning materials support</li>
+                <li id="eduProg6">Career guidance</li>
+                <li id="eduProg7">Academic excellence recognition programmes</li>
+            </ul>
+            <p class="mt-4" id="educationText4">Through these interventions, hundreds of students have been empowered to continue their education and pursue their dreams.</p>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="mb-12" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-6 section-title" data-translate="scholarshipTitle">Scholarship Programme</h2>
+            <p id="scholarshipText1">
+                One of the flagship initiatives of Focus for the Future is its scholarship programme.
+            </p>
+            <p id="scholarshipText2">
+                Every year, deserving students receive financial assistance designed to support their educational journey. These scholarships are awarded to students who demonstrate academic promise, determination, leadership potential, and financial need.
+            </p>
+            <p id="scholarshipText3">
+                The programme seeks not only to provide financial relief but also to inspire beneficiaries to become future leaders who will positively impact society.
+            </p>
+            <p id="scholarshipText4">
+                Recipients of FFF scholarships become part of a growing community of young people committed to excellence, integrity, and service.
+            </p>
+        </section>
+
+        <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781738332/1781738164319_ukpfpq.jpg" class="w-full my-10 shadow-lg rounded-sm" data-aos="fade-up" alt="FFF Impact">
+
+        <div class="divider"></div>
+
+        <section class="mb-12" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-6 section-title" data-translate="youthEmpowermentTitle">Youth Empowerment and Leadership Development</h2>
+            <p id="youthEmpowermentText1">
+                The future of every nation depends on the quality of its leaders.
+            </p>
+            <p id="youthEmpowermentText2">
+                For this reason, FFF places significant emphasis on leadership development and youth empowerment. Through seminars, conferences, workshops, mentorship sessions, and personal development programmes, young people are equipped with practical skills and values necessary for success in the modern world.
+            </p>
+            <p class="font-bold mt-4 mb-3" data-translate="participantsDevelop">Participants are encouraged to develop:</p>
+            <ul class="space-y-2 list-disc pl-6" id="developmentList">
+                <li id="dev1">Leadership competence</li>
+                <li id="dev2">Effective communication skills</li>
+                <li id="dev3">Critical thinking abilities</li>
+                <li id="dev4">Entrepreneurial mindset</li>
+                <li id="dev5">Professional ethics</li>
+                <li id="dev6">Emotional intelligence</li>
+                <li id="dev7">Personal discipline</li>
+                <li id="dev8">Social responsibility</li>
+            </ul>
+            <p class="mt-4" id="youthEmpowermentText3">The goal is to raise leaders who will not only achieve personal success but also contribute to national and global development.</p>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="mb-12" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-6 section-title" data-translate="mentorshipTitle">Mentorship Programme</h2>
+            <p id="mentorshipText1">
+                Many young people possess talent but lack guidance.
+            </p>
+            <p id="mentorshipText2">
+                The FFF Mentorship Programme connects students and young professionals with experienced mentors who provide support, encouragement, wisdom, and practical advice.
+            </p>
+            <p class="font-bold mt-4 mb-3" data-translate="mentorshipHelps">Mentorship relationships help participants:</p>
+            <ul class="space-y-2 list-disc pl-6" id="mentorshipList">
+                <li id="ment1">Make informed career decisions</li>
+                <li id="ment2">Navigate educational challenges</li>
+                <li id="ment3">Develop confidence</li>
+                <li id="ment4">Set meaningful goals</li>
+                <li id="ment5">Build leadership capacity</li>
+                <li id="ment6">Strengthen character and integrity</li>
+            </ul>
+            <p class="mt-4" id="mentorshipText3">By creating these relationships, FFF helps bridge the gap between potential and achievement.</p>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="mb-12" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-6 section-title" data-translate="communityTitle">Community Development Initiatives</h2>
+            <p id="communityText">
+                The foundation recognises that individual success cannot be separated from community wellbeing. As a result, FFF supports initiatives that strengthen communities and improve quality of life. These efforts include educational outreach programmes, support for vulnerable families, youth engagement projects, welfare initiatives, and partnerships that promote sustainable development. The foundation remains committed to addressing social challenges while creating opportunities for long-term progress.
+            </p>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="mb-12" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-6 section-title" data-translate="buildingLeadersTitle">Building Future Leaders</h2>
+            <p id="buildingLeadersText">
+                One of the defining objectives of Focus for the Future is leadership multiplication. The foundation does not simply seek to help individuals succeed; it seeks to develop individuals who will help others succeed. By investing in students, emerging professionals, entrepreneurs, and community leaders, FFF is helping to create a network of future changemakers capable of influencing society in positive ways.
+            </p>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="mb-12" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-6 section-title" data-translate="impactTitle">Our Impact</h2>
+            <p class="mb-4" id="impactText1">
+                Over the years, Focus for the Future has become a source of hope for many individuals and families.
+            </p>
+            <p class="font-bold mb-3" data-translate="impactPrograms">Its programmes have:</p>
+            <ul class="space-y-2 list-disc pl-6" id="impactList">
+                <li id="impact1">Supported hundreds of students through scholarships.</li>
+                <li id="impact2">Assisted families facing educational challenges.</li>
+                <li id="impact3">Provided mentorship opportunities for young people.</li>
+                <li id="impact4">Encouraged academic excellence and leadership development.</li>
+                <li id="impact5">Empowered individuals to pursue higher education and professional careers.</li>
+                <li id="impact6">Inspired countless young people to believe in their potential.</li>
+            </ul>
+            <p class="mt-4" id="impactText2">Behind every statistic is a personal story—a student who remained in school, a graduate who achieved their dreams, a young leader who discovered purpose, or a family whose future was transformed through opportunity. These stories continue to inspire the foundation's work.</p>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="mb-12" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-6 section-title" data-translate="founderVisionTitle">The Founder's Vision</h2>
+            <div class="flex flex-col md:flex-row gap-8 items-center bg-gray-100 p-8 rounded-sm">
+                <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781738332/1781738226259_mhirqn.jpg" class="w-48 h-48 rounded-full object-cover border-4 border-[#007fc6] shadow-lg" alt="Prophet Samuel Adegboyega">
+                <div>
+                    <p id="founderVisionText1">
+                        Prophet Samuel Ajayi Adegboyega founded Focus for the Future because he understands that today's investments shape tomorrow's outcomes.
+                    </p>
+                    <p class="mt-4" id="founderVisionText2">
+                        Having overcome significant adversity through faith, perseverance, education, and hard work, he remains passionate about helping others access opportunities that can transform their lives.
+                    </p>
+                    <p class="mt-4" id="founderVisionText3">
+                        His vision is simple yet profound: to ensure that no promising future is lost because of a lack of support, encouragement, or opportunity.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="mb-12 text-center" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-6 section-title inline-block text-left" data-translate="lookingAheadTitle">Looking Ahead</h2>
+            <p class="text-left" id="lookingAheadText">
+                As the foundation continues to grow, Focus for the Future remains committed to expanding its reach, increasing its impact, and creating even more opportunities for future generations. The vision is not merely to provide assistance but to build a lasting legacy of empowerment, education, leadership, and transformation. By investing in people today, we are building stronger families, stronger communities, stronger institutions, and a brighter future for generations to come.
+            </p>
+            <p class="text-2xl font-bold text-[#007fc6] mt-8 uppercase tracking-widest" data-translate="closingTagline">Focus for the Future</p>
+            <p class="text-lg text-gray-600 mt-2" data-translate="closingMotto">Empowering Minds. Inspiring Leaders. Transforming Futures.</p>
+        </section>
+
+    </main>
+
+    <section class="bg-[#007fc6] py-16 px-6 text-white text-center" data-aos="fade-up">
+        <h2 class="text-3xl font-bold mb-4" data-translate="ctaTitle">Be Part of the Future</h2>
+        <p class="text-white/80 text-sm mb-8 max-w-2xl mx-auto" data-translate="ctaText">Join us in empowering the next generation. Apply for scholarships, mentorship, or partner with us to transform lives.</p>
+        <a href="contact.html" class="inline-block bg-white text-[#007fc6] hover:bg-gray-100 transition-smooth font-bold px-10 py-4 uppercase tracking-widest text-[11px] rounded-sm shadow-xl" data-translate="ctaBtn">Get Involved Today</a>
+    </section>
+
+    <footer class="bg-[#0b132b] text-gray-400 text-xs py-16 px-6 border-t-[8px] border-[#007fc6]">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            <div>
+                <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Logo" class="w-16 h-16 rounded-full object-cover border-2 border-gray-700 mb-6 opacity-80">
+                <p class="leading-relaxed pr-4 text-sm" data-translate="footerDesc">Helping you become all God created you to be through the power of the Holy Spirit, prayer, and prophetic declarations.</p>
+            </div>
+            <div>
+                <h5 class="text-white font-bold uppercase mb-6 tracking-widest text-[11px] border-b border-gray-800 pb-2 inline-block" data-translate="footerMinistry">Our Ministry</h5>
+                <ul class="space-y-3">
+                    <li><a href="about.html" class="hover:text-white transition-colors" data-translate="footerAboutProphet">About Prophet Samuel</a></li>
+                    <li><a href="about.html" class="hover:text-white transition-colors" data-translate="footerAboutSpac">About SPAC Worldwide</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors" data-translate="footerBranch">Find a Branch</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition-colors" data-translate="footerContact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white font-bold uppercase mb-6 tracking-widest text-[11px] border-b border-gray-800 pb-2 inline-block" data-translate="footerMedia">Media & Store</h5>
+                <ul class="space-y-3">
+                    <li><a href="view.html" class="hover:text-white transition-colors" data-translate="footerWatch">Watch Messages</a></li>
+                    <li><a href="adminblog.html" class="hover:text-white transition-colors" data-translate="footerBlog">Daily Inspiration Blog</a></li>
+                    <li><a href="cart.html" class="hover:text-white transition-colors" data-translate="footerStore">Bookstore</a></li>
+                    <li><a href="cart.html" class="hover:text-white transition-colors" data-translate="footerBook">The Road Less Travelled</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white font-bold uppercase mb-6 tracking-widest text-[11px] border-b border-gray-800 pb-2 inline-block" data-translate="footerInitiatives">Initiatives</h5>
+                <ul class="space-y-3">
+                    <li><a href="FFF.html" class="hover:text-white transition-colors">Focus For The Future (FFF)</a></li>
+                    <li><a href="about.html" class="hover:text-white transition-colors" data-translate="footerBible">SPAC Bible Championship</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left text-[11px]">
+            <div>
+                <p class="mb-2 text-gray-500 font-semibold tracking-wider uppercase">Copyright © 2026 Prophet Samuel Adegboyega</p>
+                <div class="space-x-4 text-gray-600">
+                    <a href="#" class="hover:text-white transition-colors" data-translate="privacy">Privacy Policy</a><span>|</span><a href="#" class="hover:text-white transition-colors" data-translate="terms">Terms of Use</a>
+                </div>
+            </div>
+            <div class="text-gray-500">
+                <p>Built by <span class="text-white font-semibold">TRIANGLE Company</span></p>
+                <a href="https://wa.me/2349056658864?text=Hi%20TRIANGLETech%2C%20I%20want%20to%20make%20an%20enquiry%20on%20website%20development" target="_blank" class="text-[#007fc6] hover:text-white transition-colors">09056658864</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        window.addEventListener('load', () => { setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 1500); });
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+
+        const cursor = document.getElementById('customCursor');
+        if (cursor && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            document.addEventListener('mousemove', (e) => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
+            document.addEventListener('mouseleave', () => cursor.classList.add('hidden'));
+            document.addEventListener('mouseenter', () => cursor.classList.remove('hidden'));
+            document.querySelectorAll('a, button').forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+            });
+        }
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { navbar.classList.add('navbar-scrolled', 'shadow-md'); } 
+            else { navbar.classList.remove('navbar-scrolled', 'shadow-md'); }
+        });
+
+        const translations = {
+            en: {
+                navAbout:"About",navSermons:"Sermons",navBlog:"Blog",navContact:"Contact",
+                heroLabel:"Youth Empowerment Foundation",
+                fffHeroTitle:"Focus for the Future (FFF)",
+                fffHeroSub:"Investing in People. Empowering Generations. Building the Future.",
+                sectionIntroTitle:"Focus for the Future (FFF)",
+                sectionIntroText1:"Focus for the Future (FFF) is a non-profit educational, humanitarian, and youth development foundation established by Prophet Samuel Ajayi Adegboyega with a clear and enduring vision: to empower individuals, especially young people, through education, mentorship, leadership development, and life-changing opportunities that enable them to reach their God-given potential.",
+                sectionIntroText2:"The foundation was born out of a deep understanding of the challenges faced by countless young people across Nigeria and beyond. Having personally experienced the realities of poverty, limited opportunities, and financial hardship while growing up, Prophet Adegboyega developed a lifelong passion for helping others overcome similar obstacles. His own journey—from a rural village in Ogun State to becoming a respected Christian leader, professional administrator, philanthropist, and founder of an international ministry—serves as a powerful testimony to what can happen when determination, education, faith, and opportunity come together.",
+                sectionIntroText3:"Focus for the Future was therefore established not merely as a charitable organisation, but as a transformational movement dedicated to identifying potential, nurturing talent, removing barriers, and creating opportunities for future generations.",
+                ourStoryTitle:"Our Story",
+                ourStoryText1:"The story of FFF begins with a simple belief: no child should be denied the opportunity to succeed because of poverty.",
+                ourStoryText2:"Throughout his life, Prophet Samuel Ajayi Adegboyega witnessed countless brilliant young people abandon their education due to financial difficulties. He saw students forced to leave school because their parents could not afford tuition fees. He encountered gifted individuals whose dreams remained unrealised because they lacked mentorship, encouragement, or access to opportunities.",
+                ourStoryText3:"Rather than merely observing these challenges, he chose to become part of the solution.",
+                ourStoryText4:"What began as personal acts of generosity—paying school fees, sponsoring students, supporting struggling families, mentoring young people, and helping individuals build better futures—gradually evolved into a structured vision. That vision became Focus for the Future.",
+                ourStoryText5:"Today, FFF continues that mission by providing educational support, scholarships, mentorship, leadership development programmes, and community-based initiatives that empower people to overcome limitations and pursue excellence.",
+                visionTitle:"Our Vision",
+                visionText:"To build a future where every young person has access to the education, mentorship, resources, and opportunities necessary to achieve their full potential and become a positive force in society.",
+                missionTitle:"Our Mission",
+                missionText:"Our mission is to empower individuals through education, leadership development, mentorship, skills acquisition, and strategic support programmes that create pathways to personal success, community development, and national transformation.",
+                coreBeliefsTitle:"Our Core Beliefs",
+                coreBeliefsIntro:"At Focus for the Future, we believe:",
+                belief1:"Every individual possesses unique talents and abilities.",
+                belief2:"Education is one of the most powerful tools for social transformation.",
+                belief3:"Leadership should be rooted in integrity, responsibility, and service.",
+                belief4:"Opportunities should not be limited by economic circumstances.",
+                belief5:"Empowered individuals create empowered communities.",
+                belief6:"Sustainable development begins with investing in people.",
+                belief7:"The future can be transformed when today's youth are equipped to succeed.",
+                coreBeliefsOutro:"These beliefs guide every programme, initiative, and partnership undertaken by the foundation.",
+                educationTitle:"Education: The Heart of Our Mission",
+                educationText1:"Education remains the cornerstone of the foundation's work.",
+                educationText2:"We recognise that quality education provides individuals with the knowledge, confidence, and opportunities required to improve their lives and contribute meaningfully to society. Unfortunately, many capable students face significant financial and social barriers that prevent them from completing their education.",
+                educationText3:"Through our educational initiatives, FFF seeks to remove these barriers and create opportunities for academic success.",
+                educationProgramsTitle:"Our educational support programmes include:",
+                eduProg1:"Scholarship awards",
+                eduProg2:"Tuition assistance",
+                eduProg3:"Educational grants",
+                eduProg4:"Academic mentoring",
+                eduProg5:"Learning materials support",
+                eduProg6:"Career guidance",
+                eduProg7:"Academic excellence recognition programmes",
+                educationText4:"Through these interventions, hundreds of students have been empowered to continue their education and pursue their dreams.",
+                scholarshipTitle:"Scholarship Programme",
+                scholarshipText1:"One of the flagship initiatives of Focus for the Future is its scholarship programme.",
+                scholarshipText2:"Every year, deserving students receive financial assistance designed to support their educational journey. These scholarships are awarded to students who demonstrate academic promise, determination, leadership potential, and financial need.",
+                scholarshipText3:"The programme seeks not only to provide financial relief but also to inspire beneficiaries to become future leaders who will positively impact society.",
+                scholarshipText4:"Recipients of FFF scholarships become part of a growing community of young people committed to excellence, integrity, and service.",
+                youthEmpowermentTitle:"Youth Empowerment and Leadership Development",
+                youthEmpowermentText1:"The future of every nation depends on the quality of its leaders.",
+                youthEmpowermentText2:"For this reason, FFF places significant emphasis on leadership development and youth empowerment. Through seminars, conferences, workshops, mentorship sessions, and personal development programmes, young people are equipped with practical skills and values necessary for success in the modern world.",
+                participantsDevelop:"Participants are encouraged to develop:",
+                dev1:"Leadership competence",
+                dev2:"Effective communication skills",
+                dev3:"Critical thinking abilities",
+                dev4:"Entrepreneurial mindset",
+                dev5:"Professional ethics",
+                dev6:"Emotional intelligence",
+                dev7:"Personal discipline",
+                dev8:"Social responsibility",
+                youthEmpowermentText3:"The goal is to raise leaders who will not only achieve personal success but also contribute to national and global development.",
+                mentorshipTitle:"Mentorship Programme",
+                mentorshipText1:"Many young people possess talent but lack guidance.",
+                mentorshipText2:"The FFF Mentorship Programme connects students and young professionals with experienced mentors who provide support, encouragement, wisdom, and practical advice.",
+                mentorshipHelps:"Mentorship relationships help participants:",
+                ment1:"Make informed career decisions",
+                ment2:"Navigate educational challenges",
+                ment3:"Develop confidence",
+                ment4:"Set meaningful goals",
+                ment5:"Build leadership capacity",
+                ment6:"Strengthen character and integrity",
+                mentorshipText3:"By creating these relationships, FFF helps bridge the gap between potential and achievement.",
+                communityTitle:"Community Development Initiatives",
+                communityText:"The foundation recognises that individual success cannot be separated from community wellbeing. As a result, FFF supports initiatives that strengthen communities and improve quality of life. These efforts include educational outreach programmes, support for vulnerable families, youth engagement projects, welfare initiatives, and partnerships that promote sustainable development. The foundation remains committed to addressing social challenges while creating opportunities for long-term progress.",
+                buildingLeadersTitle:"Building Future Leaders",
+                buildingLeadersText:"One of the defining objectives of Focus for the Future is leadership multiplication. The foundation does not simply seek to help individuals succeed; it seeks to develop individuals who will help others succeed. By investing in students, emerging professionals, entrepreneurs, and community leaders, FFF is helping to create a network of future changemakers capable of influencing society in positive ways.",
+                impactTitle:"Our Impact",
+                impactText1:"Over the years, Focus for the Future has become a source of hope for many individuals and families.",
+                impactPrograms:"Its programmes have:",
+                impact1:"Supported hundreds of students through scholarships.",
+                impact2:"Assisted families facing educational challenges.",
+                impact3:"Provided mentorship opportunities for young people.",
+                impact4:"Encouraged academic excellence and leadership development.",
+                impact5:"Empowered individuals to pursue higher education and professional careers.",
+                impact6:"Inspired countless young people to believe in their potential.",
+                impactText2:"Behind every statistic is a personal story—a student who remained in school, a graduate who achieved their dreams, a young leader who discovered purpose, or a family whose future was transformed through opportunity. These stories continue to inspire the foundation's work.",
+                founderVisionTitle:"The Founder's Vision",
+                founderVisionText1:"Prophet Samuel Ajayi Adegboyega founded Focus for the Future because he understands that today's investments shape tomorrow's outcomes.",
+                founderVisionText2:"Having overcome significant adversity through faith, perseverance, education, and hard work, he remains passionate about helping others access opportunities that can transform their lives.",
+                founderVisionText3:"His vision is simple yet profound: to ensure that no promising future is lost because of a lack of support, encouragement, or opportunity.",
+                lookingAheadTitle:"Looking Ahead",
+                lookingAheadText:"As the foundation continues to grow, Focus for the Future remains committed to expanding its reach, increasing its impact, and creating even more opportunities for future generations. The vision is not merely to provide assistance but to build a lasting legacy of empowerment, education, leadership, and transformation. By investing in people today, we are building stronger families, stronger communities, stronger institutions, and a brighter future for generations to come.",
+                closingTagline:"Focus for the Future",
+                closingMotto:"Empowering Minds. Inspiring Leaders. Transforming Futures.",
+                ctaTitle:"Be Part of the Future",
+                ctaText:"Join us in empowering the next generation. Apply for scholarships, mentorship, or partner with us to transform lives.",
+                ctaBtn:"Get Involved Today",
+                footerDesc:"Helping you become all God created you to be through the power of the Holy Spirit, prayer, and prophetic declarations.",
+                footerMinistry:"Our Ministry",footerAboutProphet:"About Prophet Samuel",footerAboutSpac:"About SPAC Worldwide",footerBranch:"Find a Branch",footerContact:"Contact Us",
+                footerMedia:"Media & Store",footerWatch:"Watch Messages",footerBlog:"Daily Inspiration Blog",footerStore:"Bookstore",footerBook:"The Road Less Travelled",
+                footerInitiatives:"Initiatives",footerBible:"SPAC Bible Championship",
+                privacy:"Privacy Policy",terms:"Terms of Use"
+            }
+        };
+
+        function switchLanguage(lang) {
+            const t = translations[lang];
+            if (!t) return;
+            
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (t[key]) el.textContent = t[key];
+            });
+            
+            const ids = [
+                'fffHeroTitle','fffHeroSub',
+                'sectionIntroText1','sectionIntroText2','sectionIntroText3',
+                'ourStoryText1','ourStoryText2','ourStoryText3','ourStoryText4','ourStoryText5',
+                'visionText','missionText',
+                'belief1','belief2','belief3','belief4','belief5','belief6','belief7',
+                'educationText1','educationText2','educationText3','educationText4',
+                'eduProg1','eduProg2','eduProg3','eduProg4','eduProg5','eduProg6','eduProg7',
+                'scholarshipText1','scholarshipText2','scholarshipText3','scholarshipText4',
+                'youthEmpowermentText1','youthEmpowermentText2','youthEmpowermentText3',
+                'dev1','dev2','dev3','dev4','dev5','dev6','dev7','dev8',
+                'mentorshipText1','mentorshipText2','mentorshipText3',
+                'ment1','ment2','ment3','ment4','ment5','ment6',
+                'communityText','buildingLeadersText',
+                'impactText1','impactText2',
+                'impact1','impact2','impact3','impact4','impact5','impact6',
+                'founderVisionText1','founderVisionText2','founderVisionText3',
+                'lookingAheadText'
+            ];
+            ids.forEach(id => { if (t[id] && document.getElementById(id)) document.getElementById(id).textContent = t[id]; });
+        }
+    </script>
 </body>
 </html>
