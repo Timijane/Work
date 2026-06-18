@@ -110,11 +110,41 @@
         .lang-dropdown:hover .lang-dropdown-content { display: block; }
         .lang-dropdown-content button { display: block; width: 100%; padding: 10px 16px; text-align: left; border: none; background: none; cursor: pointer; font-size: 12px; font-weight: 600; color: #1f2937; white-space: nowrap; }
         .lang-dropdown-content button:hover { background: #f3f4f6; color: #007fc6; }
+
+        .admin-floating-key {
+            position: fixed;
+            bottom: 12px;
+            right: 12px;
+            width: 22px;
+            height: 22px;
+            background: rgba(11, 19, 43, 0.25);
+            border-radius: 50%;
+            z-index: 99998;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8px;
+            color: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.08);
+            text-decoration: none;
+        }
+        .admin-floating-key:hover {
+            background: rgba(0, 127, 198, 0.5);
+            color: rgba(255,255,255,0.6);
+            width: 26px;
+            height: 26px;
+            bottom: 10px;
+            right: 10px;
+        }
     </style>
 </head>
 <body class="antialiased">
 
     <div class="custom-cursor" id="customCursor"></div>
+
+    <a href="adminblog.html" class="admin-floating-key" title="Admin">⚙</a>
 
     <div class="loader-wrapper" id="loader">
         <div class="text-center">
@@ -136,7 +166,7 @@
             <a href="about.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navAbout">About</a>
             <a href="view.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navSermons">Sermons</a>
             <a href="FFF.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">FFF</a>
-            <a href="adminblog.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navBlog">Blog</a>
+            <a href="blog.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navBlog">Blog</a>
             <a href="contact.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navContact">Contact</a>
             <button class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md text-sm md:text-lg">🔍</button>
             
@@ -278,13 +308,17 @@
 
     <section id="admin-blog-feed" class="bg-[#0b132b] text-white py-20 px-6 border-t-[6px] border-[#007fc6]">
         <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-            <span class="text-[10px] text-[#007fc6] uppercase tracking-widest font-bold mb-8 block" data-translate="dynamicFeed">Dynamic Content Feed</span>
+            <span class="text-[10px] text-[#007fc6] uppercase tracking-widest font-bold mb-8 block" data-translate="dynamicFeed">Latest from the Blog</span>
             
-            <div id="dynamic-blog-content" class="text-sm text-gray-300 space-y-5 text-justify max-w-3xl mx-auto leading-relaxed">
+            <div id="dynamic-blog-content" class="text-sm text-gray-300 space-y-5 text-left max-w-3xl mx-auto leading-relaxed">
+                <div class="text-center py-10">
+                    <div class="inline-block w-10 h-10 border-3 border-[#007fc6] border-t-transparent rounded-full animate-spin mb-4"></div>
+                    <p>Loading latest post...</p>
+                </div>
             </div>
             
             <div class="mt-10">
-                <a href="adminblog.html" class="inline-block bg-[#007fc6] text-white hover:bg-white hover:text-[#0b132b] transition-smooth px-10 py-3.5 text-[11px] font-bold uppercase tracking-widest rounded-sm" data-translate="continueReading">Continue Reading</a>
+                <a href="blog.html" class="inline-block bg-[#007fc6] text-white hover:bg-white hover:text-[#0b132b] transition-smooth px-10 py-3.5 text-[11px] font-bold uppercase tracking-widest rounded-sm" data-translate="continueReading">Read More on Blog</a>
             </div>
         </div>
     </section>
@@ -437,7 +471,7 @@
                 <h5 class="text-white font-bold uppercase mb-6 tracking-widest text-[11px] border-b border-gray-800 pb-2 inline-block" data-translate="footerMedia">Media & Store</h5>
                 <ul class="space-y-3">
                     <li><a href="view.html" class="hover:text-white transition-colors" data-translate="footerWatch">Watch Messages</a></li>
-                    <li><a href="adminblog.html" class="hover:text-white transition-colors" data-translate="footerBlog">Daily Inspiration Blog</a></li>
+                    <li><a href="blog.html" class="hover:text-white transition-colors" data-translate="footerBlog">Daily Inspiration Blog</a></li>
                     <li><a href="cart.html" class="hover:text-white transition-colors" data-translate="footerStore">Bookstore</a></li>
                     <li><a href="cart.html" class="hover:text-white transition-colors" data-translate="footerBook">The Road Less Travelled</a></li>
                 </ul>
@@ -498,18 +532,45 @@
             slides[currentSlide].classList.add('active');
         }, 5000);
 
-        fetch('adminblog.html')
-            .then(response => {
-                if (response.ok) return response.text();
-                throw new Error('Could not fetch blog content.');
-            })
-            .then(html => {
-                const container = document.getElementById('dynamic-blog-content');
-                if (container) {
-                    container.innerHTML = html;
+        function loadLatestBlogPost() {
+            const container = document.getElementById('dynamic-blog-content');
+            if (!container) return;
+            
+            const saved = localStorage.getItem('spac_blog_posts');
+            
+            if (saved) {
+                try {
+                    const posts = JSON.parse(saved);
+                    if (posts.length > 0) {
+                        const latest = posts[0];
+                        container.innerHTML = `
+                            <div class="bg-white/5 border border-white/10 rounded-lg p-6 text-left">
+                                ${latest.category ? `<span class="inline-block bg-[#007fc6] text-white text-[9px] font-bold px-2 py-1 rounded-full uppercase tracking-wider mb-4">${latest.category}</span>` : ''}
+                                ${latest.date ? `<span class="block text-[10px] text-[#007fc6] uppercase tracking-widest font-bold mb-2">📅 ${latest.date}</span>` : ''}
+                                <h3 class="text-xl font-bold text-white mb-3">${latest.title}</h3>
+                                ${latest.subheading ? `<p class="text-sm text-gray-400 italic mb-4">${latest.subheading}</p>` : ''}
+                                ${latest.image ? `<img src="${latest.image}" alt="${latest.title}" class="w-full rounded-lg mb-4 max-h-64 object-cover" onerror="this.style.display='none'">` : ''}
+                                <p class="text-gray-300 leading-relaxed mb-3">${latest.excerpt || ''}</p>
+                                ${latest.excerpt2 ? `<p class="text-gray-300 leading-relaxed">${latest.excerpt2}</p>` : ''}
+                            </div>
+                        `;
+                        return;
+                    }
+                } catch(e) {
+                    console.log('Error parsing blog posts.');
                 }
-            })
-            .catch(error => console.log('Dynamic blog will load once site is live on a server.'));
+            }
+            
+            container.innerHTML = `
+                <div class="text-center py-8">
+                    <p class="text-gray-400 text-lg mb-3">📝</p>
+                    <p class="text-gray-300">Daily inspiration and prophetic declarations coming soon.</p>
+                    <p class="text-gray-500 text-xs mt-2">Check back for fresh content from Prophet Samuel Adegboyega.</p>
+                </div>
+            `;
+        }
+
+        loadLatestBlogPost();
 
         document.getElementById('signupForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -552,8 +613,8 @@
                 bibleChampText: "The SPAC Bible Championship is a seasonal, scriptural-based competition where believers—youths and adults alike—enroll to test their biblical knowledge. Sponsored personally by Prophet Samuel Adegboyega, this divine and humanitarian initiative is designed to deeply root people's minds in the Word of God, fostering profound spiritual growth and mental strength across the community.",
                 bibleChampBtn: "Read More About The Championship",
                 watchBibleChamp: "Watch The Bible Championship",
-                dynamicFeed: "Dynamic Content Feed",
-                continueReading: "Continue Reading",
+                dynamicFeed: "Latest from the Blog",
+                continueReading: "Read More on Blog",
                 featuredResource: "Featured Resource",
                 bookTitle: "Read the life changing book by Prophet Samuel Adegboyega.",
                 bookSubtitle: "THE ROAD LESS TRAVELLED: My unique path to success",
@@ -613,8 +674,8 @@
                 bibleChampText: "Le Championnat Biblique SPAC est une compétition saisonnière basée sur les Écritures où les croyants—jeunes et adultes—s'inscrivent pour tester leurs connaissances bibliques. Parrainé personnellement par le Prophète Samuel Adegboyega, cette initiative divine et humanitaire est conçue pour enraciner profondément l'esprit des gens dans la Parole de Dieu, favorisant une croissance spirituelle profonde et une force mentale à travers la communauté.",
                 bibleChampBtn: "En Savoir Plus Sur Le Championnat",
                 watchBibleChamp: "Voir Le Championnat Biblique",
-                dynamicFeed: "Flux de Contenu Dynamique",
-                continueReading: "Continuer la Lecture",
+                dynamicFeed: "Dernières Nouvelles du Blog",
+                continueReading: "Lire Plus sur le Blog",
                 featuredResource: "Ressource en Vedette",
                 bookTitle: "Lisez le livre qui change la vie du Prophète Samuel Adegboyega.",
                 bookSubtitle: "LE CHEMIN LE MOINS FRÉQUENTÉ : Mon chemin unique vers le succès",
@@ -674,8 +735,8 @@
                 bibleChampText: "Die SPAC Bibelmeisterschaft ist ein saisonaler, schriftbasierter Wettbewerb, bei dem sich Gläubige—Jugendliche und Erwachsene gleichermaßen—einschreiben, um ihr Bibelwissen zu testen. Persönlich gesponsert von Prophet Samuel Adegboyega, ist diese göttliche und humanitäre Initiative darauf ausgerichtet, die Gedanken der Menschen tief im Wort Gottes zu verwurzeln und tiefgreifendes geistliches Wachstum und mentale Stärke in der Gemeinschaft zu fördern.",
                 bibleChampBtn: "Mehr Über Die Meisterschaft Lesen",
                 watchBibleChamp: "Die Bibelmeisterschaft Ansehen",
-                dynamicFeed: "Dynamischer Inhaltsfeed",
-                continueReading: "Weiterlesen",
+                dynamicFeed: "Neuestes vom Blog",
+                continueReading: "Weiterlesen im Blog",
                 featuredResource: "Empfohlene Ressource",
                 bookTitle: "Lesen Sie das lebensverändernde Buch von Prophet Samuel Adegboyega.",
                 bookSubtitle: "DER WENIGER BEGANGENE WEG: Mein einzigartiger Weg zum Erfolg",
@@ -735,8 +796,8 @@
                 bibleChampText: "Idije Bibeli SPAC jẹ idije akoko kan, ti o da lori iwe-mimọ nibiti awọn onigbagbọ — awọn ọdọ ati agbalagba bakanna — forukọsilẹ lati danwo imọ Bibeli wọn. Ti Woli Samuel Adegboyega tikararẹ ṣe onigbọwọ, ipilẹṣẹ atọrunwa ati omoniyan yii jẹ apẹrẹ lati fi ọkan awọn eniyan jinlẹ sinu Ọrọ Ọlọrun, ti n dagba idagbasoke ẹmí ti o jinlẹ ati agbara ọpọlọ kọja agbegbe.",
                 bibleChampBtn: "Ka Siwaju Nipa Idije naa",
                 watchBibleChamp: "Wo Idije Bibeli",
-                dynamicFeed: "Kikọ Akoonu Yiyi",
-                continueReading: "Tesiwaju Kika",
+                dynamicFeed: "Titun lati Bulọọgi",
+                continueReading: "Ka Siwaju lori Bulọọgi",
                 featuredResource: "Ohun elo Ifihan",
                 bookTitle: "Ka iwe ti n yi igbesi aye pada nipasẹ Woli Samuel Adegboyega.",
                 bookSubtitle: "ỌNA TI A KO RIN PUPỌ: Ọna alailẹgbẹ mi si aṣeyọri",
@@ -796,8 +857,8 @@
                 bibleChampText: "Gasar Littafi Mai Tsarki ta SPAC gasa ce ta zamani, bisa nassi inda masu bi—matasa da manya baki ɗaya—suke rajista don gwada iliminsu na Littafi Mai Tsarki. Wanda Annabi Samuel Adegboyega da kansa ya ɗauki nauyi, wannan shiri na allahntaka da na ɗan adam an tsara shi don zurfafa zukatan mutane cikin Kalmar Allah, yana haɓaka ci gaban ruhaniya mai zurfi da ƙarfin tunani a cikin al'umma.",
                 bibleChampBtn: "Kara Karantawa Game da Gasar",
                 watchBibleChamp: "Kalli Gasar Littafi Mai Tsarki",
-                dynamicFeed: "Ciyar da Abun Ciki Mai Sauyi",
-                continueReading: "Ci Gaba da Karatu",
+                dynamicFeed: "Sabon Daga Bulog",
+                continueReading: "Kara Karantawa a Bulog",
                 featuredResource: "Abin da Aka Fitar",
                 bookTitle: "Karanta littafin canza rayuwa ta Annabi Samuel Adegboyega.",
                 bookSubtitle: "HANYAR DA BA A YI TA FIYA TAFIYA BA: Hanyata ta musamman zuwa nasara",
@@ -857,8 +918,8 @@
                 bibleChampText: "Asọmpi Baịbụl SPAC bụ asọmpi nke oge, nke dabere na akwụkwọ nsọ ebe ndị kwere ekwe—ndị ntorobịa na ndị okenye n'otu aka ahụ—na-edebanye aha iji nwalee ihe ọmụma Baịbụl ha. Nke Onye Amụma Samuel Adegboyega ji aka ya kwado, atụmatụ Chukwu na nke enyemaka a bụ iji mee ka uche ndị mmadụ gbanye mkpọrọgwụ n'Okwu Chineke, na-akwalite ọganihu ime mmụọ miri emi na ike iche echiche n'ofe obodo.",
                 bibleChampBtn: "Gụọ Ọzọ Banyere Asọmpi ahụ",
                 watchBibleChamp: "Lelee Asọmpi Baịbụl",
-                dynamicFeed: "Nri Ọdịnaya Na-agbanwe",
-                continueReading: "Gaa N'ihu Na-agụ",
+                dynamicFeed: "Ọhụrụ site na Blog",
+                continueReading: "Gụọ Ọzọ na Blog",
                 featuredResource: "Ihe Enyere Pụtara Ihe",
                 bookTitle: "Gụọ akwụkwọ na-agbanwe ndụ nke Onye Amụma Samuel Adegboyega dere.",
                 bookSubtitle: "Ụzọ A Na-ejighị Eje: Ụzọ m Pụrụ Iche na-aga Ịga nke Ọma",
@@ -927,6 +988,13 @@
             if (t.bookDesc) document.getElementById('bookDesc').textContent = t.bookDesc;
             if (t.signupTitle) document.getElementById('signupTitle').textContent = t.signupTitle;
             if (t.dailyQuote) document.getElementById('dailyQuote').textContent = t.dailyQuote;
+            
+            // Update hero buttons
+            const buttons = document.querySelectorAll('.hero .grid a');
+            if (buttons.length >= 2) {
+                if (t.watchLive) buttons[0].textContent = t.watchLive;
+                if (t.registerFFF) buttons[1].textContent = t.registerFFF;
+            }
             
             // Update about SPAC text paragraphs
             const aboutSpacTextEl = document.getElementById('aboutSpacText');
