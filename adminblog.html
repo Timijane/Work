@@ -67,7 +67,6 @@
         #richEditor ul, #richEditor ol { margin: 1.2em 0; padding-left: 2.2em; }
         #richEditor li { margin-bottom: 0.6em; }
         #richEditor img { max-width: 100%; height: auto; border-radius: 8px; margin: 1.5em 0; cursor: pointer; }
-        #richEditor img.selected-image { outline: 3px solid var(--jom-blue); outline-offset: 2px; }
         #richEditor a { color: #007fc6; text-decoration: underline; }
         #richEditor hr { border: none; height: 2px; background: #e5e7eb; margin: 2.5em 0; }
         #richEditor strong { font-weight: 700; color: #111827; }
@@ -103,6 +102,8 @@
 
         @keyframes spin { to { transform: rotate(360deg); } }
         .spinner { animation: spin 0.8s linear infinite; }
+        .synced-badge { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
     </style>
 </head>
 <body class="antialiased">
@@ -131,11 +132,13 @@
                 <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Logo" class="w-10 h-10 rounded-full object-cover border-2 border-[#007fc6]">
                 <div>
                     <h1 class="font-bold uppercase tracking-widest text-sm">Blog Editor</h1>
-                    <p class="text-[10px] text-gray-400">SPAC Worldwide</p>
+                    <p class="text-[10px] text-gray-400">SPAC Worldwide 
+                        <span class="synced-badge text-green-400 ml-2" id="syncBadge">☁️ Firebase</span>
+                    </p>
                 </div>
             </div>
             <div class="flex items-center gap-3">
-                <span class="text-[10px] text-gray-400 uppercase tracking-wider bg-white/5 px-3 py-1.5 rounded-full" id="postCount">0 Posts</span>
+                <span class="text-[10px] text-gray-400 uppercase tracking-wider bg-white/5 px-3 py-1.5 rounded-full" id="postCount">Loading...</span>
                 <button onclick="openEditor()" class="bg-[#007fc6] hover:bg-[#006096] text-white text-[10px] font-bold px-5 py-2.5 uppercase tracking-widest rounded-xl transition-smooth flex items-center gap-2 shadow-md">
                     <span class="text-lg leading-none">+</span> New Post
                 </button>
@@ -253,7 +256,6 @@
                             <!-- Toolbar -->
                             <div class="flex flex-wrap gap-1 p-3 bg-gray-100 rounded-t-xl border border-b-0 border-gray-200 sticky top-[72px] z-40">
                                 <div class="flex flex-wrap gap-1 items-center w-full">
-                                    <!-- Headings -->
                                     <select onchange="execCommand('formatBlock', this.value); this.selectedIndex=0;" class="toolbar-btn text-xs bg-white border border-gray-300 rounded-lg px-3 py-2">
                                         <option value="">📐 Paragraph</option>
                                         <option value="h1">🔴 Heading 1</option>
@@ -263,37 +265,30 @@
                                         <option value="pre">💻 Code Block</option>
                                     </select>
                                     <span class="w-px h-6 bg-gray-300 mx-1 hidden md:block"></span>
-                                    <!-- Text Style -->
                                     <button onclick="execCommand('bold')" class="toolbar-btn font-bold bg-white" title="Bold (Ctrl+B)"><b>B</b></button>
                                     <button onclick="execCommand('italic')" class="toolbar-btn italic bg-white" title="Italic (Ctrl+I)"><i>I</i></button>
                                     <button onclick="execCommand('underline')" class="toolbar-btn underline bg-white" title="Underline (Ctrl+U)"><u>U</u></button>
                                     <button onclick="execCommand('strikeThrough')" class="toolbar-btn line-through bg-white" title="Strikethrough"><s>S</s></button>
                                     <span class="w-px h-6 bg-gray-300 mx-1 hidden md:block"></span>
-                                    <!-- Alignment -->
                                     <button onclick="execCommand('justifyLeft')" class="toolbar-btn bg-white" title="Align Left">⬅</button>
                                     <button onclick="execCommand('justifyCenter')" class="toolbar-btn bg-white" title="Center">⬌</button>
                                     <button onclick="execCommand('justifyRight')" class="toolbar-btn bg-white" title="Align Right">➡</button>
                                     <button onclick="execCommand('justifyFull')" class="toolbar-btn bg-white" title="Justify">☰</button>
                                     <span class="w-px h-6 bg-gray-300 mx-1 hidden md:block"></span>
-                                    <!-- Lists -->
                                     <button onclick="execCommand('insertUnorderedList')" class="toolbar-btn bg-white" title="Bullet List">• List</button>
                                     <button onclick="execCommand('insertOrderedList')" class="toolbar-btn bg-white" title="Numbered List">1. List</button>
                                     <span class="w-px h-6 bg-gray-300 mx-1 hidden md:block"></span>
-                                    <!-- Indent -->
                                     <button onclick="execCommand('indent')" class="toolbar-btn bg-white" title="Indent">→</button>
                                     <button onclick="execCommand('outdent')" class="toolbar-btn bg-white" title="Outdent">←</button>
                                     <span class="w-px h-6 bg-gray-300 mx-1 hidden md:block"></span>
-                                    <!-- Special -->
                                     <button onclick="insertBlockquote()" class="toolbar-btn bg-white" title="Blockquote">❝ Quote</button>
                                     <button onclick="insertLink()" class="toolbar-btn bg-white text-[#007fc6]" title="Insert Link">🔗 Link</button>
                                     <button onclick="insertTable()" class="toolbar-btn bg-white" title="Insert Table">📊 Table</button>
                                     <button onclick="insertHorizontalRule()" class="toolbar-btn bg-white" title="Divider Line">— HR</button>
                                     <span class="w-px h-6 bg-gray-300 mx-1 hidden md:block"></span>
-                                    <!-- Media -->
                                     <button onclick="document.getElementById('inlineImageInput').click()" class="toolbar-btn bg-white text-green-600" title="Insert Image from Device">🖼 Add Image</button>
                                     <input type="file" id="inlineImageInput" accept="image/*" class="hidden" onchange="uploadInlineImage(this.files[0])">
                                     <span class="w-px h-6 bg-gray-300 mx-1 hidden md:block"></span>
-                                    <!-- Undo/Redo/Clear -->
                                     <button onclick="execCommand('undo')" class="toolbar-btn bg-white" title="Undo (Ctrl+Z)">↩</button>
                                     <button onclick="execCommand('redo')" class="toolbar-btn bg-white" title="Redo (Ctrl+Y)">↪</button>
                                     <button onclick="execCommand('removeFormat')" class="toolbar-btn bg-white text-red-500" title="Clear Formatting">✕ Clear</button>
@@ -301,7 +296,6 @@
                                 </div>
                             </div>
                             
-                            <!-- Editor Area -->
                             <div id="richEditor" contenteditable="true">
                                 <p>Start writing your full blog post here...</p>
                             </div>
@@ -310,7 +304,7 @@
                         <!-- Action Buttons -->
                         <div class="flex gap-3 pt-4 border-t border-gray-200">
                             <button onclick="savePost()" class="flex-1 bg-[#007fc6] hover:bg-[#006096] text-white font-bold py-4 px-8 uppercase text-[11px] tracking-widest rounded-xl transition-smooth shadow-md flex items-center justify-center gap-2">
-                                💾 Save & Publish Post
+                                💾 Save & Publish to Firebase
                             </button>
                             <button onclick="closeEditor()" class="border-2 border-gray-300 text-gray-600 hover:bg-gray-100 font-bold py-4 px-6 uppercase text-[11px] tracking-widest rounded-xl transition-smooth">
                                 Cancel
@@ -324,32 +318,57 @@
         <!-- Posts List -->
         <main class="max-w-6xl mx-auto py-10 px-6">
             <div class="flex items-center justify-between mb-8">
-                <h2 class="text-xl font-bold uppercase tracking-widest border-l-4 border-[#007fc6] pl-4">📋 Published Posts</h2>
+                <h2 class="text-xl font-bold uppercase tracking-widest border-l-4 border-[#007fc6] pl-4">📋 Published Posts (Firebase)</h2>
                 <div class="flex gap-2">
-                    <button onclick="exportPosts()" class="text-[10px] font-bold uppercase tracking-wider text-gray-500 hover:text-[#007fc6] bg-white px-4 py-2 rounded-lg border border-gray-200 transition-smooth shadow-sm">📥 Export Backup</button>
-                    <button onclick="document.getElementById('importFileInput').click()" class="text-[10px] font-bold uppercase tracking-wider text-gray-500 hover:text-[#007fc6] bg-white px-4 py-2 rounded-lg border border-gray-200 transition-smooth shadow-sm">📤 Import Posts</button>
+                    <button onclick="refreshPosts()" class="text-[10px] font-bold uppercase tracking-wider text-gray-500 hover:text-[#007fc6] bg-white px-4 py-2 rounded-lg border border-gray-200 transition-smooth shadow-sm">🔄 Refresh</button>
+                    <button onclick="exportPosts()" class="text-[10px] font-bold uppercase tracking-wider text-gray-500 hover:text-[#007fc6] bg-white px-4 py-2 rounded-lg border border-gray-200 transition-smooth shadow-sm">📥 Backup</button>
+                    <button onclick="document.getElementById('importFileInput').click()" class="text-[10px] font-bold uppercase tracking-wider text-gray-500 hover:text-[#007fc6] bg-white px-4 py-2 rounded-lg border border-gray-200 transition-smooth shadow-sm">📤 Import</button>
                     <input type="file" id="importFileInput" accept=".json" class="hidden" onchange="importPosts(event)">
                 </div>
             </div>
             
             <div id="postsList" class="space-y-4">
                 <div class="text-center py-20 text-gray-400 bg-white rounded-2xl border border-gray-100">
-                    <p class="text-6xl mb-4">📝</p>
-                    <p class="text-base font-bold text-gray-600 mb-2">No posts yet</p>
-                    <p class="text-sm">Click <strong>"New Post"</strong> above to create your first blog post.</p>
+                    <div class="spinner inline-block w-10 h-10 border-3 border-[#007fc6] border-t-transparent rounded-full mb-4"></div>
+                    <p class="text-base font-bold text-gray-600 mb-2">Loading posts from Firebase...</p>
+                    <p class="text-sm">Connecting to cloud database.</p>
                 </div>
             </div>
         </main>
     </div>
 
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    
+    <!-- Cloudinary Upload Widget -->
     <script src="https://widget.cloudinary.com/v2.0/global/all.js"></script>
+    
     <script>
+        // === FIREBASE CONFIGURATION ===
+        const firebaseConfig = {
+            apiKey: "AIzaSyCo6bD1yB9SHG4Iem-MhniQ4YyOEQv-_YA",
+            authDomain: "spacchat-e35b8.firebaseapp.com",
+            databaseURL: "https://spacchat-e35b8-default-rtdb.firebaseio.com",
+            projectId: "spacchat-e35b8",
+            storageBucket: "spacchat-e35b8.firebasestorage.app",
+            messagingSenderId: "407081887262",
+            appId: "1:407081887262:web:62879d6d38f6482982700f",
+            measurementId: "G-T7KFRFZH7H"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
         // === CONFIGURATION ===
         const CLOUD_NAME = 'dmbjrohtn';
         const UPLOAD_PRESET = 'pelumi';
         const ADMIN_PASSWORD = 'tritech5665';
+        const ADMIN_KEY = 'tritech5665';
         
         let posts = [];
+        let unsubscribe = null;
 
         // === Password Gate ===
         function checkPassword() {
@@ -359,7 +378,7 @@
                 document.getElementById('passwordGate').classList.add('hidden');
                 document.getElementById('adminDashboard').classList.remove('hidden');
                 errorEl.classList.add('hidden');
-                loadPosts();
+                loadPostsFromFirebase();
             } else {
                 errorEl.classList.remove('hidden');
                 document.getElementById('adminPassword').value = '';
@@ -371,6 +390,7 @@
 
         function logoutAdmin() {
             if (confirm('Exit the editor? Unsaved changes will be lost.')) {
+                if (unsubscribe) unsubscribe();
                 document.getElementById('passwordGate').classList.remove('hidden');
                 document.getElementById('adminDashboard').classList.add('hidden');
                 document.getElementById('adminPassword').value = '';
@@ -379,17 +399,40 @@
             }
         }
 
-        // === Data Management ===
-        function loadPosts() {
-            const saved = localStorage.getItem('spac_blog_posts');
-            posts = saved ? JSON.parse(saved) : [];
-            renderPostsList();
+        // === Firebase Data Loading ===
+        function loadPostsFromFirebase() {
+            const postsList = document.getElementById('postsList');
+            postsList.innerHTML = `
+                <div class="text-center py-20 text-gray-400 bg-white rounded-2xl border border-gray-100">
+                    <div class="spinner inline-block w-10 h-10 border-3 border-[#007fc6] border-t-transparent rounded-full mb-4"></div>
+                    <p class="text-base font-bold text-gray-600 mb-2">Loading posts from Firebase...</p>
+                    <p class="text-sm">Connecting to cloud database.</p>
+                </div>`;
+
+            if (unsubscribe) unsubscribe();
+
+            unsubscribe = db.collection('posts')
+                .orderBy('publishedAt', 'desc')
+                .onSnapshot((snapshot) => {
+                    posts = [];
+                    snapshot.forEach((doc) => {
+                        posts.push({ id: doc.id, ...doc.data() });
+                    });
+                    renderPostsList();
+                }, (error) => {
+                    console.error('Firebase error:', error);
+                    document.getElementById('postsList').innerHTML = `
+                        <div class="text-center py-20 text-gray-400 bg-white rounded-2xl border border-gray-100">
+                            <p class="text-6xl mb-4">⚠️</p>
+                            <p class="text-base font-bold text-red-500 mb-2">Connection Error</p>
+                            <p class="text-sm text-gray-500">Could not connect to Firebase. Check your internet connection.</p>
+                            <button onclick="loadPostsFromFirebase()" class="mt-6 bg-[#007fc6] text-white px-6 py-2 rounded-lg text-xs font-bold uppercase">🔄 Retry</button>
+                        </div>`;
+                });
         }
 
-        function savePostsToStorage() {
-            localStorage.setItem('spac_blog_posts', JSON.stringify(posts));
-            renderPostsList();
-            updatePostCount();
+        function refreshPosts() {
+            loadPostsFromFirebase();
         }
 
         function renderPostsList() {
@@ -415,11 +458,12 @@
                                 <div class="flex flex-wrap gap-2 mt-2">
                                     ${post.date ? `<span class="text-[10px] text-[#007fc6] uppercase tracking-widest font-bold bg-[#007fc6]/5 px-2 py-1 rounded-full">📅 ${post.date}</span>` : ''}
                                     ${post.category ? `<span class="text-[10px] text-gray-500 uppercase tracking-wider bg-gray-100 px-2 py-1 rounded-full">🏷 ${post.category}</span>` : ''}
+                                    <span class="text-[10px] text-green-500 uppercase tracking-wider bg-green-50 px-2 py-1 rounded-full">☁️ Synced</span>
                                 </div>
                             </div>
                             <div class="flex gap-2 flex-shrink-0">
-                                <button onclick="editPost(${index})" class="text-[10px] font-bold uppercase tracking-wider bg-[#007fc6]/10 text-[#007fc6] hover:bg-[#007fc6]/20 px-4 py-2 rounded-lg transition-smooth">✏️ Edit</button>
-                                <button onclick="deletePost(${index})" class="text-[10px] font-bold uppercase tracking-wider bg-red-50 text-red-500 hover:bg-red-100 px-4 py-2 rounded-lg transition-smooth">🗑</button>
+                                <button onclick="editPost('${post.id}')" class="text-[10px] font-bold uppercase tracking-wider bg-[#007fc6]/10 text-[#007fc6] hover:bg-[#007fc6]/20 px-4 py-2 rounded-lg transition-smooth">✏️ Edit</button>
+                                <button onclick="deletePost('${post.id}')" class="text-[10px] font-bold uppercase tracking-wider bg-red-50 text-red-500 hover:bg-red-100 px-4 py-2 rounded-lg transition-smooth">🗑</button>
                             </div>
                         </div>
                         ${post.excerpt ? `<p class="text-sm text-gray-500 mt-3 line-clamp-2 leading-relaxed">${post.excerpt}</p>` : ''}
@@ -476,7 +520,7 @@
             if (file.size > 10 * 1024 * 1024) { alert('Image must be less than 10MB.'); return; }
 
             const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = '<div class="spinner inline-block w-6 h-6 border-2 border-[#007fc6] border-t-transparent rounded-full"></div> Uploading...';
+            tempDiv.innerHTML = '<div class="spinner inline-block w-6 h-6 border-2 border-[#007fc6] border-t-transparent rounded-full"></div> Uploading to Cloudinary...';
             tempDiv.style.cssText = 'text-align:center;padding:20px;color:#007fc6;font-weight:bold;font-size:13px;';
             document.getElementById('richEditor').appendChild(tempDiv);
 
@@ -496,7 +540,6 @@
                     img.src = data.secure_url;
                     img.alt = 'Blog image';
                     img.style.cssText = 'max-width:100%;height:auto;border-radius:8px;margin:1.5em 0;cursor:pointer;';
-                    img.classList.add('selected-image');
                     img.onclick = function() {
                         if (confirm('Delete this image from the editor?')) {
                             this.remove();
@@ -559,12 +602,12 @@
             document.getElementById('editingPostId').value = '';
         }
 
-        function editPost(index) {
-            const post = posts[index];
+        function editPost(postId) {
+            const post = posts.find(p => p.id === postId);
             if (!post) return;
             document.getElementById('editorSection').classList.remove('hidden');
             document.getElementById('editorTitle').textContent = '✏️ Edit Post';
-            document.getElementById('editingPostId').value = index;
+            document.getElementById('editingPostId').value = postId;
             document.getElementById('postTitle').value = post.title || '';
             document.getElementById('postSubheading').value = post.subheading || '';
             document.getElementById('postImage').value = post.image || '';
@@ -584,10 +627,17 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function deletePost(index) {
-            if (!confirm('Delete this post permanently? This cannot be undone.')) return;
-            posts.splice(index, 1);
-            savePostsToStorage();
+        function deletePost(postId) {
+            if (!confirm('Delete this post permanently from Firebase? This cannot be undone.')) return;
+            
+            db.collection('posts').doc(postId).delete()
+                .then(() => {
+                    console.log('Post deleted from Firebase');
+                })
+                .catch((error) => {
+                    console.error('Error deleting post:', error);
+                    alert('Error deleting post. Please try again.');
+                });
         }
 
         function savePost() {
@@ -616,18 +666,43 @@
                 excerpt: excerpt,
                 excerpt2: excerpt2,
                 content: content,
-                publishedAt: new Date().toISOString()
+                adminKey: ADMIN_KEY,
+                publishedAt: firebase.firestore.FieldValue.serverTimestamp()
             };
 
-            if (editId !== '') {
-                posts[parseInt(editId)] = postData;
-            } else {
-                posts.unshift(postData);
+            const saveBtn = document.querySelector('#editorSection button.bg-\\[\\#007fc6\\]');
+            if (saveBtn) {
+                saveBtn.textContent = '⏳ Saving...';
+                saveBtn.disabled = true;
             }
 
-            savePostsToStorage();
-            closeEditor();
-            alert('✅ Post saved and published successfully!');
+            if (editId) {
+                // Update existing post
+                db.collection('posts').doc(editId).update(postData)
+                    .then(() => {
+                        closeEditor();
+                        alert('✅ Post updated successfully on Firebase!');
+                        if (saveBtn) { saveBtn.textContent = '💾 Save & Publish to Firebase'; saveBtn.disabled = false; }
+                    })
+                    .catch((error) => {
+                        console.error('Error updating post:', error);
+                        alert('❌ Error updating post. Please try again.');
+                        if (saveBtn) { saveBtn.textContent = '💾 Save & Publish to Firebase'; saveBtn.disabled = false; }
+                    });
+            } else {
+                // Create new post
+                db.collection('posts').add(postData)
+                    .then(() => {
+                        closeEditor();
+                        alert('✅ Post published successfully to Firebase! All visitors can now see it.');
+                        if (saveBtn) { saveBtn.textContent = '💾 Save & Publish to Firebase'; saveBtn.disabled = false; }
+                    })
+                    .catch((error) => {
+                        console.error('Error adding post:', error);
+                        alert('❌ Error publishing post. Please try again.');
+                        if (saveBtn) { saveBtn.textContent = '💾 Save & Publish to Firebase'; saveBtn.disabled = false; }
+                    });
+            }
         }
 
         // === Rich Text Commands ===
@@ -692,7 +767,11 @@
         // === Export / Import ===
         function exportPosts() {
             if (posts.length === 0) { alert('No posts to export.'); return; }
-            const dataStr = JSON.stringify(posts, null, 2);
+            const exportData = posts.map(p => {
+                const { id, ...data } = p;
+                return data;
+            });
+            const dataStr = JSON.stringify(exportData, null, 2);
             const blob = new Blob([dataStr], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -710,16 +789,28 @@
                 try {
                     const imported = JSON.parse(e.target.result);
                     if (Array.isArray(imported)) {
-                        if (confirm(`Import ${imported.length} posts? This will REPLACE all current posts.`)) {
-                            posts = imported;
-                            savePostsToStorage();
-                            alert('✅ Posts imported successfully!');
+                        if (confirm(`Import ${imported.length} posts to Firebase? This will ADD them to your existing posts.`)) {
+                            const batch = db.batch();
+                            imported.forEach(post => {
+                                post.adminKey = ADMIN_KEY;
+                                post.publishedAt = firebase.firestore.FieldValue.serverTimestamp();
+                                const docRef = db.collection('posts').doc();
+                                batch.set(docRef, post);
+                            });
+                            batch.commit()
+                                .then(() => {
+                                    alert('✅ Posts imported successfully to Firebase!');
+                                })
+                                .catch((error) => {
+                                    console.error('Import error:', error);
+                                    alert('❌ Error importing posts.');
+                                });
                         }
                     } else {
-                        alert('Invalid file format. Please use a valid JSON backup file.');
+                        alert('Invalid file format.');
                     }
                 } catch(err) {
-                    alert('Error reading file. Ensure it is a valid JSON file.');
+                    alert('Error reading file. Make sure it is a valid JSON file.');
                 }
             };
             reader.readAsText(file);
