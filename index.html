@@ -67,9 +67,7 @@
             --royal-dark: #0b132b;
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         html { 
             font-size: 14px; 
@@ -164,123 +162,44 @@
             right: 10px;
         }
 
-        /* ============ RESPONSIVE FIXES ============ */
         @media(max-width: 768px) {
             html { font-size: 12px; }
-            body { 
-                overflow-x: hidden;
-                width: 100%;
-                max-width: 100vw;
-            }
-            .hero { 
-                min-height: 80vh;
-                height: auto;
-            }
-            .hero-slide {
-                object-position: center 25%;
-            }
-            .hero .relative.z-10 {
-                padding-top: 4rem;
-                padding-bottom: 2rem;
-            }
-            .hero h1 {
-                font-size: 1.6rem !important;
-                line-height: 1.4 !important;
-            }
-            .hero .grid {
-                max-width: 260px !important;
-            }
-            .hero .grid a {
-                font-size: 8px !important;
-                padding: 0.6rem 0.8rem !important;
-            }
-            section {
-                padding-left: 1rem !important;
-                padding-right: 1rem !important;
-                width: 100%;
-                max-width: 100vw;
-            }
-            .grid-cols-2 {
-                grid-template-columns: 1fr !important;
-            }
-            .md\:grid-cols-2 {
-                grid-template-columns: 1fr !important;
-            }
-            .md\:grid-cols-4 {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-            .md\:flex-row {
-                flex-direction: column !important;
-            }
-            img {
-                max-width: 100%;
-                height: auto;
-            }
-            .book-carousel {
-                width: 100% !important;
-            }
-            #navbar {
-                padding: 0.5rem 0.75rem !important;
-            }
-            #navbar img {
-                width: 2rem !important;
-                height: 2rem !important;
-            }
-            #navbar .logo-text {
-                font-size: 0.65rem !important;
-            }
-            #navbar nav {
-                gap: 0.6rem !important;
-                font-size: 8px !important;
-            }
-            #navbar nav a, #navbar nav button {
-                font-size: 8px !important;
-            }
+            body { overflow-x: hidden; width: 100%; max-width: 100vw; }
+            .hero { min-height: 80vh; height: auto; }
+            .hero-slide { object-position: center 25%; }
+            .hero .relative.z-10 { padding-top: 4rem; padding-bottom: 2rem; }
+            .hero h1 { font-size: 1.6rem !important; line-height: 1.4 !important; }
+            .hero .grid { max-width: 260px !important; }
+            .hero .grid a { font-size: 8px !important; padding: 0.6rem 0.8rem !important; }
+            section { padding-left: 1rem !important; padding-right: 1rem !important; width: 100%; max-width: 100vw; }
+            .grid-cols-2 { grid-template-columns: 1fr !important; }
+            .md\:grid-cols-2 { grid-template-columns: 1fr !important; }
+            .md\:grid-cols-4 { grid-template-columns: repeat(2, 1fr) !important; }
+            .md\:flex-row { flex-direction: column !important; }
+            img { max-width: 100%; height: auto; }
+            .book-carousel { width: 100% !important; }
+            #navbar { padding: 0.5rem 0.75rem !important; }
+            #navbar img { width: 2rem !important; height: 2rem !important; }
+            #navbar .logo-text { font-size: 0.65rem !important; }
+            #navbar nav { gap: 0.6rem !important; font-size: 8px !important; }
+            #navbar nav a, #navbar nav button { font-size: 8px !important; }
         }
 
         @media(min-width: 769px) and (max-width: 1024px) {
             html { font-size: 13px; }
-            body {
-                overflow-x: hidden;
-                width: 100%;
-                max-width: 100vw;
-            }
-            .hero { 
-                min-height: 75vh;
-                height: auto;
-            }
-            .hero h1 {
-                font-size: 2.5rem !important;
-            }
-            section {
-                width: 100%;
-                max-width: 100vw;
-            }
+            body { overflow-x: hidden; width: 100%; max-width: 100vw; }
+            .hero { min-height: 75vh; height: auto; }
+            .hero h1 { font-size: 2.5rem !important; }
+            section { width: 100%; max-width: 100vw; }
         }
 
         @media(min-width: 1025px) {
-            body {
-                overflow-x: hidden;
-                width: 100%;
-                max-width: 100vw;
-            }
-            section {
-                width: 100%;
-                max-width: 100vw;
-            }
+            body { overflow-x: hidden; width: 100%; max-width: 100vw; }
+            section { width: 100%; max-width: 100vw; }
         }
 
-        /* Fix for browsers that don't support viewport units well */
-        @supports not (height: 100dvh) {
-            .hero {
-                min-height: 85vh;
-            }
-        }
-        @supports (height: 100dvh) {
-            .hero {
-                min-height: 85dvh;
-            }
-        }
+        @supports not (height: 100dvh) { .hero { min-height: 85vh; } }
+        @supports (height: 100dvh) { .hero { min-height: 85dvh; } }
     </style>
 </head>
 <body class="antialiased">
@@ -459,7 +378,7 @@
                 <div id="dynamic-blog-content" class="text-sm text-gray-700 space-y-5 max-w-3xl mx-auto leading-relaxed">
                     <div class="text-center py-8 md:py-10">
                         <div class="inline-block w-8 h-8 md:w-10 md:h-10 border-3 border-[#007fc6] border-t-transparent rounded-full animate-spin mb-3 md:mb-4"></div>
-                        <p class="text-gray-500 text-sm">Loading latest post...</p>
+                        <p class="text-gray-500 text-sm">Loading latest post from Firebase...</p>
                     </div>
                 </div>
                 
@@ -646,6 +565,10 @@
         </div>
     </footer>
 
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         window.addEventListener('load', () => {
@@ -679,17 +602,32 @@
             slides[currentSlide].classList.add('active');
         }, 5000);
 
+        // === FIREBASE CONFIGURATION ===
+        const firebaseConfig = {
+            apiKey: "AIzaSyCo6bD1yB9SHG4Iem-MhniQ4YyOEQv-_YA",
+            authDomain: "spacchat-e35b8.firebaseapp.com",
+            databaseURL: "https://spacchat-e35b8-default-rtdb.firebaseio.com",
+            projectId: "spacchat-e35b8",
+            storageBucket: "spacchat-e35b8.firebasestorage.app",
+            messagingSenderId: "407081887262",
+            appId: "1:407081887262:web:62879d6d38f6482982700f",
+            measurementId: "G-T7KFRFZH7H"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
         function loadLatestBlogPost() {
             const container = document.getElementById('dynamic-blog-content');
             if (!container) return;
             
-            const saved = localStorage.getItem('spac_blog_posts');
-            
-            if (saved) {
-                try {
-                    const posts = JSON.parse(saved);
-                    if (posts.length > 0) {
-                        const latest = posts[0];
+            db.collection('posts')
+                .orderBy('publishedAt', 'desc')
+                .limit(1)
+                .get()
+                .then((snapshot) => {
+                    if (!snapshot.empty) {
+                        const latest = snapshot.docs[0].data();
                         container.innerHTML = `
                             <div class="text-left">
                                 ${latest.category ? `<span class="inline-block bg-[#007fc6] text-white text-[9px] font-bold px-2 py-1 rounded-full uppercase tracking-wider mb-4">${latest.category}</span>` : ''}
@@ -701,20 +639,26 @@
                                 ${latest.excerpt2 ? `<p class="text-gray-600 leading-relaxed text-base">${latest.excerpt2}</p>` : ''}
                             </div>
                         `;
-                        return;
+                    } else {
+                        container.innerHTML = `
+                            <div class="text-center py-8">
+                                <p class="text-gray-400 text-4xl mb-4">📝</p>
+                                <p class="text-gray-500 text-base">Daily inspiration and prophetic declarations coming soon.</p>
+                                <p class="text-gray-400 text-xs mt-2">Check back for fresh content from Prophet Samuel Adegboyega.</p>
+                            </div>
+                        `;
                     }
-                } catch(e) {
-                    console.log('Error parsing blog posts.');
-                }
-            }
-            
-            container.innerHTML = `
-                <div class="text-center py-8">
-                    <p class="text-gray-400 text-4xl mb-4">📝</p>
-                    <p class="text-gray-500 text-base">Daily inspiration and prophetic declarations coming soon.</p>
-                    <p class="text-gray-400 text-xs mt-2">Check back for fresh content from Prophet Samuel Adegboyega.</p>
-                </div>
-            `;
+                })
+                .catch((error) => {
+                    console.error('Firebase error:', error);
+                    container.innerHTML = `
+                        <div class="text-center py-8">
+                            <p class="text-gray-400 text-4xl mb-4">📝</p>
+                            <p class="text-gray-500 text-base">Daily inspiration and prophetic declarations coming soon.</p>
+                            <p class="text-gray-400 text-xs mt-2">Check back for fresh content from Prophet Samuel Adegboyega.</p>
+                        </div>
+                    `;
+                });
         }
 
         loadLatestBlogPost();
