@@ -6,7 +6,6 @@
     <title>Daily Inspiration Blog | Prophet Samuel Adegboyega - SPAC Worldwide</title>
     <meta name="description" content="Read the latest daily inspiration, prophetic declarations, and spiritual teachings from Prophet Samuel Adegboyega. Click to be inspired and transformed by the Word of God.">
     
-    <!-- Open Graph for Social Sharing -->
     <meta property="og:title" content="Daily Inspiration Blog | Prophet Samuel Adegboyega - SPAC Worldwide">
     <meta property="og:description" content="Prophetic declarations, spiritual teachings, and words of wisdom for daily living from Prophet Samuel Adegboyega.">
     <meta property="og:image" content="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg">
@@ -80,12 +79,12 @@
             --royal-dark: #0b132b;
         }
 
-        html { font-size: 14px; }
-        body { background-color: #f9fafb; color: #1f2937; overflow-x: hidden; }
+        * { box-sizing: border-box; }
+
+        html { font-size: 14px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        body { background-color: #f9fafb; color: #1f2937; overflow-x: hidden; width: 100%; max-width: 100vw; margin: 0; padding: 0; }
         
         .transition-smooth { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
         @media(hover: hover) and (pointer: fine) {
             .custom-cursor { width: 20px; height: 20px; border: 2px solid var(--jom-blue); border-radius: 50%; position: fixed; pointer-events: none; z-index: 99999; transition: width 0.3s, height 0.3s, background 0.3s; transform: translate(-50%, -50%); display: block; }
@@ -138,6 +137,17 @@
         .blog-card:hover { transform: translateY(-5px); }
         .blog-card:hover .blog-card-img { transform: scale(1.08); }
         .blog-card-img { transition: transform 0.7s ease; }
+
+        @media(max-width: 768px) {
+            html { font-size: 12px; }
+            body { overflow-x: hidden; width: 100%; max-width: 100vw; }
+            section { padding-left: 0.75rem !important; padding-right: 0.75rem !important; width: 100%; max-width: 100vw; }
+            #navbar { padding: 0.5rem 0.75rem !important; }
+            #navbar img { width: 2rem !important; height: 2rem !important; }
+            #navbar .logo-text { font-size: 0.65rem !important; }
+            #navbar nav { gap: 0.5rem !important; font-size: 7px !important; }
+            #navbar nav a, #navbar nav button { font-size: 7px !important; }
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -154,22 +164,22 @@
         </div>
     </div>
 
-    <header id="navbar" class="fixed w-full top-0 z-50 transition-smooth bg-[#0b132b] text-white py-3 px-4 md:px-12 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-0 border-b border-white/10">
-        <a href="index.html" class="flex items-center gap-3 z-50 cursor-pointer">
-            <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Prophet Samuel Adegboyega Logo" class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-white/50 shadow-md">
-            <span class="logo-text font-bold uppercase tracking-widest text-sm md:text-base drop-shadow-md">Prophet Samuel Adegboyega</span>
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-smooth bg-[#0b132b] text-white py-2 md:py-3 px-3 md:px-12 flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0 border-b border-white/10">
+        <a href="index.html" class="flex items-center gap-2 md:gap-3 z-50 cursor-pointer">
+            <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="Prophet Samuel Adegboyega Logo" class="w-9 h-9 md:w-14 md:h-14 rounded-full object-cover border-2 border-white/50 shadow-md">
+            <span class="logo-text font-bold uppercase tracking-widest text-[10px] md:text-base drop-shadow-md">Prophet Samuel Adegboyega</span>
         </a>
         
-        <nav class="flex flex-wrap justify-center items-center gap-5 md:gap-10 font-bold text-[10px] md:text-[12px] tracking-wider uppercase w-full md:w-auto">
+        <nav class="flex flex-wrap justify-center items-center gap-3 md:gap-10 font-bold text-[8px] md:text-[12px] tracking-wider uppercase w-full md:w-auto">
             <a href="about.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navAbout">About</a>
             <a href="view.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navSermons">Sermons</a>
             <a href="FFF.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md">FFF</a>
             <a href="blog.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md text-[#007fc6]" data-translate="navBlog">Blog</a>
             <a href="contact.html" class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md" data-translate="navContact">Contact</a>
-            <button class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md text-sm md:text-lg">🔍</button>
+            <button class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md text-xs md:text-lg">🔍</button>
             
             <div class="lang-dropdown">
-                <button class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md flex items-center gap-1 text-lg" title="Select Language">🌐</button>
+                <button class="nav-link hover:text-[#007fc6] transition-smooth drop-shadow-md flex items-center gap-1 text-base md:text-lg" title="Select Language">🌐</button>
                 <div class="lang-dropdown-content">
                     <button onclick="switchLanguage('en')">🇬🇧 English</button>
                     <button onclick="switchLanguage('fr')">🇫🇷 Français</button>
@@ -192,9 +202,8 @@
         </div>
     </section>
 
-    <main class="max-w-6xl mx-auto py-16 px-6">
+    <main class="max-w-6xl mx-auto py-16 px-3 md:px-6">
         
-        <!-- Single Post View -->
         <div id="singlePostView" class="hidden">
             <button onclick="showAllPosts()" class="mb-8 inline-flex items-center gap-2 text-[#007fc6] font-bold text-sm uppercase tracking-widest hover:text-[#004e7c] transition-smooth">
                 <span>←</span> <span data-translate="backToBlog">Back to Blog</span>
@@ -206,7 +215,6 @@
             </article>
         </div>
 
-        <!-- All Posts Grid -->
         <div id="allPostsView">
             <div class="flex items-center justify-between mb-10" data-aos="fade-up">
                 <h2 class="text-2xl font-bold uppercase tracking-widest border-l-4 border-[#007fc6] pl-4" data-translate="latestPosts">Latest Posts</h2>
@@ -215,7 +223,7 @@
             <div id="blogPostsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="col-span-full text-center py-20">
                     <div class="inline-block w-12 h-12 border-4 border-[#007fc6] border-t-transparent rounded-full animate-spin mb-6"></div>
-                    <p class="text-gray-500 text-sm" data-translate="loadingPosts">Loading posts...</p>
+                    <p class="text-gray-500 text-sm" data-translate="loadingPosts">Loading posts from Firebase...</p>
                 </div>
             </div>
         </div>
@@ -231,15 +239,15 @@
         </div>
     </section>
 
-    <footer class="bg-[#0b132b] text-gray-400 text-xs py-16 px-6 border-t-[8px] border-[#007fc6]">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+    <footer class="bg-[#0b132b] text-gray-400 text-xs py-8 md:py-16 px-3 md:px-6 border-t-[8px] border-[#007fc6]">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 mb-6 md:mb-12">
             <div>
-                <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="SPAC Logo" class="w-16 h-16 rounded-full object-cover border-2 border-gray-700 mb-6 opacity-80">
-                <p class="leading-relaxed pr-4 text-sm" data-translate="footerDesc">Helping you become all God created you to be through the power of the Holy Spirit, prayer, and prophetic declarations.</p>
+                <img src="https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0013_oun8xd.jpg" alt="SPAC Logo" class="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border-2 border-gray-700 mb-4 md:mb-6 opacity-80">
+                <p class="leading-relaxed pr-2 md:pr-4 text-xs md:text-sm" data-translate="footerDesc">Helping you become all God created you to be through the power of the Holy Spirit, prayer, and prophetic declarations.</p>
             </div>
             <div>
-                <h5 class="text-white font-bold uppercase mb-6 tracking-widest text-[11px] border-b border-gray-800 pb-2 inline-block" data-translate="footerMinistry">Our Ministry</h5>
-                <ul class="space-y-3">
+                <h5 class="text-white font-bold uppercase mb-4 md:mb-6 tracking-widest text-[10px] md:text-[11px] border-b border-gray-800 pb-2 inline-block" data-translate="footerMinistry">Our Ministry</h5>
+                <ul class="space-y-2 md:space-y-3">
                     <li><a href="about.html" class="hover:text-white transition-colors" data-translate="footerAboutProphet">About Prophet Samuel</a></li>
                     <li><a href="about.html" class="hover:text-white transition-colors" data-translate="footerAboutSpac">About SPAC Worldwide</a></li>
                     <li><a href="contact.html" class="hover:text-white transition-colors" data-translate="footerBranch">Find a Branch</a></li>
@@ -247,8 +255,8 @@
                 </ul>
             </div>
             <div>
-                <h5 class="text-white font-bold uppercase mb-6 tracking-widest text-[11px] border-b border-gray-800 pb-2 inline-block" data-translate="footerMedia">Media & Store</h5>
-                <ul class="space-y-3">
+                <h5 class="text-white font-bold uppercase mb-4 md:mb-6 tracking-widest text-[10px] md:text-[11px] border-b border-gray-800 pb-2 inline-block" data-translate="footerMedia">Media & Store</h5>
+                <ul class="space-y-2 md:space-y-3">
                     <li><a href="view.html" class="hover:text-white transition-colors" data-translate="footerWatch">Watch Messages</a></li>
                     <li><a href="blog.html" class="hover:text-white transition-colors" data-translate="footerBlog">Daily Inspiration Blog</a></li>
                     <li><a href="cart.html" class="hover:text-white transition-colors" data-translate="footerStore">Bookstore</a></li>
@@ -256,18 +264,18 @@
                 </ul>
             </div>
             <div>
-                <h5 class="text-white font-bold uppercase mb-6 tracking-widest text-[11px] border-b border-gray-800 pb-2 inline-block" data-translate="footerInitiatives">Initiatives</h5>
-                <ul class="space-y-3">
+                <h5 class="text-white font-bold uppercase mb-4 md:mb-6 tracking-widest text-[10px] md:text-[11px] border-b border-gray-800 pb-2 inline-block" data-translate="footerInitiatives">Initiatives</h5>
+                <ul class="space-y-2 md:space-y-3">
                     <li><a href="FFF.html" class="hover:text-white transition-colors">Focus For The Future (FFF)</a></li>
                     <li><a href="about.html" class="hover:text-white transition-colors" data-translate="footerBible">SPAC Bible Championship</a></li>
                 </ul>
             </div>
         </div>
 
-        <div class="max-w-6xl mx-auto pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left text-[11px]">
+        <div class="max-w-6xl mx-auto pt-5 md:pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4 text-center md:text-left text-[10px] md:text-[11px]">
             <div>
-                <p class="mb-2 text-gray-500 font-semibold tracking-wider uppercase">Copyright © 2026 Prophet Samuel Adegboyega</p>
-                <div class="space-x-4 text-gray-600">
+                <p class="mb-1 md:mb-2 text-gray-500 font-semibold tracking-wider uppercase">Copyright © 2026 Prophet Samuel Adegboyega</p>
+                <div class="space-x-3 md:space-x-4 text-gray-600">
                     <a href="#" class="hover:text-white transition-colors" data-translate="privacy">Privacy Policy</a><span>|</span><a href="#" class="hover:text-white transition-colors" data-translate="terms">Terms of Use</a>
                 </div>
             </div>
@@ -277,6 +285,10 @@
             </div>
         </div>
     </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -300,100 +312,70 @@
             else { navbar.classList.remove('navbar-scrolled', 'shadow-md'); }
         });
 
+        // === FIREBASE CONFIGURATION ===
+        const firebaseConfig = {
+            apiKey: "AIzaSyCo6bD1yB9SHG4Iem-MhniQ4YyOEQv-_YA",
+            authDomain: "spacchat-e35b8.firebaseapp.com",
+            databaseURL: "https://spacchat-e35b8-default-rtdb.firebaseio.com",
+            projectId: "spacchat-e35b8",
+            storageBucket: "spacchat-e35b8.firebasestorage.app",
+            messagingSenderId: "407081887262",
+            appId: "1:407081887262:web:62879d6d38f6482982700f",
+            measurementId: "G-T7KFRFZH7H"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
         let allPosts = [];
         let currentPost = null;
 
         function fetchBlogPosts() {
-            const saved = localStorage.getItem('spac_blog_posts');
-            if (saved) {
-                try {
-                    allPosts = JSON.parse(saved);
-                    if (allPosts.length > 0) { renderBlogGrid(); return; }
-                } catch(e) { allPosts = []; }
-            }
-            loadDemoPosts();
-        }
+            const grid = document.getElementById('blogPostsGrid');
+            grid.innerHTML = `
+                <div class="col-span-full text-center py-20">
+                    <div class="inline-block w-12 h-12 border-4 border-[#007fc6] border-t-transparent rounded-full animate-spin mb-6"></div>
+                    <p class="text-gray-500 text-sm" data-translate="loadingPosts">Loading posts from Firebase...</p>
+                </div>`;
 
-        function loadDemoPosts() {
-            allPosts = [
-                {
-                    title: "The Power of Faith in Challenging Times",
-                    subheading: "Holding fast to your confession when circumstances seem contrary",
-                    image: "https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0009_uekhmr.jpg",
-                    date: "June 2026",
-                    category: "Faith",
-                    excerpt: "Faith is the foundation upon which every believer must build their life. Without faith, it is impossible to please God.",
-                    excerpt2: "In these challenging times, we must hold fast to our confession of faith, knowing that He who promised is faithful. The Bible tells us that the just shall live by faith.",
-                    content: "<h2>The Power of Faith in Challenging Times</h2><p>Faith is the foundation upon which every believer must build their life. Without faith, it is impossible to please God. In these challenging times, we must hold fast to our confession of faith, knowing that He who promised is faithful.</p><p>The Bible tells us that the just shall live by faith. This means that our daily walk with God should be governed not by what we see, but by what we believe. When circumstances seem contrary to God's promises, that is when faith must rise to its highest expression.</p><blockquote>Now faith is the substance of things hoped for, the evidence of things not seen. — Hebrews 11:1</blockquote><p>Remember, faith is not denial of reality; it is the assurance that God's reality supersedes every other reality. Whatever you are facing today, hold on to God's Word and watch Him turn your situation around.</p><p>Declare this today: I am a person of faith. I trust in the Lord with all my heart, and I lean not on my own understanding. In all my ways, I acknowledge Him, and He directs my path.</p>"
-                },
-                {
-                    title: "Understanding Your Season of Preparation",
-                    subheading: "Why the waiting period is not wasted time",
-                    image: "https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0015_jxqzsl.jpg",
-                    date: "June 2026",
-                    category: "Spiritual Teaching",
-                    excerpt: "Every great destiny passes through a season of preparation. Do not despise the days of small beginnings.",
-                    excerpt2: "God takes time to prepare His vessels. Moses spent forty years in the wilderness. David was anointed long before he sat on the throne. Joseph endured years of testing before his promotion came.",
-                    content: "<h2>Understanding Your Season of Preparation</h2><p>Every great destiny passes through a season of preparation. Do not despise the days of small beginnings, for they are the foundation upon which lasting success is built.</p><p>God takes time to prepare His vessels. Moses spent forty years in the wilderness. David was anointed long before he sat on the throne. Joseph endured years of testing before his promotion came. In each case, the preparation season was not wasted—it was essential.</p><p>Your current season may feel hidden and uncelebrated, but God is working something deep within you. Embrace the process. Learn the lessons. Develop the character. Your preparation time is not punishment; it is preparation for purpose.</p><p>When the time is right, God will bring you forth. Trust His timing, for He makes all things beautiful in His time.</p>"
-                },
-                {
-                    title: "Walking in Divine Purpose",
-                    subheading: "Discovering why you were created",
-                    image: "https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707363/IMG-20260617-WA0007_p9oyh1.jpg",
-                    date: "May 2026",
-                    category: "Leadership",
-                    excerpt: "God has a specific purpose for your life. You are not an accident. Before you were formed in your mother's womb, God knew you.",
-                    excerpt2: "Discovering your purpose begins with discovering your Creator. The more you draw near to God, the clearer your purpose becomes.",
-                    content: "<h2>Walking in Divine Purpose</h2><p>God has a specific purpose for your life. You are not an accident. Before you were formed in your mother's womb, God knew you and set you apart for a unique assignment.</p><p>Discovering your purpose begins with discovering your Creator. The more you draw near to God, the clearer your purpose becomes. Purpose is not something you invent; it is something you discover through intimate relationship with the One who made you.</p><p>When you walk in divine purpose, everything changes. Challenges become stepping stones. Opposition becomes motivation. Delays become preparation. You are no longer living for yourself but for the One who called you.</p><p>Ask God today to reveal more of His purpose for your life. Then step out in faith and watch Him lead you into your destiny.</p>"
-                },
-                {
-                    title: "The Secret of Consistent Prayer",
-                    subheading: "Making prayer a lifestyle, not a routine",
-                    image: "https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0016_j1t2fj.jpg",
-                    date: "May 2026",
-                    category: "Prayer & Fasting",
-                    excerpt: "Prayer is not a religious routine; it is a lifeline to heaven. A consistent prayer life transforms the ordinary into the extraordinary.",
-                    excerpt2: "The secret of consistent prayer is not willpower; it is love. When you love someone, you naturally want to spend time with them.",
-                    content: "<h2>The Secret of Consistent Prayer</h2><p>Prayer is not a religious routine; it is a lifeline to heaven. A consistent prayer life transforms the ordinary into the extraordinary and brings divine intervention into human affairs.</p><p>The secret of consistent prayer is not willpower; it is love. When you love someone, you naturally want to spend time with them. Fall in love with Jesus, and prayer will become a delight rather than a duty.</p><p>Begin each day by acknowledging God. Invite Him into every detail of your life. Pray without ceasing—not by being on your knees all day, but by maintaining a constant awareness of His presence and an ongoing conversation with Him.</p><p>A praying believer is a powerful believer. Make prayer your lifestyle, and watch God move mightily in your life.</p>"
-                },
-                {
-                    title: "Breaking Free from the Spirit of Fear",
-                    subheading: "Embracing the courage that comes from God",
-                    image: "https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707363/IMG-20260617-WA0003_ttzeao.jpg",
-                    date: "April 2026",
-                    category: "Daily Inspiration",
-                    excerpt: "Fear is one of the greatest weapons the enemy uses against believers. But God has not given us the spirit of fear.",
-                    excerpt2: "The antidote to fear is faith. When you know who you are in Christ, fear loses its grip on your life.",
-                    content: "<h2>Breaking Free from the Spirit of Fear</h2><p>Fear is one of the greatest weapons the enemy uses against believers. But God has not given us the spirit of fear, but of power, love, and a sound mind.</p><p>The antidote to fear is faith. When you know who you are in Christ, fear loses its grip on your life. You are not defined by your circumstances; you are defined by your identity in God.</p><p>Every time fear knocks on the door of your heart, answer it with the Word of God. Declare His promises over your life. Speak to that mountain of fear and command it to be removed in Jesus' name.</p><p>You are more than a conqueror through Christ who loves you. Walk in that reality today.</p>"
-                },
-                {
-                    title: "The Grace to Finish Strong",
-                    subheading: "Endurance for the journey ahead",
-                    image: "https://res.cloudinary.com/dmbjrohtn/image/upload/v1781707364/IMG-20260617-WA0011_kqlvz4.jpg",
-                    date: "April 2026",
-                    category: "Daily Inspiration",
-                    excerpt: "Starting is important, but finishing is what truly matters. Many begin the race with enthusiasm but fail to reach the finish line.",
-                    excerpt2: "The grace of God is available to help you complete what He has started in your life. You don't have to finish in your own strength.",
-                    content: "<h2>The Grace to Finish Strong</h2><p>Starting is important, but finishing is what truly matters. Many begin the race with enthusiasm but fail to reach the finish line. The Apostle Paul declared, 'I have fought the good fight, I have finished the race, I have kept the faith.'</p><p>The grace of God is available to help you complete what He has started in your life. You don't have to finish in your own strength. His grace is sufficient for you, and His power is made perfect in your weakness.</p><p>Whatever you have started—whether a project, a ministry, a relationship, or a personal goal—ask God for the grace to finish strong. He who began a good work in you will be faithful to complete it.</p><p>Don't give up now. Your finish line is closer than you think. Press on toward the goal for the prize of the upward call of God in Christ Jesus.</p>"
-                }
-            ];
-            renderBlogGrid();
+            db.collection('posts')
+                .orderBy('publishedAt', 'desc')
+                .get()
+                .then((snapshot) => {
+                    allPosts = [];
+                    snapshot.forEach((doc) => {
+                        allPosts.push({ id: doc.id, ...doc.data() });
+                    });
+                    
+                    if (allPosts.length === 0) {
+                        grid.innerHTML = `
+                            <div class="col-span-full text-center py-20 text-gray-400">
+                                <p class="text-5xl mb-4">📝</p>
+                                <p class="text-sm">No posts yet. Check back soon for daily inspiration!</p>
+                            </div>`;
+                        document.getElementById('blogPostCount').textContent = '';
+                        return;
+                    }
+                    
+                    document.getElementById('blogPostCount').textContent = allPosts.length + ' posts';
+                    renderBlogGrid();
+                })
+                .catch((error) => {
+                    console.error('Firebase error:', error);
+                    grid.innerHTML = `
+                        <div class="col-span-full text-center py-20 text-gray-400">
+                            <p class="text-5xl mb-4">⚠️</p>
+                            <p class="text-sm">Could not load posts. Please check your connection.</p>
+                            <button onclick="fetchBlogPosts()" class="mt-4 bg-[#007fc6] text-white px-6 py-2 rounded-lg text-xs font-bold uppercase">🔄 Retry</button>
+                        </div>`;
+                });
         }
 
         function renderBlogGrid() {
             const grid = document.getElementById('blogPostsGrid');
-            const countEl = document.getElementById('blogPostCount');
-            
-            if (allPosts.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-20 text-gray-400"><p class="text-5xl mb-4">📝</p><p class="text-sm">No posts yet. Check back soon for daily inspiration!</p></div>`;
-                if (countEl) countEl.textContent = '';
-                return;
-            }
-            
-            if (countEl) countEl.textContent = allPosts.length + ' posts';
             
             grid.innerHTML = allPosts.map((post, index) => `
-                <div class="blog-card cursor-pointer group bg-white rounded-xl shadow-md hover:shadow-2xl transition-smooth overflow-hidden border border-gray-100 flex flex-col" data-aos="fade-up" data-aos-delay="${index * 50}" onclick="viewSinglePost(${index})">
+                <div class="blog-card cursor-pointer group bg-white rounded-xl shadow-md hover:shadow-2xl transition-smooth overflow-hidden border border-gray-100 flex flex-col" data-aos="fade-up" data-aos-delay="${index * 50}" onclick="viewSinglePost('${post.id}')">
                     ${post.image ? `
                     <div class="relative aspect-[16/10] overflow-hidden bg-gray-100">
                         <img src="${post.image}" class="blog-card-img w-full h-full object-cover" alt="${post.title}" onerror="this.parentElement.innerHTML='<div class=\\'w-full h-full flex items-center justify-center text-gray-400 text-5xl bg-gray-100\\'>📖</div>'">
@@ -418,8 +400,8 @@
             `).join('');
         }
 
-        function viewSinglePost(index) {
-            currentPost = allPosts[index];
+        function viewSinglePost(postId) {
+            currentPost = allPosts.find(p => p.id === postId);
             if (!currentPost) return;
             
             document.getElementById('allPostsView').classList.add('hidden');
@@ -543,7 +525,7 @@
                 blogHeroTitle:"Adegboyega's Blog",
                 blogHeroSub:"Prophetic declarations, spiritual teachings, and words of wisdom for daily living.",
                 latestPosts:"Latest Posts",
-                loadingPosts:"Loading posts...",
+                loadingPosts:"Loading posts from Firebase...",
                 readMore:"Read More",
                 backToBlog:"Back to Blog",
                 ctaTitle:"Stay Inspired Daily",
@@ -560,7 +542,7 @@
                 blogHeroTitle:"Le Blog d'Adegboyega",
                 blogHeroSub:"Déclarations prophétiques, enseignements spirituels et paroles de sagesse pour la vie quotidienne.",
                 latestPosts:"Derniers Articles",
-                loadingPosts:"Chargement des articles...",
+                loadingPosts:"Chargement depuis Firebase...",
                 readMore:"Lire Plus",
                 backToBlog:"Retour au Blog",
                 ctaTitle:"Restez Inspiré Chaque Jour",
@@ -577,7 +559,7 @@
                 blogHeroTitle:"Adegboyegas Blog",
                 blogHeroSub:"Prophetische Erklärungen, geistliche Lehren und Worte der Weisheit für das tägliche Leben.",
                 latestPosts:"Neueste Beiträge",
-                loadingPosts:"Beiträge werden geladen...",
+                loadingPosts:"Lade von Firebase...",
                 readMore:"Weiterlesen",
                 backToBlog:"Zurück zum Blog",
                 ctaTitle:"Bleiben Sie Täglich Inspiriert",
@@ -594,7 +576,7 @@
                 blogHeroTitle:"Bulọọgi Adegboyega",
                 blogHeroSub:"Awọn ikede woli, awọn ẹkọ ẹmí, ati awọn ọrọ ọgbọn fun igbesi aye ojoojumọ.",
                 latestPosts:"Awọn Ifiweranṣẹ Tuntun",
-                loadingPosts:"N kojọpọ awọn ifiweranṣẹ...",
+                loadingPosts:"N kojọpọ lati Firebase...",
                 readMore:"Ka Siwaju",
                 backToBlog:"Pada si Bulọọgi",
                 ctaTitle:"Wa ni Imisi Ojoojumọ",
@@ -611,7 +593,7 @@
                 blogHeroTitle:"Bulogin Adegboyega",
                 blogHeroSub:"Shelar annabci, koyarwar ruhaniya, da kalmomin hikima don rayuwar yau da kullum.",
                 latestPosts:"Sabbin Rubuce-rubuce",
-                loadingPosts:"Ana loda rubuce-rubuce...",
+                loadingPosts:"Ana loda daga Firebase...",
                 readMore:"Kara Karantawa",
                 backToBlog:"Koma Bulog",
                 ctaTitle:"Kasance da Wahayi Kullum",
@@ -628,7 +610,7 @@
                 blogHeroTitle:"Blog Adegboyega",
                 blogHeroSub:"Nkwupụta amụma, nkuzi ime mmụọ, na okwu amamihe maka ndụ kwa ụbọchị.",
                 latestPosts:"Edemede Ọhụrụ",
-                loadingPosts:"Na-ebu edemede...",
+                loadingPosts:"Na-ebu site na Firebase...",
                 readMore:"Gụọ Ọzọ",
                 backToBlog:"Laghachi na Blog",
                 ctaTitle:"Nọgide Na-enwe Mmụọ Nsọ Kwa Ụbọchị",
